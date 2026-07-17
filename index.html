@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АИРВА България | Професионални климатични решения</title>
+    <meta name="description" content="АИРВА - Вентилатори, Климатизатори и Покривни Климатици за превозни средства. Официален дистрибутор за България.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --primary:#0D2B4E;
+            --primary-light:#1a3d6b;
+            --accent:#FF7A4A;
+            --accent-light:#ff9a7a;
+            --blue:#3B82F6;
+            --dark:#0f172a;
+            --text:#1e293b;
+            --text-light:#64748b;
+            --gray:#f4f7fc;
+            --gray-light:#e2e8f0;
+            --white:#ffffff;
+            --shadow:0 4px 20px rgba(13,43,78,0.08);
+            --shadow-lg:0 8px 30px rgba(13,43,78,0.12);
+            --radius:12px;
+            --radius-sm:8px;
+            --transition:all 0.3s ease;
+        }
+        html{scroll-behavior:smooth}
+        body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.7;font-size:16px;background:var(--white);overflow-x:hidden}
+        img{max-width:100%;display:block}
+        a{text-decoration:none;color:inherit}
+        .container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+        /* Top Bar */
+        .topbar{background:var(--primary);color:rgba(255,255,255,0.85);padding:10px 0;font-size:13px}
+        .topbar-inner{display:flex;justify-content:space-between;align-items:center}
+        .topbar-info{display:flex;gap:24px;align-items:center}
+        .topbar-info span{display:flex;align-items:center;gap:8px}
+        .topbar-info svg{width:14px;height:14px;flex-shrink:0}
+        .topbar-social{display:flex;gap:10px}
+        .topbar-social a{width:28px;height:28px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;border-radius:50%;transition:var(--transition);color:#fff}
+        .topbar-social a:hover{background:var(--accent)}
+        @media(max-width:768px){.topbar-info{display:none}}
+
+        /* Header */
+        .header{background:var(--white);box-shadow:0 1px 3px rgba(0,0,0,0.05);position:sticky;top:0;z-index:1000;transition:var(--transition)}
+        .header-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+        .logo{display:flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-size:20px;font-weight:800;color:var(--primary);letter-spacing:-0.5px;margin-right:20px}
+        .logo img{height:36px;width:auto}
+        .nav-list{display:flex;list-style:none;gap:0;justify-content:center;flex:1}
+        .nav-list>li>a{display:flex;align-items:center;gap:5px;padding:0 16px;height:72px;line-height:72px;color:var(--text);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.3px;transition:var(--transition);position:relative}
+        .nav-list>li>a::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:3px;background:var(--accent);transition:var(--transition);transform:translateX(-50%)}
+        .nav-list>li>a:hover::after,.nav-list>li>a.active::after{width:50%}
+        .nav-list>li>a:hover,.nav-list>li>a.active{color:var(--primary)}
+        .has-dropdown{position:relative}
+        .dropdown{position:absolute;top:100%;left:0;background:var(--white);min-width:240px;padding:8px 0;box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transform:translateY(-10px);transition:var(--transition);list-style:none;z-index:1001;border-top:3px solid var(--accent)}
+        .has-dropdown:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+        .dropdown li a{display:block;padding:12px 24px;color:var(--text);font-size:14px;font-weight:500;transition:var(--transition);border-left:3px solid transparent}
+        .dropdown li a:hover{background:var(--gray);color:var(--primary);border-left-color:var(--accent);padding-left:28px}
+        .header-actions{display:flex;align-items:center;gap:12px;margin-left:20px}
+        .header-phone{display:none}
+
+
+
+        .btn-primary{display:inline-flex;align-items:center;justify-content:center;padding:10px 20px;background:var(--accent);color:var(--white);font-family:'Inter',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;border-radius:var(--radius-sm);transition:var(--transition);border:none;cursor:pointer;gap:6px}
+        .btn-primary:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 4px 12px rgba(255,122,74,0.3)}
+        .btn-outline{display:inline-flex;align-items:center;justify-content:center;padding:12px 24px;background:transparent;color:var(--white);font-family:'Inter',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;border:2px solid rgba(255,255,255,0.4);border-radius:var(--radius-sm);transition:var(--transition);cursor:pointer;gap:8px}
+        .btn-outline:hover{border-color:var(--accent);background:var(--accent)}
+        .btn-outline-dark{display:inline-flex;align-items:center;justify-content:center;padding:12px 24px;background:transparent;color:var(--primary);font-family:'Inter',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;border:2px solid var(--primary);border-radius:var(--radius-sm);transition:var(--transition);cursor:pointer;gap:8px}
+        .btn-outline-dark:hover{background:var(--primary);color:var(--white)}
+        .menu-toggle{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:5px}
+        .menu-toggle span{width:24px;height:2px;background:var(--primary);transition:var(--transition);display:block}
+        .menu-toggle.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+        .menu-toggle.open span:nth-child(2){opacity:0}
+        .menu-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+        /* Hero */
+        .hero{position:relative;height:100vh;min-height:600px;max-height:900px;display:flex;align-items:center;overflow:hidden}
+        .hero-bg{position:absolute;inset:0;z-index:0}
+        .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+        .hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,43,78,0.92) 0%,rgba(13,43,78,0.7) 50%,rgba(13,43,78,0.3) 100%);z-index:1}
+        .hero-content{position:relative;z-index:2;max-width:640px}
+        .hero-badge{display:inline-block;padding:8px 20px;background:var(--accent);color:var(--white);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;border-radius:20px;margin-bottom:24px}
+        .hero-title{font-size:clamp(36px,5vw,56px);font-weight:800;text-transform:uppercase;line-height:1.1;color:var(--white);margin-bottom:20px;letter-spacing:-1px}
+        .hero-title span{color:var(--accent)}
+        .hero-desc{font-size:18px;color:rgba(255,255,255,0.8);margin-bottom:40px;line-height:1.7;max-width:520px}
+        .hero-buttons{display:flex;gap:16px;flex-wrap:wrap}
+        .scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,0.6);font-size:24px;animation:bounce 2s infinite}
+        @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
+
+        /* Section Headers */
+        .section-header{text-align:center;margin-bottom:60px}
+        .section-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:12px;display:block}
+        .section-title{font-size:clamp(28px,4vw,40px);font-weight:800;color:var(--primary);text-transform:uppercase;line-height:1.2;margin-bottom:16px;letter-spacing:-0.5px}
+        .section-desc{font-size:16px;color:var(--text-light);max-width:600px;margin:0 auto}
+
+        /* Features */
+        .features{background:var(--gray);padding:80px 0}
+        .features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+        .feature-card{background:var(--white);padding:40px 24px;text-align:center;border-radius:var(--radius);transition:var(--transition);border-bottom:3px solid transparent}
+        .feature-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-bottom-color:var(--accent)}
+        .feature-icon{width:70px;height:70px;background:linear-gradient(135deg,var(--primary),var(--blue));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:var(--white);font-size:28px}
+        .feature-title{font-size:18px;font-weight:700;color:var(--primary);margin-bottom:10px}
+        .feature-text{font-size:14px;color:var(--text-light);line-height:1.6}
+
+        /* About */
+        .about{padding:100px 0}
+        .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+        .about-img{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg)}
+        .about-img img{width:100%;height:100%;object-fit:cover;min-height:400px}
+        .about-badge{position:absolute;bottom:30px;left:-20px;background:var(--accent);color:var(--white);padding:20px 30px;border-radius:var(--radius-sm);font-weight:700}
+        .about-badge .num{font-size:42px;font-weight:800;display:block;line-height:1}
+        .about-badge .text{font-size:13px;text-transform:uppercase;letter-spacing:1px;opacity:0.9}
+        .about-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:12px;display:block}
+        .about-title{font-size:clamp(28px,4vw,38px);font-weight:800;color:var(--primary);text-transform:uppercase;line-height:1.2;margin-bottom:20px}
+        .about-text{font-size:16px;color:var(--text-light);line-height:1.8;margin-bottom:24px}
+        .about-list{list-style:none;margin-bottom:30px}
+        .about-list li{display:flex;align-items:center;gap:14px;padding:12px 0;font-size:15px;color:var(--text);border-bottom:1px solid var(--gray-light)}
+        .about-check{width:26px;height:26px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:12px;flex-shrink:0;font-weight:700}
+
+        /* Products */
+        .products{padding:100px 0;background:var(--white)}
+        .products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+        .product-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--position);position:relative;border:1px solid var(--gray-light)}
+        .product-card:hover{transform:translateY(-10px);box-shadow:var(--shadow-lg)}
+        .product-card:hover .product-img img{transform:scale(1.08)}
+        .product-img{height:220px;overflow:hidden;position:relative}
+        .product-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease}
+        .product-badge{position:absolute;top:16px;left:16px;padding:6px 14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--white);border-radius:20px}
+        .product-badge.rv{background:#f59e0b}
+        .product-badge.ind{background:var(--blue)}
+        .product-badge.marine{background:#06b6d4}
+        .product-badge.home{background:#10b981}
+        .product-info{padding:24px}
+        .product-name{font-size:18px;font-weight:700;color:var(--primary);margin-bottom:4px}
+        .product-model{font-size:12px;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+        .product-desc{font-size:14px;color:var(--text-light);line-height:1.6;margin-bottom:16px}
+        .product-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--primary);transition:var(--transition)}
+        .product-link:hover{color:var(--accent);gap:12px}
+        .product-link svg{width:16px;height:16px}
+
+        /* Stats */
+        .stats{background:linear-gradient(135deg,var(--primary),#0a1f3d);padding:80px 0}
+        .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
+        .stat-item{color:var(--white)}
+        .stat-icon{width:60px;height:60px;background:rgba(255,122,74,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:28px;color:var(--accent)}
+        .stat-num{font-size:48px;font-weight:800;line-height:1;margin-bottom:8px}
+        .stat-label{font-size:14px;text-transform:uppercase;letter-spacing:2px;opacity:0.8}
+
+        /* CTA */
+        .cta{position:relative;padding:100px 0;text-align:center;overflow:hidden}
+        .cta-bg{position:absolute;inset:0;z-index:0}
+        .cta-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(0.5)}
+        .cta-content{position:relative;z-index:2}
+        .cta-title{font-size:clamp(28px,4vw,38px);font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--white);margin-bottom:20px;line-height:1.3}
+        .cta-desc{font-size:18px;color:rgba(255,255,255,0.8);margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto}
+
+        /* News */
+        .news{padding:100px 0;background:var(--gray)}
+        .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+        .news-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition)}
+        .news-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+        .news-card:hover .news-img img{transform:scale(1.05)}
+        .news-img{height:220px;overflow:hidden}
+        .news-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease}
+        .news-content{padding:24px}
+        .news-date{font-size:12px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+        .news-title{font-size:18px;font-weight:700;color:var(--primary);line-height:1.4;margin-bottom:10px}
+        .news-excerpt{font-size:14px;color:var(--text-light);line-height:1.6}
+
+        /* Footer */
+        .footer{background:var(--primary);color:rgba(255,255,255,0.75)}
+        .footer-top{padding:80px 0 60px}
+        .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.5fr;gap:40px}
+        .footer-brand img{height:40px;margin-bottom:20px;filter:brightness(0) invert(1)}
+        .footer-brand p{font-size:14px;line-height:1.8;margin-bottom:20px}
+        .footer-social{display:flex;gap:10px}
+        .footer-social a{width:36px;height:36px;background:rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);transition:var(--transition);font-size:14px}
+        .footer-social a:hover{background:var(--accent)}
+        .footer-title{font-size:16px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:1px;margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--accent)}
+        .footer-links{list-style:none}
+        .footer-links li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.08)}
+        .footer-links li a{font-size:14px;transition:var(--transition);display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.75)}
+        .footer-links li a::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;flex-shrink:0}
+        .footer-links li a:hover{color:var(--accent);padding-left:4px}
+        .footer-contact-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}
+        .footer-contact-icon{width:40px;height:40px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);flex-shrink:0;font-size:16px}
+        .footer-contact-text{font-size:14px;line-height:1.6}
+        .footer-contact-text strong{color:var(--white);display:block;margin-bottom:3px;font-weight:600}
+        .footer-bottom{text-align:center;padding:24px 0;border-top:1px solid rgba(255,255,255,0.1);font-size:13px;color:rgba(255,255,255,0.5)}
+
+        /* Responsive */
+        @media(max-width:1024px){
+            .features-grid,.products-grid{grid-template-columns:repeat(2,1fr)}
+            .stats-grid{grid-template-columns:repeat(2,1fr);gap:40px}
+            .news-grid{grid-template-columns:repeat(2,1fr)}
+            .footer-grid{grid-template-columns:repeat(2,1fr);gap:40px}
+            .about-grid{gap:40px}
+        }
+        @media(max-width:768px){
+            .topbar-info{display:none}
+            .nav{position:fixed;top:72px;left:0;right:0;bottom:0;background:var(--primary);padding:30px;transform:translateX(100%);transition:transform 0.3s;overflow-y:auto;z-index:998}
+            .nav.open{transform:translateX(0)}
+            .nav-list{flex-direction:column;align-items:flex-start;gap:0}
+            .nav-list>li>a{height:auto;padding:14px 0;color:rgba(255,255,255,0.9);font-size:15px}
+            .nav-list>li>a:hover,.nav-list>li>a.active{color:var(--white)}
+            .dropdown{position:static;opacity:1;visibility:visible;transform:none;background:transparent;box-shadow:none;padding:0 0 0 20px;border:none}
+            .dropdown li a{color:rgba(255,255,255,0.7);padding:8px 0;border:none}
+            .menu-toggle{display:flex}
+            .hero{height:auto;min-height:500px;padding:80px 0}
+            .hero-title{font-size:36px}
+            .hero-buttons{flex-direction:column}
+            .about-grid,.features-grid,.products-grid,.stats-grid,.news-grid,.footer-grid{grid-template-columns:1fr}
+            .about-badge{left:20px;position:relative;margin-top:-30px;margin-left:20px}
+            .header-actions .header-phone{display:none}
+            .about,.features,.products,.cta,.news{padding:60px 0}
+            .section-header{margin-bottom:40px}
+        }
+    </style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="topbar">
+    <div class="container">
+        <div class="topbar-inner">
+            <div class="topbar-info">
+                <span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    бул. Цариградско шосе 125, София
+                </span>
+                <span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    +359 2 888 8888
+                </span>
+                <span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    info@airva.bg
+                </span>
+            </div>
+            <div class="topbar-social">
+                <a href="#" aria-label="Facebook">f</a>
+                <a href="#" aria-label="Instagram">i</a>
+                <a href="#" aria-label="LinkedIn">in</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Header -->
+<header class="header" id="header">
+    <div class="container">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <img src="logo-airva-blanc-transparent.png" alt="АИРВА">
+                АИРВА
+            </a>
+            <nav class="nav" id="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="active">Начало</a></li>
+                    <li class="has-dropdown">
+                        <a href="products.html">Продукти &#9662;</a>
+                        <ul class="dropdown">
+                            <li><a href="products.html">Каравани и Кемпери</a></li>
+                            <li><a href="products.html">Индустриални</a></li>
+                            <li><a href="products.html">Морски</a></li>
+                            <li><a href="home-ac.html">Климатици за дома</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="dealers.html">Дистрибутори</a></li>
+                    <li><a href="faq.html">Въпроси</a></li>
+                    <li><a href="contact.html">Контакти</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="header-phone">
+                    <div class="header-phone-icon">&#9742;</div>
+                    <div class="header-phone-text">
+                        Позвънете ни
+                        <strong>+359 2 888 8888</strong>
+                    </div>
+                </div>
+                <a href="contact.html" class="btn-primary">Запитване</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-bg">
+        <img src="hero-main.jpg" alt="HVAC Professional">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <div class="hero-content">
+            <span class="hero-badge">От 2005 г.</span>
+            <h1 class="hero-title">Професионални <span>Климатични</span> Решения</h1>
+            <p class="hero-desc">Вентилатори, климатизатори и покривни климатици за каравани, кемпери, индустриални и морски приложения. Официален дистрибутор за България.</p>
+            <div class="hero-buttons">
+                <a href="products.html" class="btn-primary">Разгледай продуктите &#8594;</a>
+                <a href="contact.html" class="btn-outline">Свържи се с нас</a>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-indicator">&#8595;</div>
+</section>
+
+<!-- Features -->
+<section class="features">
+    <div class="container">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">&#9733;</div>
+                <h3 class="feature-title">Ексклузивен Дистрибутор</h3>
+                <p class="feature-text">Официален представител на Coleman-Mach, Aircommand и Maxxair за България</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#9881;</div>
+                <h3 class="feature-title">Професионален Екип</h3>
+                <p class="feature-text">Сертифицирани техници с дългогодишен опит в HVAC системите</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#9992;</div>
+                <h3 class="feature-title">Доставка в Европа</h3>
+                <p class="feature-text">Бърза доставка в Европа, Близкия Изток и Северна Африка</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#10003;</div>
+                <h3 class="feature-title">Пълна Гаранция</h3>
+                <p class="feature-text">Професионален монтаж, сервиз и пълна гаранция на всички продукти</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About -->
+<section class="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-img">
+                <img src="about-team.jpg" alt="Нашият екип">
+                <div class="about-badge">
+                    <span class="num">20+</span>
+                    <span class="text">Години опит</span>
+                </div>
+            </div>
+            <div class="about-content">
+                <span class="about-label">За Нас</span>
+                <h2 class="about-title">Добре дошли в АИРВА</h2>
+                <p class="about-text">АИРВА е водещ дистрибутор на професионални климатични системи за превозни средства. От 2005 г. предлагаме иновативни решения за каравани, кемпери, индустриални превозни средства и яхти. Партнираме с най-добрите световни производители.</p>
+                <ul class="about-list">
+                    <li><span class="about-check">&#10003;</span> Договаряме директно с производителите</li>
+                    <li><span class="about-check">&#10003;</span> Ексклузивен представител за България</li>
+                    <li><span class="about-check">&#10003;</span> Пълна сервизна поддръжка</li>
+                    <li><span class="about-check">&#10003;</span> Консултации и оферти</li>
+                </ul>
+                <a href="dealers.html" class="btn-primary">Научи повече</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Products -->
+<section class="products">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Нашите Продукти</span>
+            <h2 class="section-title">Категории Продукти</h2>
+            <p class="section-desc">Пълна гама климатични системи за всеки тип превозно средство и дома</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="cat-rv.jpg" alt="Каравани и Кемпери">
+                    <span class="product-badge rv">Каравани</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Каравани и Кемпери</h3>
+                    <p class="product-model">Leisure Range</p>
+                    <p class="product-desc">Покривни климатизатори и вентилатори за вашия кемпер или каравана</p>
+                    <a href="products.html" class="product-link">Виж продукти &#8594;</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="cat-industrial.jpg" alt="Индустриални">
+                    <span class="product-badge ind">Индустриални</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Индустриални</h3>
+                    <p class="product-model">Industrial Range</p>
+                    <p class="product-desc">Тежкотоварни климатични системи за професионални превозни средства</p>
+                    <a href="products.html" class="product-link">Виж продукти &#8594;</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="cat-marine.jpg" alt="Морски">
+                    <span class="product-badge marine">Морски</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Морски</h3>
+                    <p class="product-model">Marine Range</p>
+                    <p class="product-desc">Морски климатични системи за яхти и плавателни съдове</p>
+                    <a href="products.html" class="product-link">Виж продукти &#8594;</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="cat-home.jpg" alt="Климатици за дома">
+                    <span class="product-badge home">За Дома</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Климатици за дома</h3>
+                    <p class="product-model">Daikin Home AC</p>
+                    <p class="product-desc">Инверторни климатици Daikin за дома и офиса. Партньор на MMC.</p>
+                    <a href="home-ac.html" class="product-link">Виж продукти &#8594;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats -->
+<section class="stats">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-icon">&#9733;</div>
+                <div class="stat-num">20+</div>
+                <div class="stat-label">Години опит</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">&#9881;</div>
+                <div class="stat-num">5000+</div>
+                <div class="stat-label">Инсталации</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">&#9992;</div>
+                <div class="stat-num">15+</div>
+                <div class="stat-label">Държави</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">&#10003;</div>
+                <div class="stat-num">50+</div>
+                <div class="stat-label">Дистрибутора</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <div class="cta-bg">
+        <img src="cat-rv.jpg" alt="CTA Background">
+    </div>
+    <div class="cta-content">
+        <div class="container">
+            <h2 class="cta-title">Намерете дистрибутор във вашия регион</h2>
+            <p class="cta-desc">Разгледайте мрежата от оторизирани дистрибутори на АИРВА в България и Европа</p>
+            <a href="dealers.html" class="btn-primary">Намери дистрибутор &#8594;</a>
+        </div>
+    </div>
+</section>
+
+<!-- News -->
+<section class="news">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Новини</span>
+            <h2 class="section-title">Последни новини</h2>
+            <p class="section-desc">Бъдете в течение с нашите нови продукти и събития</p>
+        </div>
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-img">
+                    <img src="news-expo.jpg" alt="Ново изложение 2026">
+                </div>
+                <div class="news-content">
+                    <p class="news-date">Януари 2026</p>
+                    <h3 class="news-title">Ново изложение 2026</h3>
+                    <p class="news-excerpt">Посетете ни на изложението за каравани и кемпери в София от 15-17 март 2026</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-img">
+                    <img src="prod-maxxfan.jpg" alt="ATEX Сертификация">
+                </div>
+                <div class="news-content">
+                    <p class="news-date">Декември 2025</p>
+                    <h3 class="news-title">ATEX Сертификация</h3>
+                    <p class="news-excerpt">Получихме ATEX сертификат за нашите индустриални вентилатори</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-img">
+                    <img src="prod-mach8.jpg" alt="Нов продукт">
+                </div>
+                <div class="news-content">
+                    <p class="news-date">Ноември 2025</p>
+                    <h3 class="news-title">Нов продукт: Airva 3500</h3>
+                    <p class="news-excerpt">Представяме новия покривен вентилатор Airva 3500 с подобрена ефективност</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="logo-airva-blanc-transparent.png" alt="АИРВА">
+                    <p>Професионални вентилационни и климатични системи за превозни средства и дома. Официален дистрибутор на Coleman-Mach, Aircommand и Daikin за България.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook">f</a>
+                        <a href="#" aria-label="Instagram">i</a>
+                        <a href="#" aria-label="LinkedIn">in</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Продукти</h4>
+                    <ul class="footer-links">
+                        <li><a href="products.html">Каравани и Кемпери</a></li>
+                        <li><a href="products.html">Индустриални</a></li>
+                        <li><a href="products.html">Морски</a></li>
+                        <li><a href="home-ac.html">Климатици за дома</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Информация</h4>
+                    <ul class="footer-links">
+                        <li><a href="dealers.html">Дистрибутори</a></li>
+                        <li><a href="faq.html">Въпроси</a></li>
+                        <li><a href="contact.html">Контакти</a></li>
+                        <li><a href="#">Общи условия</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Контакти</h4>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">&#127968;</div>
+                        <div class="footer-contact-text">
+                            <strong>Адрес</strong>
+                            бул. Цариградско шосе 125, 1784 София
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">&#9742;</div>
+                        <div class="footer-contact-text">
+                            <strong>Телефон</strong>
+                            +359 2 888 8888
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">&#9993;</div>
+                        <div class="footer-contact-text">
+                            <strong>Имейл</strong>
+                            info@airva.bg
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2026 АИРВА България | Всички права запазени</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('nav');
+    menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        menuToggle.classList.toggle('open');
+    });
+
+    // Header scroll effect
+    const header = document.getElementById('header');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        if (currentScroll > 100) {
+            header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+        } else {
+            header.style.boxShadow = '0 1px 3px rgba(0,0,0,0.05)';
+        }
+        lastScroll = currentScroll;
+    });
+</script>
+
+</body>
+</html>

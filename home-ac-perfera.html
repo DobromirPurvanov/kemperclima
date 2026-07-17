@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfera FTXM-A - Климатици за дома - АИРВА България</title>
+    <meta name="description" content="Perfera FTXM-A - Daikin Perfera FTXM-A е настенна сплит-система с клас на енергоефективност до A+++, която съчетава стилен дизайн, висока...">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0D2B4E;--primary-light:#1a3d6b;--accent:#FF7A4A;--accent-light:#ff9a7a;--blue:#3B82F6;--dark:#0f172a;--text:#1e293b;--text-light:#64748b;--gray:#f4f7fc;--gray-light:#e2e8f0;--white:#ffffff;--shadow:0 4px 20px rgba(13,43,78,0.08);--shadow-lg:0 8px 30px rgba(13,43,78,0.12);--radius:12px;--radius-sm:8px;--transition:all 0.3s ease}
+        html{scroll-behavior:smooth}
+        body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.7;font-size:16px;background:var(--white);overflow-x:hidden}
+        img{max-width:100%;display:block}
+        a{text-decoration:none;color:inherit}
+        .container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+        .topbar{background:var(--primary);color:rgba(255,255,255,0.85);padding:10px 0;font-size:13px}
+        .topbar-inner{display:flex;justify-content:space-between;align-items:center}
+        .topbar-info{display:flex;gap:24px;align-items:center}
+        .topbar-info span{display:flex;align-items:center;gap:8px}
+        .topbar-info svg{width:14px;height:14px;flex-shrink:0}
+        .topbar-social{display:flex;gap:10px}
+        .topbar-social a{width:28px;height:28px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;border-radius:50%;transition:var(--transition);color:#fff}
+        .topbar-social a:hover{background:var(--accent)}
+        @media(max-width:768px){.topbar-info{display:none}}
+
+        .header{background:var(--white);box-shadow:0 1px 3px rgba(0,0,0,0.05);position:sticky;top:0;z-index:1000}
+        .header-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+        .logo{display:flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-size:20px;font-weight:800;color:var(--primary);letter-spacing:-0.5px;margin-right:20px}
+        .logo img{height:36px;width:auto}
+        .nav-list{display:flex;list-style:none;gap:0;justify-content:center;flex:1}
+        .nav-list>li>a{display:flex;align-items:center;gap:5px;padding:0 16px;height:72px;line-height:72px;color:var(--text);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.3px;transition:var(--transition);position:relative}
+        .nav-list>li>a::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:3px;background:var(--accent);transition:var(--transition);transform:translateX(-50%)}
+        .nav-list>li>a:hover::after,.nav-list>li>a.active::after{width:50%}
+        .nav-list>li>a:hover,.nav-list>li>a.active{color:var(--primary)}
+        .has-dropdown{position:relative}
+        .dropdown{position:absolute;top:100%;left:0;background:var(--white);min-width:240px;padding:8px 0;box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transform:translateY(-10px);transition:var(--transition);list-style:none;z-index:1001;border-top:3px solid var(--accent)}
+        .has-dropdown:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+        .dropdown li a{display:block;padding:12px 24px;color:var(--text);font-size:14px;font-weight:500;transition:var(--transition);border-left:3px solid transparent}
+        .dropdown li a:hover{background:var(--gray);color:var(--primary);border-left-color:var(--accent);padding-left:28px}
+        .header-actions{display:flex;align-items:center;gap:12px;margin-left:20px}
+        .btn-primary{display:inline-flex;align-items:center;justify-content:center;padding:10px 20px;background:var(--accent);color:var(--white);font-family:'Inter',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;border-radius:var(--radius-sm);transition:var(--transition);border:none;cursor:pointer;gap:6px}
+        .btn-primary:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 4px 12px rgba(255,122,74,0.3)}
+        .menu-toggle{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:5px}
+        .menu-toggle span{width:24px;height:2px;background:var(--primary);transition:var(--transition);display:block}
+        .menu-toggle.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+        .menu-toggle.open span:nth-child(2){opacity:0}
+        .menu-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+        .page-hero{position:relative;height:450px;min-height:400px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+        .page-hero-bg{position:absolute;inset:0;z-index:0}
+        .page-hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(0.5)}
+        .page-hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,43,78,0.9) 0%,rgba(13,43,78,0.75) 100%);z-index:1}
+        .page-hero-content{position:relative;z-index:2;text-align:center;color:var(--white);padding:0 24px}
+        .page-hero-brand{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:12px;display:block}
+        .page-hero-title{font-size:clamp(32px,5vw,48px);font-weight:800;text-transform:uppercase;line-height:1.1;letter-spacing:-0.5px;margin-bottom:8px}
+        .page-hero-model{font-size:18px;font-weight:400;letter-spacing:4px;text-transform:uppercase;opacity:0.8}
+
+        .breadcrumb{background:var(--gray);padding:16px 0;font-size:13px;color:var(--text-light)}
+        .breadcrumb a{color:var(--primary);font-weight:600}
+        .breadcrumb span{margin:0 8px}
+
+        .detail-section{padding:80px 0;background:var(--white)}
+        .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+        .detail-gallery{background:linear-gradient(135deg,var(--primary),var(--primary-light));padding:50px;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;min-height:420px;box-shadow:var(--shadow-lg)}
+        .detail-gallery img{max-width:100%;max-height:350px;object-fit:contain;filter:drop-shadow(0 10px 30px rgba(0,0,0,0.3))}
+        .detail-tag{display:inline-block;padding:6px 18px;background:var(--accent);color:var(--white);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;border-radius:20px;margin-bottom:16px}
+        .detail-tag.premium{background:#dc2626}
+        .detail-tag.economy{background:#059669}
+        .detail-name{font-size:36px;font-weight:800;color:var(--primary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;line-height:1.2}
+        .detail-model{font-size:16px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:3px;margin-bottom:20px}
+        .detail-desc{font-size:16px;color:var(--text-light);line-height:1.8;margin-bottom:30px}
+        .detail-section-title{font-size:18px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:1px;margin:30px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--accent);display:flex;align-items:center;gap:10px}
+        .detail-features{list-style:none}
+        .detail-features li{display:flex;align-items:flex-start;gap:12px;padding:12px 0;font-size:15px;color:var(--text);border-bottom:1px solid var(--gray-light)}
+        .feature-check{width:24px;height:24px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:12px;flex-shrink:0;font-weight:700}
+        .specs-table{width:100%;border-collapse:collapse}
+        .specs-table tr{border-bottom:1px solid var(--gray-light)}
+        .specs-table td{padding:14px 16px;font-size:14px}
+        .specs-table td:first-child{color:var(--text-light);width:50%}
+        .specs-table td:last-child{color:var(--primary);font-weight:600}
+
+        .cta-box{background:linear-gradient(135deg,var(--primary),#0a1f3d);padding:40px;text-align:center;color:var(--white);margin-top:40px;border-radius:var(--radius)}
+        .cta-box h3{font-size:22px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+        .cta-box p{font-size:15px;opacity:0.9;margin-bottom:24px}
+
+        .back-section{padding:40px 0 80px;text-align:center;background:var(--gray)}
+        .back-link{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:var(--primary);color:var(--white);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;border-radius:var(--radius-sm);transition:var(--transition)}
+        .back-link:hover{background:var(--accent);transform:translateY(-2px)}
+
+        .footer{background:var(--primary);color:rgba(255,255,255,0.75)}
+        .footer-top{padding:80px 0 60px}
+        .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.5fr;gap:40px}
+        .footer-brand img{height:40px;margin-bottom:20px;filter:brightness(0) invert(1)}
+        .footer-brand p{font-size:14px;line-height:1.8;margin-bottom:20px}
+        .footer-social{display:flex;gap:10px}
+        .footer-social a{width:36px;height:36px;background:rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);transition:var(--transition)}
+        .footer-social a:hover{background:var(--accent)}
+        .footer-title{font-size:16px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:1px;margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--accent)}
+        .footer-links{list-style:none}
+        .footer-links li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.08)}
+        .footer-links li a{font-size:14px;transition:var(--transition);display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.75)}
+        .footer-links li a::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;flex-shrink:0}
+        .footer-links li a:hover{color:var(--accent)}
+        .footer-contact-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}
+        .footer-contact-icon{width:40px;height:40px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);flex-shrink:0;font-size:16px}
+        .footer-contact-text{font-size:14px;line-height:1.6}
+        .footer-contact-text strong{color:var(--white);display:block;margin-bottom:3px}
+        .footer-bottom{text-align:center;padding:24px 0;border-top:1px solid rgba(255,255,255,0.1);font-size:13px;color:rgba(255,255,255,0.5)}
+
+        @media(max-width:1024px){
+            .detail-grid{gap:40px}
+            .footer-grid{grid-template-columns:repeat(2,1fr)}
+        }
+        @media(max-width:768px){
+            .nav{position:fixed;top:72px;left:0;right:0;bottom:0;background:var(--primary);padding:30px;transform:translateX(100%);transition:transform 0.3s;overflow-y:auto;z-index:998}
+            .nav.open{transform:translateX(0)}
+            .nav-list{flex-direction:column;align-items:flex-start;gap:0}
+            .nav-list>li>a{height:auto;padding:14px 0;color:rgba(255,255,255,0.9)}
+            .dropdown{position:static;opacity:1;visibility:visible;transform:none;background:transparent;box-shadow:none;padding:0 0 0 20px;border:none}
+            .menu-toggle{display:flex}
+            .detail-grid{grid-template-columns:1fr}
+            .detail-gallery{min-height:280px;padding:30px}
+            .detail-name{font-size:28px}
+            .page-hero{height:350px}
+            .footer-grid{grid-template-columns:1fr}
+        }
+    </style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="topbar">
+    <div class="container">
+        <div class="topbar-inner">
+            <div class="topbar-info">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>бул. Цариградско шосе 125, София</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>+359 2 888 8888</span>
+            </div>
+            <div class="topbar-social">
+                <a href="#">f</a>
+                <a href="#">i</a>
+                <a href="#">in</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Header -->
+<header class="header">
+    <div class="container">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <img src="logo-airva-blanc-transparent.png" alt="АИРВА">
+                АИРВА
+            </a>
+            <nav class="nav" id="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Начало</a></li>
+                    <li class="has-dropdown">
+                        <a href="products.html" class="active">Продукти &#9662;</a>
+                        <ul class="dropdown">
+                            <li><a href="products.html">Каравани и Кемпери</a></li>
+                            <li><a href="products.html">Индустриални</a></li>
+                            <li><a href="products.html">Морски</a></li>
+                            <li><a href="home-ac.html">Климатици за дома</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="dealers.html">Дистрибутори</a></li>
+                    <li><a href="faq.html">Въпроси</a></li>
+                    <li><a href="contact.html">Контакти</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="contact.html" class="btn-primary">Запитване</a>
+                <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="page-hero-bg">
+        <img src="prod-ac.jpg" alt="Perfera">
+    </div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+        <span class="page-hero-brand">Daikin</span>
+        <h1 class="page-hero-title">Perfera</h1>
+        <p class="page-hero-model">FTXM-A</p>
+    </div>
+</section>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+    <div class="container">
+        <a href="index.html">Начало</a> <span>/</span> <a href="home-ac.html">Климатици за дома</a> <span>/</span> Perfera FTXM-A
+    </div>
+</div>
+
+<!-- Product Detail -->
+<section class="detail-section">
+    <div class="container">
+        <div class="detail-grid">
+            <div class="detail-gallery">
+                <img src="prod-ac.jpg" alt="Perfera FTXM-A">
+            </div>
+            <div class="detail-info">
+                <span class="detail-tag">СТЕНЕН</span>
+                <h1 class="detail-name">Perfera</h1>
+                <p class="detail-model">FTXM-A</p>
+                <p class="detail-desc">Daikin Perfera FTXM-A е настенна сплит-система с клас на енергоефективност до A+++, която съчетава стилен дизайн, висока енергоефективност, ефективна система за въздушна филтрация и способност за повишаване качеството на въздуха в помещението.</p>
+
+                <h3 class="detail-section-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                    Ключови характеристики
+                </h3>
+                <ul class="detail-features">
+                    <li><span class="feature-check">&#10003;</span>Енергиен клас A+++ в режим охлаждане</li>
+                    <li><span class="feature-check">&#10003;</span>Технология Flash Streamer за пречистване на въздуха</li>
+                    <li><span class="feature-check">&#10003;</span>Wi-Fi управление през приложението ONECTA</li>
+                    <li><span class="feature-check">&#10003;</span>Режим на тиха работа - само 19 dB(A)</li>
+                    <li><span class="feature-check">&#10003;</span>2-зонов интелигентен сензор за движение на очите</li>
+                    <li><span class="feature-check">&#10003;</span>Мощен режим за бързо достигане на зададената температура</li>
+                    <li><span class="feature-check">&#10003;</span>Работи с R-32 хладилен агент</li>
+                </ul>
+
+                <div class="cta-box">
+                    <h3>Искате оферта?</h3>
+                    <p>Свържете се с нас за безплатна консултация и оферта за Perfera.</p>
+                    <a href="contact.html?product=Perfera" class="btn-primary" style="background:var(--accent);">Запитване за цена</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Specs Section -->
+<section style="padding:60px 0;background:var(--gray);">
+    <div class="container">
+        <h3 class="detail-section-title" style="max-width:600px;margin:0 auto 30px;text-align:center;display:flex;justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Технически спецификации
+        </h3>
+        <div style="max-width:700px;margin:0 auto;background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);">
+            <table class="specs-table">
+                    <tr>
+                        <td>Капацитет охлаждане</td>
+                        <td>2.0 - 7.1 kW</td>
+                    </tr>
+                    <tr>
+                        <td>Капацитет отопление</td>
+                        <td>2.5 - 8.0 kW</td>
+                    </tr>
+                    <tr>
+                        <td>Енергиен клас охлаждане</td>
+                        <td>A+++</td>
+                    </tr>
+                    <tr>
+                        <td>Енергиен клас отопление</td>
+                        <td>A++</td>
+                    </tr>
+                    <tr>
+                        <td>Ниво на шум (вътрешно)</td>
+                        <td>19-43 dB(A)</td>
+                    </tr>
+                    <tr>
+                        <td>Хладилен агент</td>
+                        <td>R-32</td>
+                    </tr>
+                    <tr>
+                        <td>Wi-Fi</td>
+                        <td>Вграден</td>
+                    </tr>
+                    <tr>
+                        <td>Размери (вътрешно)</td>
+                        <td>285 x 770 x 225 mm</td>
+                    </tr>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- Back Link -->
+<section class="back-section">
+    <div class="container">
+        <a href="home-ac.html" class="back-link">&#8592; Обратно към всички климатици</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="logo-airva-blanc-transparent.png" alt="АИРВА">
+                    <p>Професионални вентилационни и климатични системи за превозни средства и дома.</p>
+                    <div class="footer-social">
+                        <a href="#">f</a>
+                        <a href="#">i</a>
+                        <a href="#">in</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Продукти</h4>
+                    <ul class="footer-links">
+                        <li><a href="products.html">Каравани и Кемпери</a></li>
+                        <li><a href="products.html">Индустриални</a></li>
+                        <li><a href="products.html">Морски</a></li>
+                        <li><a href="home-ac.html">Климатици за дома</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Информация</h4>
+                    <ul class="footer-links">
+                        <li><a href="dealers.html">Дистрибутори</a></li>
+                        <li><a href="faq.html">Въпроси</a></li>
+                        <li><a href="contact.html">Контакти</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Контакти</h4>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">&#127968;</div>
+                        <div class="footer-contact-text"><strong>Адрес</strong>бул. Цариградско шосе 125, София</div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">&#9742;</div>
+                        <div class="footer-contact-text"><strong>Телефон</strong>+359 2 888 8888</div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">&#9993;</div>
+                        <div class="footer-contact-text"><strong>Имейл</strong>info@airva.bg</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2026 АИРВА България | Всички права запазени</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const menuToggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('nav');
+    menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        menuToggle.classList.toggle('open');
+    });
+</script>
+
+</body>
+</html>

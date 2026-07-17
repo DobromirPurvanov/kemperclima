@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакти - АИРВА България</title>
+    <meta name="description" content="Свържете се с АИРВА България. Запитвания за оферта, монтаж и сервиз.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0D2B4E;--primary-light:#1a3d6b;--accent:#FF7A4A;--accent-light:#ff9a7a;--blue:#3B82F6;--dark:#0f172a;--text:#1e293b;--text-light:#64748b;--gray:#f4f7fc;--gray-light:#e2e8f0;--white:#ffffff;--shadow:0 4px 20px rgba(13,43,78,0.08);--shadow-lg:0 8px 30px rgba(13,43,78,0.12);--radius:12px;--radius-sm:8px;--transition:all 0.3s ease}
+        html{scroll-behavior:smooth}
+        body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.7;font-size:16px;background:var(--white);overflow-x:hidden}
+        img{max-width:100%;display:block}
+        a{text-decoration:none;color:inherit}
+        .container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+        /* Top Bar & Header - same */
+        .topbar{background:var(--primary);color:rgba(255,255,255,0.85);padding:10px 0;font-size:13px}
+        .topbar-inner{display:flex;justify-content:space-between;align-items:center}
+        .topbar-info{display:flex;gap:24px;align-items:center}
+        .topbar-info span{display:flex;align-items:center;gap:8px}
+        .topbar-info svg{width:14px;height:14px;flex-shrink:0}
+        @media(max-width:768px){.topbar-info{display:none}}
+
+        .header{background:var(--white);box-shadow:0 1px 3px rgba(0,0,0,0.05);position:sticky;top:0;z-index:1000}
+        .header-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+        .logo{display:flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-size:20px;font-weight:800;color:var(--primary);letter-spacing:-0.5px;margin-right:20px}
+        .logo img{height:36px;width:auto}
+        .nav-list{display:flex;list-style:none;gap:0;justify-content:center;flex:1}
+        .nav-list>li>a{display:flex;align-items:center;gap:5px;padding:0 16px;height:72px;line-height:72px;color:var(--text);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.3px;transition:var(--transition);position:relative}
+        .nav-list>li>a::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:3px;background:var(--accent);transition:var(--transition);transform:translateX(-50%)}
+        .nav-list>li>a:hover::after,.nav-list>li>a.active::after{width:50%}
+        .nav-list>li>a:hover,.nav-list>li>a.active{color:var(--primary)}
+        .has-dropdown{position:relative}
+        .dropdown{position:absolute;top:100%;left:0;background:var(--white);min-width:240px;padding:8px 0;box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transform:translateY(-10px);transition:var(--transition);list-style:none;z-index:1001;border-top:3px solid var(--accent)}
+        .has-dropdown:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+        .dropdown li a{display:block;padding:12px 24px;color:var(--text);font-size:14px;font-weight:500;transition:var(--transition);border-left:3px solid transparent}
+        .dropdown li a:hover{background:var(--gray);color:var(--primary);border-left-color:var(--accent);padding-left:28px}
+        .header-actions{display:flex;align-items:center;gap:12px;margin-left:20px}
+        .btn-primary{display:inline-flex;align-items:center;justify-content:center;padding:10px 20px;background:var(--accent);color:var(--white);font-family:'Inter',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;border-radius:var(--radius-sm);transition:var(--transition);border:none;cursor:pointer;gap:6px}
+        .btn-primary:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 4px 12px rgba(255,122,74,0.3)}
+        .menu-toggle{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:5px}
+        .menu-toggle span{width:24px;height:2px;background:var(--primary);transition:var(--transition);display:block}
+        .menu-toggle.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+        .menu-toggle.open span:nth-child(2){opacity:0}
+        .menu-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+        /* Page Hero */
+        .page-hero{position:relative;height:400px;min-height:350px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+        .page-hero-bg{position:absolute;inset:0;z-index:0}
+        .page-hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(0.5)}
+        .page-hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,43,78,0.9) 0%,rgba(13,43,78,0.75) 100%);z-index:1}
+        .page-hero-content{position:relative;z-index:2;text-align:center;color:var(--white);padding:0 24px}
+        .page-hero-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:12px;display:block}
+        .page-hero-title{font-size:clamp(32px,5vw,48px);font-weight:800;text-transform:uppercase;line-height:1.1;letter-spacing:-0.5px;margin-bottom:12px}
+        .page-hero-desc{font-size:18px;color:rgba(255,255,255,0.8);max-width:600px;margin:0 auto}
+
+        /* Breadcrumb */
+        .breadcrumb{background:var(--gray);padding:16px 0;font-size:13px;color:var(--text-light)}
+        .breadcrumb a{color:var(--primary);font-weight:600}
+        .breadcrumb span{margin:0 8px}
+
+        /* Contact Section */
+        .contact-section{padding:80px 0;background:var(--white)}
+        .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start}
+
+        /* Contact Info */
+        .contact-info{padding-top:20px}
+        .contact-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:12px;display:block}
+        .contact-title{font-size:32px;font-weight:800;color:var(--primary);margin-bottom:20px;line-height:1.2}
+        .contact-text{font-size:16px;color:var(--text-light);line-height:1.8;margin-bottom:30px}
+        .contact-item{display:flex;align-items:flex-start;gap:16px;margin-bottom:24px;padding:20px;background:var(--gray);border-radius:var(--radius-sm);transition:var(--transition)}
+        .contact-item:hover{background:var(--gray-light)}
+        .contact-item-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--primary),var(--blue));border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:20px;flex-shrink:0}
+        .contact-item-text{font-size:14px;line-height:1.6}
+        .contact-item-text strong{display:block;font-size:16px;color:var(--primary);margin-bottom:4px}
+        .contact-item-text a{color:var(--text);transition:var(--transition)}
+        .contact-item-text a:hover{color:var(--accent)}
+        .contact-hours{margin-top:30px;padding:20px;background:var(--primary);color:var(--white);border-radius:var(--radius-sm)}
+        .contact-hours-title{font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+        .contact-hours-item{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.1);font-size:14px}
+        .contact-hours-item:last-child{border-bottom:none}
+
+        /* Contact Form */
+        .contact-form{background:var(--white);padding:40px;border-radius:var(--radius);box-shadow:var(--shadow-lg);border:1px solid var(--gray-light)}
+        .form-title{font-size:24px;font-weight:700;color:var(--primary);margin-bottom:24px}
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+        .form-group{margin-bottom:16px}
+        .form-group label{display:block;font-size:13px;font-weight:600;color:var(--primary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px}
+        .form-group input,.form-group select,.form-group textarea{width:100%;padding:14px 16px;border:1px solid var(--gray-light);border-radius:var(--radius-sm);font-family:'Inter',sans-serif;font-size:15px;color:var(--text);transition:var(--transition);background:var(--white)}
+        .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(255,122,74,0.1)}
+        .form-group textarea{min-height:120px;resize:vertical}
+        .form-status{margin-top:16px;padding:14px;border-radius:var(--radius-sm);font-size:14px;font-weight:600;display:none}
+        .form-status.success{background:#d1fae5;color:#065f46;display:block}
+        .form-status.error{background:#fee2e2;color:#991b1b;display:block}
+
+        /* Map Section */
+        .map-section{padding:0 0 80px}
+        .map-container{height:400px;background:var(--gray);border-radius:var(--radius);overflow:hidden;position:relative}
+        .map-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;color:var(--text-light)}
+        .map-placeholder-icon{font-size:48px;margin-bottom:16px;color:var(--accent)}
+        .map-placeholder-text{font-size:16px;text-align:center}
+        .map-placeholder-text strong{display:block;color:var(--primary);font-size:18px;margin-bottom:8px}
+
+        /* Footer */
+        .footer{background:var(--primary);color:rgba(255,255,255,0.75)}
+        .footer-top{padding:80px 0 60px}
+        .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.5fr;gap:40px}
+        .footer-brand img{height:40px;margin-bottom:20px;filter:brightness(0) invert(1)}
+        .footer-brand p{font-size:14px;line-height:1.8;margin-bottom:20px}
+        .footer-social{display:flex;gap:10px}
+        .footer-social a{width:36px;height:36px;background:rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);transition:var(--transition)}
+        .footer-social a:hover{background:var(--accent)}
+        .footer-title{font-size:16px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:1px;margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--accent)}
+        .footer-links{list-style:none}
+        .footer-links li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.08)}
+        .footer-links li a{font-size:14px;transition:var(--transition);display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.75)}
+        .footer-links li a::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;flex-shrink:0}
+        .footer-links li a:hover{color:var(--accent)}
+        .footer-contact-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}
+        .footer-contact-icon{width:40px;height:40px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);flex-shrink:0;font-size:16px}
+        .footer-contact-text{font-size:14px;line-height:1.6}
+        .footer-contact-text strong{color:var(--white);display:block;margin-bottom:3px}
+        .footer-bottom{text-align:center;padding:24px 0;border-top:1px solid rgba(255,255,255,0.1);font-size:13px;color:rgba(255,255,255,0.5)}
+
+        /* Responsive */
+        @media(max-width:1024px){
+            .contact-grid{gap:40px}
+            .footer-grid{grid-template-columns:repeat(2,1fr)}
+        }
+        @media(max-width:768px){
+            .nav{position:fixed;top:72px;left:0;right:0;bottom:0;background:var(--primary);padding:30px;transform:translateX(100%);transition:transform 0.3s;overflow-y:auto;z-index:998}
+            .nav.open{transform:translateX(0)}
+            .nav-list{flex-direction:column;align-items:flex-start;gap:0}
+            .nav-list>li>a{height:auto;padding:14px 0;color:rgba(255,255,255,0.9)}
+            .dropdown{position:static;opacity:1;visibility:visible;transform:none;background:transparent;box-shadow:none;padding:0 0 0 20px;border:none}
+            .menu-toggle{display:flex}
+            .contact-grid{grid-template-columns:1fr}
+            .form-row{grid-template-columns:1fr}
+            .page-hero{height:300px}
+            .footer-grid{grid-template-columns:1fr}
+            .map-container{height:250px}
+        }
+    </style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="topbar">
+    <div class="container">
+        <div class="topbar-inner">
+            <div class="topbar-info">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>бул. Цариградско шосе 125, София</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>+359 2 888 8888</span>
+            </div>
+            <div class="topbar-social">
+                <a href="#">f</a>
+                <a href="#">i</a>
+                <a href="#">in</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Header -->
+<header class="header">
+    <div class="container">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <img src="logo-airva-blanc-transparent.png" alt="АИРВА">
+                АИРВА
+            </a>
+            <nav class="nav" id="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Начало</a></li>
+                    <li class="has-dropdown">
+                        <a href="products.html">Продукти &#9662;</a>
+                        <ul class="dropdown">
+                            <li><a href="products.html">Каравани и Кемпери</a></li>
+                            <li><a href="products.html">Индустриални</a></li>
+                            <li><a href="products.html">Морски</a></li>
+                            <li><a href="home-ac.html">Климатици за дома</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="dealers.html">Дистрибутори</a></li>
+                    <li><a href="faq.html">Въпроси</a></li>
+                    <li><a href="contact.html" class="active">Контакти</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="contact.html" class="btn-primary">Запитване</a>
+                <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="page-hero-bg">
+        <img src="contact-hero.jpg" alt="Контакти">
+    </div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+        <span class="page-hero-label">Свържете се с нас</span>
+        <h1 class="page-hero-title">Контакти</h1>
+        <p class="page-hero-desc">Тук сме, за да помогнем. Изпратете запитване или се обадете.</p>
+    </div>
+</section>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+    <div class="container">
+        <a href="index.html">Начало</a> <span>/</span> Контакти
+    </div>
+</div>
+
+<!-- Contact Section -->
+<section class="contact-section">
+    <div class="container">
+        <div class="contact-grid">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <span class="contact-label">Информация</span>
+                <h2 class="contact-title">Свържете се с нас</h2>
+                <p class="contact-text">Имате въпроси или искате оферта? Свържете се с нашия екип. Ще ви отговорим в рамките на 24 часа.</p>
+
+                <div class="contact-item">
+                    <div class="contact-item-icon">&#127968;</div>
+                    <div class="contact-item-text">
+                        <strong>Адрес</strong>
+                        бул. Цариградско шосе 125,<br>1784 София, България
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">&#9742;</div>
+                    <div class="contact-item-text">
+                        <strong>Телефон</strong>
+                        <a href="tel:+35928888888">+359 2 888 8888</a><br>
+                        <a href="tel:+359888123456">+359 888 123 456</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon">&#9993;</div>
+                    <div class="contact-item-text">
+                        <strong>Имейл</strong>
+                        <a href="mailto:info@airva.bg">info@airva.bg</a><br>
+                        <a href="mailto:sales@airva.bg">sales@airva.bg</a>
+                    </div>
+                </div>
+
+                <div class="contact-hours">
+                    <div class="contact-hours-title">Работно време</div>
+                    <div class="contact-hours-item"><span>Понеделник - Петък</span><span>09:00 - 18:00</span></div>
+                    <div class="contact-hours-item"><span>Събота</span><span>10:00 - 14:00</span></div>
+                    <div class="contact-hours-item"><span>Неделя</span><span>Почивен ден</span></div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h3 class="form-title">Изпратете запитване</h3>
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Име *</label>
+                            <input type="text" id="name" name="name" required placeholder="Вашето име">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Имейл *</label>
+                            <input type="email" id="email" name="email" required placeholder="your@email.com">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+359 888 123 456">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Тема *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Изберете тема</option>
+                                <option value="offer">Запитване за оферта</option>
+                                <option value="product">Въпрос за продукт</option>
+                                <option value="service">Сервизно обслужване</option>
+                                <option value="dealer">Дистрибуторство</option>
+                                <option value="other">Друго</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Съобщение *</label>
+                        <textarea id="message" name="message" required placeholder="Опишете вашето запитване..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" id="submitBtn" style="width:100%;">Изпрати запитване</button>
+                    <div class="form-status" id="formStatus"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="map-section">
+    <div class="container">
+        <div class="map-container">
+            <div class="map-placeholder">
+                <div class="map-placeholder-icon">&#127758;</div>
+                <div class="map-placeholder-text">
+                    <strong>АИРВА България</strong>
+                    бул. Цариградско шосе 125, 1784 София<br>
+                    <em>Google Maps интеграция при поискване</em>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="logo-airva-blanc-transparent.png" alt="АИРВА">
+                    <p>Професионални вентилационни и климатични системи за превозни средства и дома.</p>
+                    <div class="footer-social">
+                        <a href="#">f</a>
+                        <a href="#">i</a>
+                        <a href="#">in</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Продукти</h4>
+                    <ul class="footer-links">
+                        <li><a href="products.html">Каравани и Кемпери</a></li>
+                        <li><a href="products.html">Индустриални</a></li>
+                        <li><a href="products.html">Морски</a></li>
+                        <li><a href="home-ac.html">Климатици за дома</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Информация</h4>
+                    <ul class="footer-links">
+                        <li><a href="dealers.html">Дистрибутори</a></li>
+                        <li><a href="faq.html">Въпроси</a></li>
+                        <li><a href="contact.html">Контакти</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Контакти</h4>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">&#127968;</div>
+                        <div class="footer-contact-text"><strong>Адрес</strong>бул. Цариградско шосе 125, София</div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">&#9742;</div>
+                        <div class="footer-contact-text"><strong>Телефон</strong>+359 2 888 8888</div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">&#9993;</div>
+                        <div class="footer-contact-text"><strong>Имейл</strong>info@airva.bg</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2026 АИРВА България | Всички права запазени</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+    // EmailJS Configuration
+    const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+    const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
+    const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+
+    if(EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+    }
+
+    const contactForm = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formStatus = document.getElementById('formStatus');
+    const subjectField = document.getElementById('subject');
+    const messageField = document.getElementById('message');
+    const queryParams = new URLSearchParams(window.location.search);
+    const requestedProduct = queryParams.get('product');
+    const requestedSubject = queryParams.get('subject');
+
+    if(requestedProduct) {
+        subjectField.value = 'product';
+        messageField.value = `Интересувам се от ${requestedProduct}.`;
+    } else if(requestedSubject && Array.from(subjectField.options).some(option => option.value === requestedSubject)) {
+        subjectField.value = requestedSubject;
+    }
+
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        if(EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
+            formStatus.className = 'form-status error';
+            formStatus.textContent = 'Формата все още не е активирана. Моля, свържете се с нас по телефон или имейл.';
+            return;
+        }
+
+        submitBtn.textContent = 'Изпраща се...';
+        submitBtn.disabled = true;
+
+        const templateParams = {
+            from_name: document.getElementById('name').value,
+            from_email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value
+        };
+
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+            .then(function() {
+                formStatus.className = 'form-status success';
+                formStatus.textContent = 'Благодарим! Вашето запитване е изпратено успешно.';
+                contactForm.reset();
+            }, function(error) {
+                formStatus.className = 'form-status error';
+                formStatus.textContent = 'Възникна грешка. Моля, опитайте отново или се обадете на телефона.';
+                console.error('EmailJS Error:', error);
+            })
+            .finally(function() {
+                submitBtn.textContent = 'Изпрати запитване';
+                submitBtn.disabled = false;
+            });
+    });
+
+    // Mobile menu
+    const menuToggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('nav');
+    menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        menuToggle.classList.toggle('open');
+    });
+</script>
+
+</body>
+</html>

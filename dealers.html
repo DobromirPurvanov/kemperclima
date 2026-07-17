@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дистрибутори - АИРВА България</title>
+    <meta name="description" content="Намерете оторизиран дистрибутор на АИРВА България. Партньорска мрежа за климатични системи.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#0D2B4E;--primary-light:#1a3d6b;--accent:#FF7A4A;--accent-light:#ff9a7a;--blue:#3B82F6;--dark:#0f172a;--text:#1e293b;--text-light:#64748b;--gray:#f4f7fc;--gray-light:#e2e8f0;--white:#ffffff;--shadow:0 4px 20px rgba(13,43,78,0.08);--shadow-lg:0 8px 30px rgba(13,43,78,0.12);--radius:12px;--radius-sm:8px;--transition:all 0.3s ease}
+        html{scroll-behavior:smooth}
+        body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.7;font-size:16px;background:var(--white);overflow-x:hidden}
+        img{max-width:100%;display:block}
+        a{text-decoration:none;color:inherit}
+        .container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+        /* Top Bar */
+        .topbar{background:var(--primary);color:rgba(255,255,255,0.85);padding:10px 0;font-size:13px}
+        .topbar-inner{display:flex;justify-content:space-between;align-items:center}
+        .topbar-info{display:flex;gap:24px;align-items:center}
+        .topbar-info span{display:flex;align-items:center;gap:8px}
+        .topbar-info svg{width:14px;height:14px;flex-shrink:0}
+        .topbar-social{display:flex;gap:10px}
+        .topbar-social a{width:28px;height:28px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;border-radius:50%;transition:var(--transition);color:#fff}
+        .topbar-social a:hover{background:var(--accent)}
+        @media(max-width:768px){.topbar-info{display:none}}
+
+        /* Header */
+        .header{background:var(--white);box-shadow:0 1px 3px rgba(0,0,0,0.05);position:sticky;top:0;z-index:1000}
+        .header-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+        .logo{display:flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-size:20px;font-weight:800;color:var(--primary);letter-spacing:-0.5px;margin-right:20px}
+        .logo img{height:36px;width:auto}
+        .nav-list{display:flex;list-style:none;gap:0;justify-content:center;flex:1}
+        .nav-list>li>a{display:flex;align-items:center;gap:5px;padding:0 16px;height:72px;line-height:72px;color:var(--text);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.3px;transition:var(--transition);position:relative}
+        .nav-list>li>a::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:3px;background:var(--accent);transition:var(--transition);transform:translateX(-50%)}
+        .nav-list>li>a:hover::after,.nav-list>li>a.active::after{width:50%}
+        .nav-list>li>a:hover,.nav-list>li>a.active{color:var(--primary)}
+        .has-dropdown{position:relative}
+        .dropdown{position:absolute;top:100%;left:0;background:var(--white);min-width:240px;padding:8px 0;box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transform:translateY(-10px);transition:var(--transition);list-style:none;z-index:1001;border-top:3px solid var(--accent)}
+        .has-dropdown:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+        .dropdown li a{display:block;padding:12px 24px;color:var(--text);font-size:14px;font-weight:500;transition:var(--transition);border-left:3px solid transparent}
+        .dropdown li a:hover{background:var(--gray);color:var(--primary);border-left-color:var(--accent);padding-left:28px}
+        .header-actions{display:flex;align-items:center;gap:12px;margin-left:20px}
+        .btn-primary{display:inline-flex;align-items:center;justify-content:center;padding:10px 20px;background:var(--accent);color:var(--white);font-family:'Inter',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;border-radius:var(--radius-sm);transition:var(--transition);border:none;cursor:pointer;gap:6px}
+        .btn-primary:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 4px 12px rgba(255,122,74,0.3)}
+        .menu-toggle{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:5px}
+        .menu-toggle span{width:24px;height:2px;background:var(--primary);transition:var(--transition);display:block}
+        .menu-toggle.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+        .menu-toggle.open span:nth-child(2){opacity:0}
+        .menu-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+        /* Page Hero */
+        .page-hero{position:relative;height:450px;min-height:400px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+        .page-hero-bg{position:absolute;inset:0;z-index:0}
+        .page-hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(0.5)}
+        .page-hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,43,78,0.9) 0%,rgba(13,43,78,0.75) 100%);z-index:1}
+        .page-hero-content{position:relative;z-index:2;text-align:center;color:var(--white);padding:0 24px}
+        .page-hero-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:12px;display:block}
+        .page-hero-title{font-size:clamp(32px,5vw,48px);font-weight:800;text-transform:uppercase;line-height:1.1;letter-spacing:-0.5px;margin-bottom:12px}
+        .page-hero-desc{font-size:18px;color:rgba(255,255,255,0.8);max-width:600px;margin:0 auto}
+
+        /* Breadcrumb */
+        .breadcrumb{background:var(--gray);padding:16px 0;font-size:13px;color:var(--text-light)}
+        .breadcrumb a{color:var(--primary);font-weight:600}
+        .breadcrumb span{margin:0 8px}
+
+        /* Dealers Intro */
+        .dealers-intro{padding:60px 0 40px;text-align:center}
+        .dealers-intro-text{font-size:18px;color:var(--text-light);max-width:700px;margin:0 auto;line-height:1.8}
+
+        /* Dealers Grid */
+        .dealers-section{padding:0 0 80px}
+        .dealers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+        .dealer-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition);border:1px solid var(--gray-light);text-align:center;padding:40px 30px}
+        .dealer-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:var(--accent-light)}
+        .dealer-icon{width:80px;height:80px;background:linear-gradient(135deg,var(--primary),var(--blue));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;color:var(--white);font-size:36px}
+        .dealer-city{font-size:22px;font-weight:800;color:var(--primary);margin-bottom:8px;text-transform:uppercase}
+        .dealer-phone{font-size:16px;color:var(--text);margin-bottom:6px}
+        .dealer-email{font-size:14px;color:var(--text-light);margin-bottom:20px}
+        .dealer-type{display:inline-block;padding:6px 16px;background:var(--gray);color:var(--primary);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;border-radius:20px}
+        .dealer-type.main{background:var(--accent);color:var(--white)}
+
+        /* Become Dealer CTA */
+        .dealer-cta{position:relative;padding:100px 0;text-align:center;overflow:hidden}
+        .dealer-cta-bg{position:absolute;inset:0;z-index:0}
+        .dealer-cta-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(0.45)}
+        .dealer-cta-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,43,78,0.95) 0%,rgba(13,43,78,0.85) 100%);z-index:1}
+        .dealer-cta-content{position:relative;z-index:2;max-width:700px;margin:0 auto;padding:0 24px}
+        .dealer-cta-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:12px;display:block}
+        .dealer-cta-title{font-size:clamp(28px,4vw,38px);font-weight:800;text-transform:uppercase;color:var(--white);margin-bottom:20px;line-height:1.2}
+        .dealer-cta-text{font-size:18px;color:rgba(255,255,255,0.8);margin-bottom:30px;line-height:1.7}
+        .dealer-benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:40px 0;text-align:left}
+        .dealer-benefit-item{display:flex;align-items:center;gap:12px;color:var(--white);font-size:15px}
+        .dealer-benefit-check{width:28px;height:28px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:14px;flex-shrink:0;font-weight:700}
+
+        /* Footer */
+        .footer{background:var(--primary);color:rgba(255,255,255,0.75)}
+        .footer-top{padding:80px 0 60px}
+        .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.5fr;gap:40px}
+        .footer-brand img{height:40px;margin-bottom:20px;filter:brightness(0) invert(1)}
+        .footer-brand p{font-size:14px;line-height:1.8;margin-bottom:20px}
+        .footer-social{display:flex;gap:10px}
+        .footer-social a{width:36px;height:36px;background:rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);transition:var(--transition)}
+        .footer-social a:hover{background:var(--accent)}
+        .footer-title{font-size:16px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:1px;margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--accent)}
+        .footer-links{list-style:none}
+        .footer-links li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.08)}
+        .footer-links li a{font-size:14px;transition:var(--transition);display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.75)}
+        .footer-links li a::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;flex-shrink:0}
+        .footer-links li a:hover{color:var(--accent)}
+        .footer-contact-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}
+        .footer-contact-icon{width:40px;height:40px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);flex-shrink:0;font-size:16px}
+        .footer-contact-text{font-size:14px;line-height:1.6}
+        .footer-contact-text strong{color:var(--white);display:block;margin-bottom:3px}
+        .footer-bottom{text-align:center;padding:24px 0;border-top:1px solid rgba(255,255,255,0.1);font-size:13px;color:rgba(255,255,255,0.5)}
+
+        /* Responsive */
+        @media(max-width:1024px){
+            .dealers-grid{grid-template-columns:repeat(2,1fr)}
+            .dealer-benefits{grid-template-columns:1fr}
+            .footer-grid{grid-template-columns:repeat(2,1fr)}
+        }
+        @media(max-width:768px){
+            .nav{position:fixed;top:72px;left:0;right:0;bottom:0;background:var(--primary);padding:30px;transform:translateX(100%);transition:transform 0.3s;overflow-y:auto;z-index:998}
+            .nav.open{transform:translateX(0)}
+            .nav-list{flex-direction:column;align-items:flex-start;gap:0}
+            .nav-list>li>a{height:auto;padding:14px 0;color:rgba(255,255,255,0.9)}
+            .dropdown{position:static;opacity:1;visibility:visible;transform:none;background:transparent;box-shadow:none;padding:0 0 0 20px;border:none}
+            .menu-toggle{display:flex}
+            .dealers-grid{grid-template-columns:1fr}
+            .dealer-benefits{grid-template-columns:1fr}
+            .page-hero{height:350px}
+            .footer-grid{grid-template-columns:1fr}
+        }
+    </style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="topbar">
+    <div class="container">
+        <div class="topbar-inner">
+            <div class="topbar-info">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>бул. Цариградско шосе 125, София</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>+359 2 888 8888</span>
+            </div>
+            <div class="topbar-social">
+                <a href="#">f</a>
+                <a href="#">i</a>
+                <a href="#">in</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Header -->
+<header class="header">
+    <div class="container">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <img src="logo-airva-blanc-transparent.png" alt="АИРВА">
+                АИРВА
+            </a>
+            <nav class="nav" id="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Начало</a></li>
+                    <li class="has-dropdown">
+                        <a href="products.html">Продукти &#9662;</a>
+                        <ul class="dropdown">
+                            <li><a href="products.html">Каравани и Кемпери</a></li>
+                            <li><a href="products.html">Индустриални</a></li>
+                            <li><a href="products.html">Морски</a></li>
+                            <li><a href="home-ac.html">Климатици за дома</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="dealers.html" class="active">Дистрибутори</a></li>
+                    <li><a href="faq.html">Въпроси</a></li>
+                    <li><a href="contact.html">Контакти</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="contact.html" class="btn-primary">Запитване</a>
+                <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Page Hero -->
+<section class="page-hero">
+    <div class="page-hero-bg">
+        <img src="dealers-bg.jpg" alt="Дистрибутори">
+    </div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+        <span class="page-hero-label">Нашата мрежа</span>
+        <h1 class="page-hero-title">Дистрибутори</h1>
+        <p class="page-hero-desc">Оторизирани партньори в цяла България</p>
+    </div>
+</section>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+    <div class="container">
+        <a href="index.html">Начало</a> <span>/</span> Дистрибутори
+    </div>
+</div>
+
+<!-- Dealers Intro -->
+<section class="dealers-intro">
+    <div class="container">
+        <p class="dealers-intro-text">АИРВА България работи с мрежа от оторизирани дистрибутори, които предлагат пълна гама от климатични продукти, професионален монтаж и сервизно обслужване.</p>
+    </div>
+</section>
+
+<!-- Dealers Grid -->
+<section class="dealers-section">
+    <div class="container">
+        <div class="dealers-grid">
+            <div class="dealer-card">
+                <div class="dealer-icon">&#127969;</div>
+                <h3 class="dealer-city">София</h3>
+                <p class="dealer-phone">+359 2 888 8888</p>
+                <p class="dealer-email">sofia@airva.bg</p>
+                <span class="dealer-type main">Главен офис</span>
+            </div>
+            <div class="dealer-card">
+                <div class="dealer-icon">&#127970;</div>
+                <h3 class="dealer-city">Пловдив</h3>
+                <p class="dealer-phone">+359 32 555 555</p>
+                <p class="dealer-email">plovdiv@airva.bg</p>
+                <span class="dealer-type">Оторизиран</span>
+            </div>
+            <div class="dealer-card">
+                <div class="dealer-icon">&#127970;</div>
+                <h3 class="dealer-city">Варна</h3>
+                <p class="dealer-phone">+359 52 333 444</p>
+                <p class="dealer-email">varna@airva.bg</p>
+                <span class="dealer-type">Оторизиран</span>
+            </div>
+            <div class="dealer-card">
+                <div class="dealer-icon">&#127970;</div>
+                <h3 class="dealer-city">Бургас</h3>
+                <p class="dealer-phone">+359 56 777 888</p>
+                <p class="dealer-email">burgas@airva.bg</p>
+                <span class="dealer-type">Оторизиран</span>
+            </div>
+            <div class="dealer-card">
+                <div class="dealer-icon">&#127970;</div>
+                <h3 class="dealer-city">Русе</h3>
+                <p class="dealer-phone">+359 82 555 777</p>
+                <p class="dealer-email">ruse@airva.bg</p>
+                <span class="dealer-type">Оторизиран</span>
+            </div>
+            <div class="dealer-card">
+                <div class="dealer-icon">&#127970;</div>
+                <h3 class="dealer-city">Стара Загора</h3>
+                <p class="dealer-phone">+359 42 888 999</p>
+                <p class="dealer-email">stz@airva.bg</p>
+                <span class="dealer-type">Оторизиран</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Become Dealer CTA -->
+<section class="dealer-cta">
+    <div class="dealer-cta-bg">
+        <img src="hero-main.jpg" alt="Станете дистрибутор">
+    </div>
+    <div class="dealer-cta-overlay"></div>
+    <div class="dealer-cta-content">
+        <span class="dealer-cta-label">Присъединете се</span>
+        <h2 class="dealer-cta-title">Станете дистрибутор</h2>
+        <p class="dealer-cta-text">Искате да станете част от мрежата на АИРВА България? Предлагаме отлични условия за партньорство и пълна подкрепа за вашия бизнес.</p>
+        <div class="dealer-benefits">
+            <div class="dealer-benefit-item">
+                <div class="dealer-benefit-check">&#10003;</div>
+                <span>Пълно обучение и подкрепа</span>
+            </div>
+            <div class="dealer-benefit-item">
+                <div class="dealer-benefit-check">&#10003;</div>
+                <span>Конкурентни цени и отстъпки</span>
+            </div>
+            <div class="dealer-benefit-item">
+                <div class="dealer-benefit-check">&#10003;</div>
+                <span>Маркетингови материали</span>
+            </div>
+        </div>
+        <a href="contact.html?subject=dealer" class="btn-primary" style="font-size:16px;padding:16px 40px;">Кандидатствайте сега</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="logo-airva-blanc-transparent.png" alt="АИРВА">
+                    <p>Професионални вентилационни и климатични системи за превозни средства и дома.</p>
+                    <div class="footer-social">
+                        <a href="#">f</a>
+                        <a href="#">i</a>
+                        <a href="#">in</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Продукти</h4>
+                    <ul class="footer-links">
+                        <li><a href="products.html">Каравани и Кемпери</a></li>
+                        <li><a href="products.html">Индустриални</a></li>
+                        <li><a href="products.html">Морски</a></li>
+                        <li><a href="home-ac.html">Климатици за дома</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Информация</h4>
+                    <ul class="footer-links">
+                        <li><a href="dealers.html">Дистрибутори</a></li>
+                        <li><a href="faq.html">Въпроси</a></li>
+                        <li><a href="contact.html">Контакти</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Контакти</h4>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">&#127968;</div>
+                        <div class="footer-contact-text"><strong>Адрес</strong>бул. Цариградско шосе 125, София</div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">&#9742;</div>
+                        <div class="footer-contact-text"><strong>Телефон</strong>+359 2 888 8888</div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">&#9993;</div>
+                        <div class="footer-contact-text"><strong>Имейл</strong>info@airva.bg</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2026 АИРВА България | Всички права запазени</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const menuToggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('nav');
+    menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        menuToggle.classList.toggle('open');
+    });
+</script>
+
+</body>
+</html>
