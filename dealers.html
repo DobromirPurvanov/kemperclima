@@ -7,7 +7,7 @@
     <meta name="description" content="Намерете оторизиран дистрибутор на АИРВА България. Партньорска мрежа за климатични системи.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
         :root{--primary:#0D2B4E;--primary-light:#1a3d6b;--accent:#FF7A4A;--accent-light:#ff9a7a;--blue:#3B82F6;--dark:#0f172a;--text:#1e293b;--text-light:#64748b;--gray:#f4f7fc;--gray-light:#e2e8f0;--white:#ffffff;--shadow:0 4px 20px rgba(13,43,78,0.08);--shadow-lg:0 8px 30px rgba(13,43,78,0.12);--radius:12px;--radius-sm:8px;--transition:all 0.3s ease}
@@ -26,7 +26,7 @@
         .topbar-social{display:flex;gap:10px}
         .topbar-social a{width:28px;height:28px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;border-radius:50%;transition:var(--transition);color:#fff}
         .topbar-social a:hover{background:var(--accent)}
-        @media(max-width:768px){.topbar-info{display:none}}
+        @media(max-width:860px){.topbar-info{display:none}}
 
         /* Header */
         .header{background:var(--white);box-shadow:0 1px 3px rgba(0,0,0,0.05);position:sticky;top:0;z-index:1000}
@@ -123,7 +123,7 @@
             .dealer-benefits{grid-template-columns:1fr}
             .footer-grid{grid-template-columns:repeat(2,1fr)}
         }
-        @media(max-width:768px){
+        @media(max-width:860px){
             .nav{position:fixed;top:72px;left:0;right:0;bottom:0;background:var(--primary);padding:30px;transform:translateX(100%);transition:transform 0.3s;overflow-y:auto;z-index:998}
             .nav.open{transform:translateX(0)}
             .nav-list{flex-direction:column;align-items:flex-start;gap:0}
@@ -149,7 +149,7 @@
         <div class="topbar-inner">
             <div class="topbar-info">
                 <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>бул. Цариградско шосе 125, София</span>
-                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>+359 2 888 8888</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+35928888888">+359 2 888 8888</a></span>
             </div>
             <div class="topbar-social">
                 <a href="#">f</a>
@@ -171,21 +171,20 @@
             <nav class="nav" id="nav" aria-label="Основна навигация">
                 <ul class="nav-list">
                     <li><a href="index.html">Начало</a></li>
-                    <li class="has-dropdown">
-                        <a href="products.html">Продукти &#9662;</a>
-                        <ul class="dropdown">
-                            <li><a href="products.html">Каравани и Кемпери</a></li>
-                            <li><a href="products.html">Индустриални</a></li>
-                            <li><a href="products.html">Морски</a></li>
-                            <li><a href="home-ac.html">Климатици за дома</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="products.html">Продукти</a></li>
                     <li><a href="dealers.html" class="active">Дистрибутори</a></li>
                     <li><a href="faq.html">Въпроси</a></li>
                     <li><a href="contact.html">Контакти</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
+                <a class="header-phone" href="tel:+35928888888">
+                    <span class="header-phone-icon">&#9742;</span>
+                    <span class="header-phone-text">
+                        Позвънете ни
+                        <strong>+359 2 888 8888</strong>
+                    </span>
+                </a>
                 <a href="contact.html" class="btn-primary">Запитване</a>
                 <button class="menu-toggle" id="menuToggle" type="button" aria-label="Отвори менюто" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
             </div>
@@ -309,7 +308,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <img src="logo-airva-blanc-transparent.png" alt="АИРВА">
-                    <p>Професионални вентилационни и климатични системи за превозни средства и дома.</p>
+                    <p>Професионални климатични и вентилационни системи за кемпери и каравани. Официален дистрибутор на MaxxAir, Coleman-Mach и Aircommand за България.</p>
                     <div class="footer-social">
                         <a href="#">f</a>
                         <a href="#">i</a>
@@ -319,10 +318,10 @@
                 <div class="footer-col">
                     <h4 class="footer-title">Продукти</h4>
                     <ul class="footer-links">
-                        <li><a href="products.html">Каравани и Кемпери</a></li>
-                        <li><a href="products.html">Индустриални</a></li>
-                        <li><a href="products.html">Морски</a></li>
-                        <li><a href="home-ac.html">Климатици за дома</a></li>
+                        <li><a href="products.html">Всички продукти</a></li>
+                        <li><a href="product-detail.html">MaxxFan Deluxe</a></li>
+                        <li><a href="mach8-plus.html">Coleman-Mach 8 Plus</a></li>
+                        <li><a href="contact.html?subject=service">Монтаж и сервиз</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -341,11 +340,11 @@
                     </div>
                     <div class="footer-contact-item">
                         <div class="footer-contact-icon">&#9742;</div>
-                        <div class="footer-contact-text"><strong>Телефон</strong>+359 2 888 8888</div>
+                        <div class="footer-contact-text"><strong>Телефон</strong><a href="tel:+35928888888">+359 2 888 8888</a></div>
                     </div>
                     <div class="footer-contact-item">
                         <div class="footer-contact-icon">&#9993;</div>
-                        <div class="footer-contact-text"><strong>Имейл</strong>info@airva.bg</div>
+                        <div class="footer-contact-text"><strong>Имейл</strong><a href="mailto:info@airva.bg">info@airva.bg</a></div>
                     </div>
                 </div>
             </div>

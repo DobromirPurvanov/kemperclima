@@ -290,6 +290,7 @@ export function addQueryContextChip(root = document) {
         offer: 'Оферта',
         product: 'Въпрос за продукт',
         service: 'Сервизно обслужване',
+        installation: 'Монтаж',
         dealer: 'Дистрибуторство',
         other: 'Друго'
     };
@@ -334,6 +335,30 @@ export function addQueryContextChip(root = document) {
     formTitle.insertAdjacentElement('afterend', chip);
 }
 
+export function addStickyCallBar(root = document) {
+    if (!root.body || root.querySelector('.sticky-call')) return;
+
+    const bar = document.createElement('div');
+    bar.className = 'sticky-call';
+
+    const phoneLink = document.createElement('a');
+    phoneLink.className = 'sticky-call-phone';
+    phoneLink.href = 'tel:+35928888888';
+    const phoneIcon = createIcon('phone', '18');
+    if (phoneIcon) phoneLink.append(phoneIcon);
+    phoneLink.append('Обади се');
+
+    const ctaLink = document.createElement('a');
+    ctaLink.className = 'sticky-call-cta';
+    ctaLink.href = 'contact.html?subject=offer';
+    const ctaIcon = createIcon('mail', '18');
+    if (ctaIcon) ctaLink.append(ctaIcon);
+    ctaLink.append('Заяви оферта');
+
+    bar.append(phoneLink, ctaLink);
+    root.body.append(bar);
+}
+
 export function initSiteEnhancements(root = document) {
     setupMobileMenu(root);
     setCurrentNavigationItem(root);
@@ -341,6 +366,7 @@ export function initSiteEnhancements(root = document) {
     enhanceUiIcons(root);
     enhanceImages(root);
     addQueryContextChip(root);
+    addStickyCallBar(root);
 }
 
 if (typeof document !== 'undefined') {

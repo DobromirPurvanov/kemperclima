@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Продукти - АИРВА България</title>
-    <meta name="description" content="Професионални климатични системи за каравани, кемпери, индустриални и морски приложения.">
+    <title>Климатици и вентилатори за кемпери - АИРВА България</title>
+    <meta name="description" content="Покривни климатици и вентилатори за кемпери и каравани — MaxxFan, Coleman-Mach 8, Aircommand. Официален дистрибутор с монтаж и гаранция.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
         :root{--primary:#0D2B4E;--primary-light:#1a3d6b;--accent:#FF7A4A;--accent-light:#ff9a7a;--blue:#3B82F6;--dark:#0f172a;--text:#1e293b;--text-light:#64748b;--gray:#f4f7fc;--gray-light:#e2e8f0;--white:#ffffff;--shadow:0 4px 20px rgba(13,43,78,0.08);--shadow-lg:0 8px 30px rgba(13,43,78,0.12);--radius:12px;--radius-sm:8px;--transition:all 0.3s ease}
@@ -26,7 +26,7 @@
         .topbar-social{display:flex;gap:10px}
         .topbar-social a{width:28px;height:28px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;border-radius:50%;transition:var(--transition);color:#fff}
         .topbar-social a:hover{background:var(--accent)}
-        @media(max-width:768px){.topbar-info{display:none}}
+        @media(max-width:860px){.topbar-info{display:none}}
 
         .header{background:var(--white);box-shadow:0 1px 3px rgba(0,0,0,0.05);position:sticky;top:0;z-index:1000}
         .header-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
@@ -43,7 +43,9 @@
         .dropdown li a{display:block;padding:12px 24px;color:var(--text);font-size:14px;font-weight:500;transition:var(--transition);border-left:3px solid transparent}
         .dropdown li a:hover{background:var(--gray);color:var(--primary);border-left-color:var(--accent);padding-left:28px}
         .header-actions{display:flex;align-items:center;gap:12px;margin-left:20px}
-        .header-phone{display:none}
+        .header-phone{display:flex;align-items:center;gap:10px;font-size:12px;line-height:1.3}
+        .header-phone-icon{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+        .header-phone-text strong{display:block;font-size:14px}
 
 
 
@@ -130,7 +132,7 @@
             .products-grid,.featured-grid{grid-template-columns:repeat(2,1fr)}
             .footer-grid{grid-template-columns:repeat(2,1fr)}
         }
-        @media(max-width:768px){
+        @media(max-width:860px){
             .nav{position:fixed;top:72px;left:0;right:0;bottom:0;background:var(--primary);padding:30px;transform:translateX(100%);transition:transform 0.3s;overflow-y:auto;z-index:998}
             .nav.open{transform:translateX(0)}
             .nav-list{flex-direction:column;align-items:flex-start;gap:0}
@@ -155,7 +157,7 @@
         <div class="topbar-inner">
             <div class="topbar-info">
                 <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>бул. Цариградско шосе 125, София</span>
-                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>+359 2 888 8888</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+35928888888">+359 2 888 8888</a></span>
             </div>
             <div class="topbar-social">
                 <a href="#">f</a>
@@ -177,28 +179,20 @@
             <nav class="nav" id="nav" aria-label="Основна навигация">
                 <ul class="nav-list">
                     <li><a href="index.html">Начало</a></li>
-                    <li class="has-dropdown">
-                        <a href="products.html" class="active">Продукти &#9662;</a>
-                        <ul class="dropdown">
-                            <li><a href="products.html">Каравани и Кемпери</a></li>
-                            <li><a href="products.html">Индустриални</a></li>
-                            <li><a href="products.html">Морски</a></li>
-                            <li><a href="home-ac.html">Климатици за дома</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="products.html" class="active">Продукти</a></li>
                     <li><a href="dealers.html">Дистрибутори</a></li>
                     <li><a href="faq.html">Въпроси</a></li>
                     <li><a href="contact.html">Контакти</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
-                <div class="header-phone">
-                    <div class="header-phone-icon">&#9742;</div>
-                    <div class="header-phone-text">
+                <a class="header-phone" href="tel:+35928888888">
+                    <span class="header-phone-icon">&#9742;</span>
+                    <span class="header-phone-text">
                         Позвънете ни
                         <strong>+359 2 888 8888</strong>
-                    </div>
-                </div>
+                    </span>
+                </a>
                 <a href="contact.html" class="btn-primary">Запитване</a>
                 <button class="menu-toggle" id="menuToggle" type="button" aria-label="Отвори менюто" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
             </div>
@@ -215,9 +209,9 @@
     </div>
     <div class="page-hero-overlay"></div>
     <div class="page-hero-content">
-        <span class="page-hero-label">Нашите продукти</span>
-        <h1 class="page-hero-title">Продукти</h1>
-        <p class="page-hero-desc">Професионални климатични решения за всяко приложение</p>
+        <span class="page-hero-label">Каталог</span>
+        <h1 class="page-hero-title">Климатици и вентилатори за кемпери</h1>
+        <p class="page-hero-desc">Официален дистрибутор на MaxxAir, Coleman-Mach и Aircommand за България — с професионален монтаж и гаранция</p>
     </div>
 </section>
 
@@ -228,49 +222,49 @@
     </div>
 </div>
 
-<!-- Product Categories -->
-<section class="products-section">
+<!-- Selector Guide -->
+<section class="products-section" id="selector">
     <div class="container">
         <div class="section-header">
-            <span class="section-label">Категории</span>
-            <h2 class="section-title">Нашите продукти</h2>
-            <p class="section-desc">Климатични и вентилационни системи за различни приложения и среди</p>
+            <span class="section-label">Бърз избор</span>
+            <h2 class="section-title">Кой климатик за моя кемпер?</h2>
+            <p class="section-desc">Изберете вашата ситуация — насочваме ви към правилното решение</p>
         </div>
         <div class="products-grid">
             <div class="product-card">
                 <div class="product-img">
-                    <img src="cat-rv.jpg" alt="Каравани и Кемпери">
-                    <span class="product-badge rv">Каравани</span>
+                    <img src="prod-maxxfan.jpg" alt="Покривен вентилатор MaxxFan Deluxe" loading="lazy" decoding="async">
+                    <span class="product-badge rv">12V</span>
                 </div>
                 <div class="product-info">
-                    <h3 class="product-name">Каравани и Кемпери</h3>
-                    <p class="product-model">Leisure Range</p>
-                    <p class="product-desc">Покривни климатизатори и вентилатори за вашия кемпер или каравана. MaxxFan, Mach 8, Sparrow и други.</p>
-                    <a href="product-detail.html" class="product-link">Научи повече &#8594;</a>
+                    <h3 class="product-name">Ван или кемпер до 6 м</h3>
+                    <p class="product-model">Автономно пътуване на 12V</p>
+                    <p class="product-desc">Покривен вентилатор с ниска консумация — работи от бордовата батерия и соларна система, без нужда от кемпинг ток.</p>
+                    <a href="product-detail.html" class="product-link">MaxxFan Deluxe &#8594;</a>
                 </div>
             </div>
             <div class="product-card">
                 <div class="product-img">
-                    <img src="cat-industrial.jpg" alt="Индустриални">
-                    <span class="product-badge ind">Индустриални</span>
+                    <img src="prod-mach8.jpg" alt="Покривен климатик Coleman-Mach 8 Plus" loading="lazy" decoding="async">
+                    <span class="product-badge rv">230V</span>
                 </div>
                 <div class="product-info">
-                    <h3 class="product-name">Индустриални</h3>
-                    <p class="product-model">Industrial Range</p>
-                    <p class="product-desc">Тежкотоварни климатични системи за професионални превозни средства. ATEX сертифицирани.</p>
-                    <a href="product-detail.html" class="product-link">Научи повече &#8594;</a>
+                    <h3 class="product-name">Кемпер или каравана с 230V</h3>
+                    <p class="product-model">Мощно охлаждане на къмпинг</p>
+                    <p class="product-desc">Покривен климатик с нисък профил за горещите летни дни — за превозни средства с достъп до кемпинг ток или генератор.</p>
+                    <a href="mach8-plus.html" class="product-link">Coleman-Mach 8 Plus &#8594;</a>
                 </div>
             </div>
             <div class="product-card">
                 <div class="product-img">
-                    <img src="cat-marine.jpg" alt="Морски">
-                    <span class="product-badge marine">Морски</span>
+                    <img src="cat-rv.jpg" alt="Кемпер край планинско езеро" loading="lazy" decoding="async">
+                    <span class="product-badge rv">Съвет</span>
                 </div>
                 <div class="product-info">
-                    <h3 class="product-name">Морски</h3>
-                    <p class="product-model">Marine Range</p>
-                    <p class="product-desc">Морски климатични системи за яхти и плавателни съдове. Устойчиви на корозия.</p>
-                    <a href="product-detail.html" class="product-link">Научи повече &#8594;</a>
+                    <h3 class="product-name">Не сте сигурни?</h3>
+                    <p class="product-model">Безплатна консултация</p>
+                    <p class="product-desc">Кажете ни дължината, изолацията и как пътувате — препоръчваме точния модел и изчисляваме монтажа.</p>
+                    <a href="contact.html?subject=offer" class="product-link">Заяви консултация &#8594;</a>
                 </div>
             </div>
         </div>
@@ -293,6 +287,7 @@
                 <h3 class="featured-name">MaxxFan Deluxe</h3>
                 <p class="featured-brand">MAXXAIR</p>
                 <p class="featured-desc">Покривен вентилатор с 10 скорости и автоматичен капак</p>
+                <ul class="product-specs"><li>12V</li><li>0.2&ndash;3.5A</li><li>900 m&sup3;/h</li><li>4.8 kg</li></ul>
                 <a href="product-detail.html" class="btn-outline-dark">Научи повече</a>
             </div>
             <div class="featured-card">
@@ -301,17 +296,19 @@
                 </div>
                 <h3 class="featured-name">Mach 8 Plus</h3>
                 <p class="featured-brand">COLEMAN-MACH</p>
-                <p class="featured-desc">Мощен покривен климатик за кемпери и RV</p>
-                <a href="product-detail.html" class="btn-outline-dark">Научи повече</a>
+                <p class="featured-desc">Мощен покривен климатик с нисък профил за кемпери и RV</p>
+                <ul class="product-specs"><li>230V</li><li>Нисък профил</li><li>Тиха работа</li></ul>
+                <a href="mach8-plus.html" class="btn-outline-dark">Научи повече</a>
             </div>
             <div class="featured-card">
                 <div class="featured-img">
-                    <img src="prod-ac.jpg" alt="Daikin">
+                    <img src="about-team.jpg" alt="Техник монтира климатична система" loading="lazy" decoding="async">
                 </div>
-                <h3 class="featured-name">Perfera FTXM</h3>
-                <p class="featured-brand">DAIKIN</p>
-                <p class="featured-desc">Инверторен климатик A+++ за дома и офиса</p>
-                <a href="home-ac.html" class="btn-outline-dark">Научи повече</a>
+                <h3 class="featured-name">Монтаж и сервиз</h3>
+                <p class="featured-brand">СЕРВИЗНА МРЕЖА</p>
+                <p class="featured-desc">Професионален монтаж от сертифицирани техници с гаранция</p>
+                <ul class="product-specs"><li>Гаранция</li><li>Оглед</li><li>Сервиз</li></ul>
+                <a href="contact.html?subject=installation" class="btn-outline-dark">Запази час</a>
             </div>
         </div>
     </div>
@@ -326,7 +323,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <img src="logo-airva-blanc-transparent.png" alt="АИРВА">
-                    <p>Професионални вентилационни и климатични системи за превозни средства и дома.</p>
+                    <p>Професионални климатични и вентилационни системи за кемпери и каравани. Официален дистрибутор на MaxxAir, Coleman-Mach и Aircommand за България.</p>
                     <div class="footer-social">
                         <a href="#">f</a>
                         <a href="#">i</a>
@@ -336,10 +333,10 @@
                 <div class="footer-col">
                     <h4 class="footer-title">Продукти</h4>
                     <ul class="footer-links">
-                        <li><a href="products.html">Каравани и Кемпери</a></li>
-                        <li><a href="products.html">Индустриални</a></li>
-                        <li><a href="products.html">Морски</a></li>
-                        <li><a href="home-ac.html">Климатици за дома</a></li>
+                        <li><a href="products.html">Всички продукти</a></li>
+                        <li><a href="product-detail.html">MaxxFan Deluxe</a></li>
+                        <li><a href="mach8-plus.html">Coleman-Mach 8 Plus</a></li>
+                        <li><a href="contact.html?subject=service">Монтаж и сервиз</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -358,11 +355,11 @@
                     </div>
                     <div class="footer-contact-item">
                         <div class="footer-contact-icon">&#9742;</div>
-                        <div class="footer-contact-text"><strong>Телефон</strong>+359 2 888 8888</div>
+                        <div class="footer-contact-text"><strong>Телефон</strong><a href="tel:+35928888888">+359 2 888 8888</a></div>
                     </div>
                     <div class="footer-contact-item">
                         <div class="footer-contact-icon">&#9993;</div>
-                        <div class="footer-contact-text"><strong>Имейл</strong>info@airva.bg</div>
+                        <div class="footer-contact-text"><strong>Имейл</strong><a href="mailto:info@airva.bg">info@airva.bg</a></div>
                     </div>
                 </div>
             </div>

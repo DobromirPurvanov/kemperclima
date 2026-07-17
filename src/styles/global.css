@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Manrope:wght@400;500;600;700;800&display=swap');
+/* Шрифтовете се зареждат през <link> в <head> на всяка страница (без render-blocking @import). */
 
 :root {
     --font-display: 'Manrope', 'Inter', sans-serif;
@@ -331,16 +331,156 @@ textarea:focus-visible,
 }
 
 .header-phone {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     color: var(--color-muted);
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+.header-phone:hover .header-phone-text strong {
+    color: var(--color-accent-hover);
 }
 
 .header-phone-icon {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
     background: var(--color-accent-soft);
     color: var(--color-accent-hover);
 }
 
 .header-phone-text strong {
+    display: block;
     color: var(--color-ink-950);
+    font-size: 14px;
+}
+
+.hero-phone {
+    margin: 18px 0 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 15px;
+}
+
+.hero-phone a {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.hero-phone a:hover {
+    color: #ee966f;
+}
+
+.cta-box .cta-phone {
+    margin: 14px 0 0;
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.cta-box .cta-phone a {
+    color: inherit;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* Наличност и доставка на продуктова страница */
+.detail-availability {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 16px;
+    margin: 0 0 22px;
+    font-size: 14px;
+    color: var(--color-muted);
+}
+
+.stock-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 13px;
+    border-radius: 999px;
+    background: rgba(30, 107, 76, 0.1);
+    color: var(--color-success);
+    font-weight: 700;
+    font-size: 13px;
+}
+
+/* Spec chips по продуктовите карти */
+.product-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 0 0 16px;
+    padding: 0;
+    list-style: none;
+}
+
+.product-specs li {
+    padding: 4px 11px;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-canvas);
+    color: var(--color-ink-700);
+    font-family: var(--font-tech);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+}
+
+/* Sticky call bar — само на mobile, инжектира се от site.js */
+.sticky-call {
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 1200;
+    display: none;
+    gap: 1px;
+    background: var(--color-ink-950);
+    padding-bottom: env(safe-area-inset-bottom, 0);
+    box-shadow: 0 -6px 24px rgba(11, 23, 31, 0.18);
+}
+
+.sticky-call a {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 56px;
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.sticky-call .sticky-call-phone {
+    background: var(--color-accent);
+}
+
+.sticky-call .sticky-call-phone:active {
+    background: var(--color-accent-hover);
+}
+
+.sticky-call .sticky-call-cta {
+    background: var(--color-ink-900);
+}
+
+@media (max-width: 860px) {
+    .sticky-call {
+        display: flex;
+    }
+
+    body {
+        padding-bottom: 56px;
+    }
 }
 
 .btn-primary,

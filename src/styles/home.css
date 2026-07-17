@@ -484,14 +484,17 @@
     transform 220ms var(--page-ease);
 }
 
-.page--home .product-card:nth-child(1),
-.page--home .product-card:nth-child(4) {
+.page--home .product-card:nth-child(1) {
   grid-column: span 7;
 }
 
-.page--home .product-card:nth-child(2),
-.page--home .product-card:nth-child(3) {
+.page--home .product-card:nth-child(2) {
   grid-column: span 5;
+}
+
+.page--home .product-card:nth-child(3) {
+  grid-column: span 12;
+  min-height: clamp(20rem, 26vw, 24rem);
 }
 
 .page--home .product-card:hover {
