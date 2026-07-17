@@ -145,8 +145,12 @@
             .map-container{height:250px}
         }
     </style>
+    <link rel="stylesheet" href="/src/styles/global.css">
+    <link rel="stylesheet" href="/src/styles/contact.css">
+    <script type="module" src="/src/js/site.js"></script>
 </head>
-<body>
+<body class="page--contact">
+<a class="skip-link" href="#main-content">Към основното съдържание</a>
 
 <!-- Top Bar -->
 <div class="topbar">
@@ -173,7 +177,7 @@
                 <img src="logo-airva-blanc-transparent.png" alt="АИРВА">
                 АИРВА
             </a>
-            <nav class="nav" id="nav">
+            <nav class="nav" id="nav" aria-label="Основна навигация">
                 <ul class="nav-list">
                     <li><a href="index.html">Начало</a></li>
                     <li class="has-dropdown">
@@ -192,17 +196,17 @@
             </nav>
             <div class="header-actions">
                 <a href="contact.html" class="btn-primary">Запитване</a>
-                <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Отвори менюто" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
             </div>
         </div>
     </div>
 </header>
 
+<main id="main-content">
+
 <!-- Page Hero -->
 <section class="page-hero">
-    <div class="page-hero-bg">
-        <img src="contact-hero.jpg" alt="Контакти">
-    </div>
+    <div class="page-hero-bg" aria-hidden="true"></div>
     <div class="page-hero-overlay"></div>
     <div class="page-hero-content">
         <span class="page-hero-label">Свържете се с нас</span>
@@ -267,17 +271,17 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Име *</label>
-                            <input type="text" id="name" name="name" required placeholder="Вашето име">
+                            <input type="text" id="name" name="name" autocomplete="name" required placeholder="Вашето име">
                         </div>
                         <div class="form-group">
                             <label for="email">Имейл *</label>
-                            <input type="email" id="email" name="email" required placeholder="your@email.com">
+                            <input type="email" id="email" name="email" autocomplete="email" required placeholder="your@email.com">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="phone">Телефон</label>
-                            <input type="tel" id="phone" name="phone" placeholder="+359 888 123 456">
+                            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+359 888 123 456">
                         </div>
                         <div class="form-group">
                             <label for="subject">Тема *</label>
@@ -293,10 +297,10 @@
                     </div>
                     <div class="form-group">
                         <label for="message">Съобщение *</label>
-                        <textarea id="message" name="message" required placeholder="Опишете вашето запитване..."></textarea>
+                        <textarea id="message" name="message" autocomplete="off" required placeholder="Опишете вашето запитване..."></textarea>
                     </div>
                     <button type="submit" class="btn-primary" id="submitBtn" style="width:100%;">Изпрати запитване</button>
-                    <div class="form-status" id="formStatus"></div>
+                    <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
                 </form>
             </div>
         </div>
@@ -318,6 +322,8 @@
         </div>
     </div>
 </section>
+
+</main>
 
 <!-- Footer -->
 <footer class="footer">

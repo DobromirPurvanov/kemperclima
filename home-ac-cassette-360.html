@@ -129,8 +129,12 @@
             .footer-grid{grid-template-columns:1fr}
         }
     </style>
+    <link rel="stylesheet" href="/src/styles/global.css">
+    <link rel="stylesheet" href="/src/styles/detail.css">
+    <script type="module" src="/src/js/site.js"></script>
 </head>
-<body>
+<body class="page--detail">
+<a class="skip-link" href="#main-content">Към основното съдържание</a>
 
 <!-- Top Bar -->
 <div class="topbar">
@@ -157,7 +161,7 @@
                 <img src="logo-airva-blanc-transparent.png" alt="АИРВА">
                 АИРВА
             </a>
-            <nav class="nav" id="nav">
+            <nav class="nav" id="nav" aria-label="Основна навигация">
                 <ul class="nav-list">
                     <li><a href="index.html">Начало</a></li>
                     <li class="has-dropdown">
@@ -176,11 +180,13 @@
             </nav>
             <div class="header-actions">
                 <a href="contact.html" class="btn-primary">Запитване</a>
-                <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Отвори менюто" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
             </div>
         </div>
     </div>
 </header>
+
+<main id="main-content">
 
 <!-- Page Hero -->
 <section class="page-hero">
@@ -190,7 +196,7 @@
     <div class="page-hero-overlay"></div>
     <div class="page-hero-content">
         <span class="page-hero-brand">Daikin</span>
-        <h1 class="page-hero-title">Round Flow Cassette</h1>
+        <p class="page-hero-title" aria-hidden="true">Round Flow Cassette</p>
         <p class="page-hero-model">FCAG-B</p>
     </div>
 </section>
@@ -215,10 +221,10 @@
                 <p class="detail-model">FCAG-B</p>
                 <p class="detail-desc">Daikin Round Flow Cassette FCAG-B е премиум касетъчен климатик с 360-градусово разпределение на въздуха. Създава перфектен температурен комфорт в цялото помещение.</p>
 
-                <h3 class="detail-section-title">
+                <h2 class="detail-section-title">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
                     Ключови характеристики
-                </h3>
+                </h2>
                 <ul class="detail-features">
                     <li><span class="feature-check">&#10003;</span>Уникален Round Flow дизайн за равномерно разпределение</li>
                     <li><span class="feature-check">&#10003;</span>360° разпределение на въздуха</li>
@@ -242,42 +248,43 @@
 <!-- Specs Section -->
 <section style="padding:60px 0;background:var(--gray);">
     <div class="container">
-        <h3 class="detail-section-title" style="max-width:600px;margin:0 auto 30px;text-align:center;display:flex;justify-content:center;">
+        <h2 class="detail-section-title" style="max-width:600px;margin:0 auto 30px;text-align:center;display:flex;justify-content:center;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             Технически спецификации
         </h3>
         <div style="max-width:700px;margin:0 auto;background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);">
             <table class="specs-table">
+                <caption class="visually-hidden">Технически спецификации</caption>
                     <tr>
-                        <td>Капацитет охлаждане</td>
+                        <th scope="row">Капацитет охлаждане</th>
                         <td>3.6 - 14.0 kW</td>
                     </tr>
                     <tr>
-                        <td>Капацитет отопление</td>
+                        <th scope="row">Капацитет отопление</th>
                         <td>4.0 - 16.0 kW</td>
                     </tr>
                     <tr>
-                        <td>Енергиен клас охлаждане</td>
+                        <th scope="row">Енергиен клас охлаждане</th>
                         <td>A++</td>
                     </tr>
                     <tr>
-                        <td>Енергиен клас отопление</td>
+                        <th scope="row">Енергиен клас отопление</th>
                         <td>A+</td>
                     </tr>
                     <tr>
-                        <td>Ниво на шум (вътрешно)</td>
+                        <th scope="row">Ниво на шум (вътрешно)</th>
                         <td>26-47 dB(A)</td>
                     </tr>
                     <tr>
-                        <td>Хладилен агент</td>
+                        <th scope="row">Хладилен агент</th>
                         <td>R-32</td>
                     </tr>
                     <tr>
-                        <td>Wi-Fi</td>
+                        <th scope="row">Wi-Fi</th>
                         <td>Вграден</td>
                     </tr>
                     <tr>
-                        <td>Размери</td>
+                        <th scope="row">Размери</th>
                         <td>650 x 650 mm</td>
                     </tr>
             </table>
@@ -291,6 +298,8 @@
         <a href="home-ac.html" class="back-link">&#8592; Обратно към всички климатици</a>
     </div>
 </section>
+
+</main>
 
 <!-- Footer -->
 <footer class="footer">

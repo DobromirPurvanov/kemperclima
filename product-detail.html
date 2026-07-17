@@ -128,8 +128,12 @@
             .footer-grid{grid-template-columns:1fr}
         }
     </style>
+    <link rel="stylesheet" href="/src/styles/global.css">
+    <link rel="stylesheet" href="/src/styles/detail.css">
+    <script type="module" src="/src/js/site.js"></script>
 </head>
-<body>
+<body class="page--detail">
+<a class="skip-link" href="#main-content">Към основното съдържание</a>
 
 <!-- Top Bar -->
 <div class="topbar">
@@ -156,7 +160,7 @@
                 <img src="logo-airva-blanc-transparent.png" alt="АИРВА">
                 АИРВА
             </a>
-            <nav class="nav" id="nav">
+            <nav class="nav" id="nav" aria-label="Основна навигация">
                 <ul class="nav-list">
                     <li><a href="index.html">Начало</a></li>
                     <li class="has-dropdown">
@@ -175,11 +179,13 @@
             </nav>
             <div class="header-actions">
                 <a href="contact.html" class="btn-primary">Запитване</a>
-                <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Отвори менюто" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
             </div>
         </div>
     </div>
 </header>
+
+<main id="main-content">
 
 <!-- Page Hero -->
 <section class="page-hero">
@@ -189,7 +195,7 @@
     <div class="page-hero-overlay"></div>
     <div class="page-hero-content">
         <span class="page-hero-brand">MaxxAir</span>
-        <h1 class="page-hero-title">MaxxFan Deluxe</h1>
+        <p class="page-hero-title" aria-hidden="true">MaxxFan Deluxe</p>
         <p class="page-hero-model">Вентилатор за каравани и кемпери</p>
     </div>
 </section>
@@ -214,10 +220,10 @@
                 <p class="detail-model">Термостатен вентилатор с дистанционно</p>
                 <p class="detail-desc">MaxxFan Deluxe е най-популярният вентилатор за каравани и кемпери. С вграден термостат, дистанционно управление и възможност за работа при дъжд, този вентилатор осигурява оптимален комфорт по време на пътуване.</p>
 
-                <h3 class="detail-section-title">
+                <h2 class="detail-section-title">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
                     Ключови характеристики
-                </h3>
+                </h2>
                 <ul class="detail-features">
                     <li><span class="feature-check">&#10003;</span>Термостатен контрол на скоростта</li>
                     <li><span class="feature-check">&#10003;</span>Дистанционно управление включено</li>
@@ -241,20 +247,21 @@
 <!-- Specs Section -->
 <section style="padding:60px 0;background:var(--gray);">
     <div class="container">
-        <h3 class="detail-section-title" style="max-width:600px;margin:0 auto 30px;text-align:center;display:flex;justify-content:center;">
+        <h2 class="detail-section-title" style="max-width:600px;margin:0 auto 30px;text-align:center;display:flex;justify-content:center;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             Технически спецификации
         </h3>
         <div style="max-width:700px;margin:0 auto;background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);">
             <table class="specs-table">
-                <tr><td>Модел</td><td>MaxxFan Deluxe 7000K</td></tr>
-                <tr><td>Размер на отвора</td><td>356 x 356 mm</td></tr>
-                <tr><td>Въздушен поток</td><td>до 900 m³/h</td></tr>
-                <tr><td>Консумация (12V)</td><td>0.2 - 3.5A</td></tr>
-                <tr><td>Ниво на шум</td><td>30-55 dB(A)</td></tr>
-                <tr><td>Тегло</td><td>4.8 kg</td></tr>
-                <tr><td>Цвят</td><td>Бял, Прозрачен</td></tr>
-                <tr><td>Гаранция</td><td>2 години</td></tr>
+                <caption class="visually-hidden">Технически спецификации</caption>
+                <tr><th scope="row">Модел</th><td>MaxxFan Deluxe 7000K</td></tr>
+                <tr><th scope="row">Размер на отвора</th><td>356 x 356 mm</td></tr>
+                <tr><th scope="row">Въздушен поток</th><td>до 900 m³/h</td></tr>
+                <tr><th scope="row">Консумация (12V)</th><td>0.2 - 3.5A</td></tr>
+                <tr><th scope="row">Ниво на шум</th><td>30-55 dB(A)</td></tr>
+                <tr><th scope="row">Тегло</th><td>4.8 kg</td></tr>
+                <tr><th scope="row">Цвят</th><td>Бял, Прозрачен</td></tr>
+                <tr><th scope="row">Гаранция</th><td>2 години</td></tr>
             </table>
         </div>
     </div>
@@ -266,6 +273,8 @@
         <a href="products.html" class="back-link">&#8592; Обратно към всички продукти</a>
     </div>
 </section>
+
+</main>
 
 <!-- Footer -->
 <footer class="footer">

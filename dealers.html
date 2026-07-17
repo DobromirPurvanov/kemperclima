@@ -136,8 +136,12 @@
             .footer-grid{grid-template-columns:1fr}
         }
     </style>
+    <link rel="stylesheet" href="/src/styles/global.css">
+    <link rel="stylesheet" href="/src/styles/dealers.css">
+    <script type="module" src="/src/js/site.js"></script>
 </head>
-<body>
+<body class="page--dealers">
+<a class="skip-link" href="#main-content">Към основното съдържание</a>
 
 <!-- Top Bar -->
 <div class="topbar">
@@ -164,7 +168,7 @@
                 <img src="logo-airva-blanc-transparent.png" alt="АИРВА">
                 АИРВА
             </a>
-            <nav class="nav" id="nav">
+            <nav class="nav" id="nav" aria-label="Основна навигация">
                 <ul class="nav-list">
                     <li><a href="index.html">Начало</a></li>
                     <li class="has-dropdown">
@@ -183,11 +187,13 @@
             </nav>
             <div class="header-actions">
                 <a href="contact.html" class="btn-primary">Запитване</a>
-                <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Отвори менюто" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
             </div>
         </div>
     </div>
 </header>
+
+<main id="main-content">
 
 <!-- Page Hero -->
 <section class="page-hero">
@@ -223,43 +229,43 @@
             <div class="dealer-card">
                 <div class="dealer-icon">&#127969;</div>
                 <h3 class="dealer-city">София</h3>
-                <p class="dealer-phone">+359 2 888 8888</p>
-                <p class="dealer-email">sofia@airva.bg</p>
+                <p class="dealer-phone"><a href="tel:+35928888888">+359 2 888 8888</a></p>
+                <p class="dealer-email"><a href="mailto:sofia@airva.bg">sofia@airva.bg</a></p>
                 <span class="dealer-type main">Главен офис</span>
             </div>
             <div class="dealer-card">
                 <div class="dealer-icon">&#127970;</div>
                 <h3 class="dealer-city">Пловдив</h3>
-                <p class="dealer-phone">+359 32 555 555</p>
-                <p class="dealer-email">plovdiv@airva.bg</p>
+                <p class="dealer-phone"><a href="tel:+35932555555">+359 32 555 555</a></p>
+                <p class="dealer-email"><a href="mailto:plovdiv@airva.bg">plovdiv@airva.bg</a></p>
                 <span class="dealer-type">Оторизиран</span>
             </div>
             <div class="dealer-card">
                 <div class="dealer-icon">&#127970;</div>
                 <h3 class="dealer-city">Варна</h3>
-                <p class="dealer-phone">+359 52 333 444</p>
-                <p class="dealer-email">varna@airva.bg</p>
+                <p class="dealer-phone"><a href="tel:+35952333444">+359 52 333 444</a></p>
+                <p class="dealer-email"><a href="mailto:varna@airva.bg">varna@airva.bg</a></p>
                 <span class="dealer-type">Оторизиран</span>
             </div>
             <div class="dealer-card">
                 <div class="dealer-icon">&#127970;</div>
                 <h3 class="dealer-city">Бургас</h3>
-                <p class="dealer-phone">+359 56 777 888</p>
-                <p class="dealer-email">burgas@airva.bg</p>
+                <p class="dealer-phone"><a href="tel:+35956777888">+359 56 777 888</a></p>
+                <p class="dealer-email"><a href="mailto:burgas@airva.bg">burgas@airva.bg</a></p>
                 <span class="dealer-type">Оторизиран</span>
             </div>
             <div class="dealer-card">
                 <div class="dealer-icon">&#127970;</div>
                 <h3 class="dealer-city">Русе</h3>
-                <p class="dealer-phone">+359 82 555 777</p>
-                <p class="dealer-email">ruse@airva.bg</p>
+                <p class="dealer-phone"><a href="tel:+35982555777">+359 82 555 777</a></p>
+                <p class="dealer-email"><a href="mailto:ruse@airva.bg">ruse@airva.bg</a></p>
                 <span class="dealer-type">Оторизиран</span>
             </div>
             <div class="dealer-card">
                 <div class="dealer-icon">&#127970;</div>
                 <h3 class="dealer-city">Стара Загора</h3>
-                <p class="dealer-phone">+359 42 888 999</p>
-                <p class="dealer-email">stz@airva.bg</p>
+                <p class="dealer-phone"><a href="tel:+35942888999">+359 42 888 999</a></p>
+                <p class="dealer-email"><a href="mailto:stz@airva.bg">stz@airva.bg</a></p>
                 <span class="dealer-type">Оторизиран</span>
             </div>
         </div>
@@ -269,7 +275,7 @@
 <!-- Become Dealer CTA -->
 <section class="dealer-cta">
     <div class="dealer-cta-bg">
-        <img src="hero-main.jpg" alt="Станете дистрибутор">
+        <img src="dealers-bg.jpg" alt="Партньорска мрежа на АИРВА">
     </div>
     <div class="dealer-cta-overlay"></div>
     <div class="dealer-cta-content">
@@ -293,6 +299,8 @@
         <a href="contact.html?subject=dealer" class="btn-primary" style="font-size:16px;padding:16px 40px;">Кандидатствайте сега</a>
     </div>
 </section>
+
+</main>
 
 <!-- Footer -->
 <footer class="footer">

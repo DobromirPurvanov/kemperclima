@@ -1,0 +1,499 @@
+/* Shared product detail template: product stage + specification editorial. */
+body.page--detail {
+    --page-ink: var(--color-text, #17262e);
+    --page-navy: var(--color-ink-900, #102735);
+    --page-navy-soft: var(--color-ink-700, #294555);
+    --page-orange: var(--color-accent, #c44d1a);
+    --page-orange-ink: var(--color-accent-hover, #9e3b12);
+    --page-signal: #ee966f;
+    --page-paper: var(--color-canvas, #f5f4ef);
+    --page-surface: var(--color-surface, #ffffff);
+    --page-muted: var(--color-muted, #5d6e77);
+    --page-line: var(--color-border, #d5dcd8);
+    --page-green: var(--color-success, #1e6b4c);
+    --page-shadow: var(--shadow-float, 0 26px 65px rgba(11, 38, 56, 0.14));
+    background: var(--page-paper);
+    color: var(--page-ink);
+    font-family: var(--font-body, 'Manrope', 'Inter', sans-serif);
+}
+
+.page--detail .page-hero {
+    min-height: 30rem;
+    height: min(60vh, 40rem);
+    justify-content: flex-start;
+    isolation: isolate;
+}
+
+.page--detail .page-hero-bg img {
+    filter: saturate(0.45) contrast(1.04) brightness(0.66);
+    object-position: center;
+    transform: scale(1.015);
+}
+
+.page--detail .page-hero-overlay {
+    background:
+        linear-gradient(90deg, rgba(7, 28, 42, 0.98) 0%, rgba(7, 28, 42, 0.82) 45%, rgba(7, 28, 42, 0.18) 88%),
+        linear-gradient(180deg, transparent 45%, rgba(7, 28, 42, 0.56));
+}
+
+.page--detail .page-hero::after {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.07) 0 1px, transparent 1px min(14vw, 12rem));
+    content: "";
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(90deg, #000, transparent 75%);
+    mask-image: linear-gradient(90deg, #000, transparent 75%);
+}
+
+.page--detail .page-hero-content {
+    width: min(calc(100% - 3rem), 72rem);
+    margin-inline: auto;
+    padding: 5rem 0 4rem;
+    text-align: left;
+}
+
+.page--detail .page-hero-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 1.2rem;
+    color: var(--page-signal);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+}
+
+.page--detail .page-hero-brand::before {
+    width: 2.5rem;
+    height: 2px;
+    background: currentColor;
+    content: "";
+}
+
+.page--detail .page-hero-title {
+    max-width: 13ch;
+    margin-bottom: 1rem;
+    color: #fff;
+    font-size: clamp(3.25rem, 7.8vw, 6.6rem);
+    font-weight: 750;
+    letter-spacing: -0.06em;
+    line-height: 0.92;
+    text-transform: none;
+}
+
+.page--detail .page-hero-model {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: clamp(0.85rem, 1.6vw, 1rem);
+    font-weight: 650;
+    letter-spacing: 0.16em;
+}
+
+.page--detail .breadcrumb {
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--page-line);
+    background: var(--page-surface);
+    color: var(--page-muted);
+    font-size: 0.72rem;
+    font-weight: 650;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.page--detail .breadcrumb a {
+    color: var(--page-navy);
+}
+
+.page--detail .detail-section {
+    padding: clamp(5rem, 9vw, 8.5rem) 0;
+    background: var(--page-surface);
+}
+
+.page--detail .detail-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(21rem, 0.92fr);
+    gap: clamp(3rem, 7vw, 6rem);
+    align-items: start;
+}
+
+.page--detail .detail-gallery {
+    position: sticky;
+    top: 7rem;
+    display: flex;
+    min-height: 34rem;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: clamp(2rem, 5vw, 4.5rem);
+    border: 1px solid var(--page-line);
+    border-radius: 0.35rem;
+    background:
+        linear-gradient(rgba(11, 38, 56, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(11, 38, 56, 0.04) 1px, transparent 1px),
+        #eef0ef;
+    background-size: 2.75rem 2.75rem;
+    box-shadow: none;
+}
+
+.page--detail .detail-gallery::before,
+.page--detail .detail-gallery::after {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    border-color: var(--page-orange);
+    content: "";
+    pointer-events: none;
+}
+
+.page--detail .detail-gallery::before {
+    top: 1rem;
+    left: 1rem;
+    border-top: 2px solid var(--page-orange);
+    border-left: 2px solid var(--page-orange);
+}
+
+.page--detail .detail-gallery::after {
+    right: 1rem;
+    bottom: 1rem;
+    border-right: 2px solid var(--page-orange);
+    border-bottom: 2px solid var(--page-orange);
+}
+
+.page--detail .detail-gallery img {
+    position: relative;
+    z-index: 1;
+    max-width: 100%;
+    max-height: 27rem;
+    filter: saturate(0.72) contrast(1.02) drop-shadow(0 1.2rem 2rem rgba(11, 38, 56, 0.18));
+    mix-blend-mode: multiply;
+    object-fit: contain;
+}
+
+.page--detail .detail-info {
+    min-width: 0;
+}
+
+.page--detail .detail-tag {
+    margin-bottom: 1.25rem;
+    padding: 0.48rem 0.72rem;
+    border-radius: 0.15rem;
+    background: var(--page-navy);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+}
+
+.page--detail .detail-tag.premium {
+    background: var(--page-orange);
+}
+
+.page--detail .detail-tag.economy {
+    background: var(--page-green);
+}
+
+.page--detail .detail-name {
+    margin-bottom: 0.35rem;
+    color: var(--page-navy);
+    font-size: clamp(2.6rem, 5vw, 4.75rem);
+    font-weight: 750;
+    letter-spacing: -0.06em;
+    line-height: 0.95;
+    text-transform: none;
+}
+
+.page--detail .detail-model {
+    margin: 0.75rem 0 1.5rem;
+    color: var(--page-orange-ink);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+}
+
+.page--detail .detail-desc {
+    max-width: 42rem;
+    margin-bottom: 2.2rem;
+    color: var(--page-muted);
+    font-size: clamp(1rem, 1.5vw, 1.08rem);
+    line-height: 1.75;
+}
+
+.page--detail .detail-section-title {
+    margin: 2.5rem 0 1rem;
+    padding: 0 0 0.85rem;
+    border-bottom: 1px solid var(--page-line);
+    color: var(--page-navy);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+}
+
+.page--detail .detail-section-title svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    stroke: var(--page-orange);
+}
+
+.page--detail .detail-features {
+    border-top: 1px solid var(--page-line);
+}
+
+.page--detail .detail-features li {
+    gap: 0.85rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--page-line);
+    color: var(--page-ink);
+    font-size: 0.92rem;
+    line-height: 1.55;
+}
+
+.page--detail .feature-check {
+    width: 1.35rem;
+    height: 1.35rem;
+    margin-top: 0.05rem;
+    border: 1px solid var(--page-orange-ink);
+    border-radius: 0.12rem;
+    background: transparent;
+    color: var(--page-orange-ink);
+    font-size: 0.68rem;
+}
+
+.page--detail .cta-box {
+    position: relative;
+    overflow: hidden;
+    margin-top: 2.5rem;
+    padding: clamp(1.75rem, 4vw, 2.6rem);
+    border: 0;
+    border-radius: 0.35rem;
+    background: var(--page-navy);
+    color: #fff;
+    text-align: left;
+}
+
+.page--detail .cta-box::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--page-orange);
+    content: "";
+}
+
+.page--detail .cta-box h3 {
+    margin-bottom: 0.65rem;
+    font-size: clamp(1.45rem, 2.5vw, 1.9rem);
+    font-weight: 720;
+    letter-spacing: -0.03em;
+    text-transform: none;
+}
+
+.page--detail .cta-box p {
+    max-width: 36rem;
+    margin-bottom: 1.4rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.65;
+}
+
+.page--detail .cta-box .btn-primary {
+    min-height: 2.9rem;
+    padding: 0.8rem 1rem;
+    border-radius: 0.15rem;
+    background: var(--page-orange) !important;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+}
+
+.page--detail .cta-box .btn-primary:hover {
+    background: #a83f13 !important;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Existing specs section and card are identified by their legacy inline styles. */
+.page--detail section[style*="padding:60px"] {
+    padding: clamp(5rem, 9vw, 8rem) 0 !important;
+    border-top: 1px solid var(--page-line);
+    background: var(--page-paper) !important;
+}
+
+.page--detail section[style*="padding:60px"] .detail-section-title[style] {
+    max-width: 48rem !important;
+    margin: 0 auto 2rem !important;
+    padding-bottom: 1rem !important;
+    justify-content: flex-start !important;
+    border-bottom-color: var(--page-navy);
+    text-align: left !important;
+}
+
+.page--detail section[style*="padding:60px"] .container > div[style] {
+    max-width: 48rem !important;
+    margin: 0 auto !important;
+    overflow: auto !important;
+    border: 1px solid var(--page-line);
+    border-radius: 0.35rem !important;
+    background: var(--page-surface) !important;
+    box-shadow: none !important;
+}
+
+.page--detail .specs-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.page--detail .specs-table tr {
+    border-bottom: 1px solid var(--page-line);
+    transition: background-color 160ms ease;
+}
+
+.page--detail .specs-table tr:last-child {
+    border-bottom: 0;
+}
+
+.page--detail .specs-table tr:hover {
+    background: #f7f7f4;
+}
+
+.page--detail .specs-table th,
+.page--detail .specs-table td {
+    padding: 1rem 1.25rem;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    text-align: left;
+    vertical-align: top;
+}
+
+.page--detail .specs-table th {
+    width: 52%;
+    color: var(--page-muted);
+    font-weight: 500;
+}
+
+.page--detail .specs-table td:last-child {
+    color: var(--page-navy);
+    font-weight: 720;
+}
+
+.page--detail .back-section {
+    padding: 2rem 0 5rem;
+    border-top: 1px solid var(--page-line);
+    background: var(--page-paper);
+}
+
+.page--detail .back-link {
+    min-height: 3rem;
+    padding: 0.85rem 1.15rem;
+    border: 1px solid var(--page-navy);
+    border-radius: 0.15rem;
+    background: transparent;
+    color: var(--page-navy);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+}
+
+.page--detail .back-link:hover {
+    background: var(--page-navy);
+    color: #fff;
+    transform: none;
+}
+
+.page--detail a:focus-visible {
+    outline: 3px solid var(--page-orange);
+    outline-offset: 4px;
+}
+
+@media (max-width: 64rem) {
+    .page--detail .detail-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(19rem, 0.92fr);
+        gap: 2.5rem;
+    }
+
+    .page--detail .detail-gallery {
+        min-height: 29rem;
+        padding: 2.5rem;
+    }
+}
+
+@media (max-width: 48rem) {
+    .page--detail .page-hero {
+        min-height: 29rem;
+        height: 62vh;
+    }
+
+    .page--detail .page-hero-content {
+        width: min(calc(100% - 2rem), 72rem);
+        padding-block: 4rem;
+    }
+
+    .page--detail .page-hero-title {
+        font-size: clamp(3rem, 16vw, 5.2rem);
+    }
+
+    .page--detail .detail-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .page--detail .detail-gallery {
+        position: relative;
+        top: auto;
+        min-height: 22rem;
+        padding: 2rem;
+    }
+
+    .page--detail .detail-gallery img {
+        max-height: 20rem;
+    }
+
+    .page--detail .detail-name {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+    }
+}
+
+@media (max-width: 36rem) {
+    .page--detail .page-hero-title {
+        font-size: clamp(2.65rem, 15vw, 4.5rem);
+    }
+
+    .page--detail .detail-section {
+        padding-block: 4.5rem;
+    }
+
+    .page--detail .detail-gallery {
+        min-height: 18rem;
+        padding: 1.4rem;
+    }
+
+    .page--detail .specs-table tr {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 0.35rem 0;
+    }
+
+    .page--detail .specs-table th,
+    .page--detail .specs-table td {
+        width: 100%;
+        padding: 0.55rem 1rem;
+    }
+
+    .page--detail .specs-table th {
+        padding-bottom: 0.15rem;
+        font-size: 0.76rem;
+        font-weight: 650;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
+
+    .page--detail .specs-table td:last-child {
+        padding-top: 0.15rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page--detail .specs-table tr,
+    .page--detail .back-link,
+    .page--detail .cta-box .btn-primary {
+        transition: none;
+    }
+}

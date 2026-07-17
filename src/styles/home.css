@@ -1,0 +1,1047 @@
+/* Homepage — Expedition Engineering
+   This stylesheet is intentionally page-scoped and loaded after the legacy
+   inline CSS so the redesign can be introduced without selector leakage. */
+
+.page--home {
+  --page-ink: var(--color-ink-950, #0b171f);
+  --page-navy: var(--color-ink-900, #102735);
+  --page-steel: var(--color-ink-700, #294555);
+  --page-orange: var(--color-accent, #c44d1a);
+  --page-orange-hover: var(--color-accent-hover, #a63d13);
+  --page-orange-ink: var(--color-accent-ink, #a83f13);
+  --page-orange-soft: var(--color-accent-soft, #fce9df);
+  --page-signal: var(--color-signal, #ff9a72);
+  --page-paper: var(--color-canvas, #f5f4ef);
+  --page-surface: var(--color-surface, #ffffff);
+  --page-line: var(--color-border, #d5dcd8);
+  --page-muted: var(--color-muted, #5d6e77);
+  --page-focus: var(--color-focus, #1f718e);
+  --page-shadow: 0 1px 2px rgb(11 23 31 / 5%),
+    0 18px 48px rgb(11 23 31 / 9%);
+  --page-radius-sm: var(--radius-sm, 0.5rem);
+  --page-radius-md: var(--radius-md, 0.875rem);
+  --page-radius-lg: var(--radius-lg, 1.5rem);
+  --page-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  background: var(--page-paper);
+}
+
+.page--home :is(.hero, .features, .about, .products, .stats, .cta, .news) {
+  position: relative;
+}
+
+.page--home :is(.hero, .about, .products, .cta, .news) a:focus-visible {
+  outline: 3px solid var(--page-focus);
+  outline-offset: 4px;
+}
+
+/* Hero */
+.page--home .hero {
+  isolation: isolate;
+  display: grid;
+  align-items: center;
+  height: auto;
+  min-height: clamp(42rem, 78svh, 50rem);
+  max-height: none;
+  padding-block: clamp(4.5rem, 8vw, 7rem);
+  background: var(--page-ink);
+  overflow: clip;
+}
+
+.page--home .hero-bg {
+  inset: 0 46% 0 0;
+  background-image: url("../../cat-rv.jpg");
+  background-position: 42% center;
+  background-size: cover;
+}
+
+.page--home .hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgb(11 23 31 / 5%) 58%, rgb(11 23 31 / 56%) 100%),
+    linear-gradient(0deg, rgb(11 23 31 / 28%), transparent 48%);
+}
+
+.page--home .hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+}
+
+.page--home .hero-overlay {
+  inset: 0 0 0 54%;
+  background: var(--page-ink);
+}
+
+.page--home .hero::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0 0 0 54%;
+  pointer-events: none;
+  opacity: 0.32;
+  background-image:
+    linear-gradient(rgb(255 255 255 / 5%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 5%) 1px, transparent 1px);
+  background-size: 4.5rem 4.5rem;
+  mask-image: linear-gradient(90deg, transparent, #000 38%);
+}
+
+.page--home .hero > .container {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: minmax(0, 54fr) minmax(25rem, 46fr);
+  width: 100%;
+}
+
+.page--home .hero-content {
+  grid-column: 2;
+  max-width: none;
+  padding-left: clamp(2rem, 3.2vw, 3.5rem);
+}
+
+.page--home .hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--page-signal);
+  font-family: var(--font-tech, "IBM Plex Mono", monospace);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.page--home .hero-badge::before {
+  content: "";
+  width: 2.75rem;
+  height: 1px;
+  background: currentColor;
+}
+
+.page--home .hero-title {
+  max-width: 13ch;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  font-family: var(--font-display, "Manrope", "Inter", sans-serif);
+  font-size: clamp(3rem, 4.5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  text-transform: none;
+  text-wrap: balance;
+}
+
+.page--home .hero-title span {
+  color: #f3b092;
+}
+
+.page--home .hero-desc {
+  max-width: 35rem;
+  margin-bottom: 2.25rem;
+  color: rgb(255 255 255 / 76%);
+  font-size: clamp(1rem, 1.3vw, 1.125rem);
+  line-height: 1.65;
+}
+
+.page--home .hero-buttons {
+  gap: 0.75rem;
+}
+
+.page--home .hero :is(.btn-primary, .btn-outline) {
+  min-height: 3.25rem;
+  padding: 0.875rem 1.375rem;
+  border-radius: var(--page-radius-sm);
+  font-size: 0.875rem;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: none;
+  transition:
+    color 180ms var(--page-ease),
+    background-color 180ms var(--page-ease),
+    border-color 180ms var(--page-ease),
+    transform 180ms var(--page-ease);
+}
+
+.page--home .hero .btn-primary {
+  background: var(--page-orange);
+  color: #fff;
+}
+
+.page--home .hero .btn-primary:hover {
+  background: var(--page-orange-hover);
+  box-shadow: none;
+  transform: translateY(-2px);
+}
+
+.page--home .hero .btn-outline {
+  border: 1px solid rgb(255 255 255 / 48%);
+  background: rgb(255 255 255 / 4%);
+  color: #fff;
+}
+
+.page--home .hero .btn-outline:hover {
+  border-color: #fff;
+  background: #fff;
+  color: var(--page-ink);
+}
+
+.page--home .scroll-indicator {
+  display: none;
+}
+
+/* Proof band */
+.page--home .features {
+  z-index: 4;
+  padding: 0 0 clamp(5rem, 8vw, 8rem);
+  background: var(--page-paper);
+}
+
+.page--home .features-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin-top: -3rem;
+  border: 1px solid var(--page-line);
+  border-radius: var(--page-radius-md);
+  background: var(--page-surface);
+  box-shadow: var(--page-shadow);
+  overflow: hidden;
+}
+
+.page--home .feature-card {
+  min-width: 0;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  border: 0;
+  border-right: 1px solid var(--page-line);
+  border-radius: 0;
+  background: transparent;
+  text-align: left;
+  transition: background-color 180ms var(--page-ease);
+}
+
+.page--home .feature-card:last-child {
+  border-right: 0;
+}
+
+.page--home .feature-card:hover {
+  border-bottom-color: transparent;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+
+.page--home .feature-icon {
+  display: flex;
+  width: auto;
+  height: auto;
+  margin: 0 0 1.5rem;
+  border-radius: 0;
+  background: transparent;
+  color: var(--page-orange);
+  font-size: 0;
+}
+
+.page--home .feature-icon::before {
+  content: "01";
+  font-family: var(--font-tech, "IBM Plex Mono", monospace);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+.page--home .feature-card:nth-child(2) .feature-icon::before {
+  content: "02";
+}
+
+.page--home .feature-card:nth-child(3) .feature-icon::before {
+  content: "03";
+}
+
+.page--home .feature-card:nth-child(4) .feature-icon::before {
+  content: "04";
+}
+
+.page--home .feature-title {
+  margin-bottom: 0.75rem;
+  color: var(--page-ink);
+  font-family: var(--font-display, "Manrope", "Inter", sans-serif);
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.page--home .feature-text {
+  color: var(--page-muted);
+  font-size: 0.875rem;
+  line-height: 1.65;
+}
+
+/* About / expertise */
+.page--home .about {
+  padding: clamp(5rem, 9vw, 8rem) 0;
+  background: var(--page-paper);
+}
+
+.page--home .about-grid {
+  grid-template-columns: minmax(0, 1.18fr) minmax(22rem, 0.82fr);
+  gap: clamp(3rem, 7vw, 7rem);
+  align-items: center;
+}
+
+.page--home .about-img {
+  min-height: clamp(30rem, 48vw, 38rem);
+  border-radius: var(--page-radius-lg);
+  box-shadow: none;
+}
+
+.page--home .about-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border: 1px solid rgb(255 255 255 / 28%);
+  border-radius: inherit;
+  box-shadow: inset 0 -6rem 8rem rgb(11 23 31 / 20%);
+}
+
+.page--home .about-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+}
+
+.page--home .about-badge {
+  z-index: 2;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  left: auto;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: var(--page-radius-sm);
+  background: rgb(11 23 31 / 88%);
+  color: #fff;
+  backdrop-filter: blur(10px);
+}
+
+.page--home .about-badge .num {
+  margin-bottom: 0.3rem;
+  font-family: var(--font-display, "Manrope", "Inter", sans-serif);
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  letter-spacing: -0.04em;
+}
+
+.page--home .about-badge .text {
+  font-family: var(--font-tech, "IBM Plex Mono", monospace);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+}
+
+.page--home .about-label,
+.page--home .section-label {
+  margin-bottom: 1rem;
+  color: var(--page-orange-ink);
+  font-family: var(--font-tech, "IBM Plex Mono", monospace);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.page--home .about-title,
+.page--home .section-title {
+  margin-bottom: 1.25rem;
+  color: var(--page-ink);
+  font-family: var(--font-display, "Manrope", "Inter", sans-serif);
+  font-size: clamp(2.35rem, 4.5vw, 4.25rem);
+  font-weight: 700;
+  line-height: 1.03;
+  letter-spacing: -0.04em;
+  text-transform: none;
+  text-wrap: balance;
+}
+
+.page--home .about-title {
+  max-width: 11ch;
+}
+
+.page--home .about-text {
+  max-width: 37rem;
+  margin-bottom: 1.75rem;
+  color: var(--page-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.page--home .about-list {
+  margin-bottom: 2rem;
+}
+
+.page--home .about-list li {
+  gap: 0.875rem;
+  padding: 0.875rem 0;
+  border-color: var(--page-line);
+  color: var(--page-ink);
+  font-size: 0.9375rem;
+}
+
+.page--home .about-check {
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid var(--page-orange);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--page-orange);
+  font-size: 0;
+}
+
+.page--home .about-check::before {
+  content: "";
+  width: 0.35rem;
+  height: 0.65rem;
+  margin-top: -0.15rem;
+  border: solid currentColor;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.page--home .about .btn-primary {
+  min-height: 3.25rem;
+  padding: 0.875rem 1.375rem;
+  border-radius: var(--page-radius-sm);
+  background: var(--page-ink);
+  color: #fff;
+  font-size: 0.875rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.page--home .about .btn-primary:hover {
+  background: var(--page-orange);
+  box-shadow: none;
+  transform: translateY(-2px);
+}
+
+/* Solution categories */
+.page--home .products {
+  padding: clamp(5rem, 9vw, 8rem) 0;
+  background: var(--page-ink);
+}
+
+.page--home .products .section-header,
+.page--home .news .section-header {
+  max-width: 47rem;
+  margin: 0 0 clamp(2.75rem, 5vw, 4.5rem);
+  text-align: left;
+}
+
+.page--home .products .section-title {
+  color: #fff;
+}
+
+.page--home .products .section-label {
+  color: var(--page-signal);
+}
+
+.page--home .products .section-desc {
+  max-width: 37rem;
+  margin: 0;
+  color: rgb(255 255 255 / 66%);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.page--home .products-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.page--home .product-card {
+  isolation: isolate;
+  grid-column: span 6;
+  min-height: clamp(27rem, 40vw, 34rem);
+  border: 1px solid rgb(255 255 255 / 14%);
+  border-radius: var(--page-radius-md);
+  background: var(--page-navy);
+  box-shadow: none;
+  overflow: hidden;
+  transition:
+    border-color 220ms var(--page-ease),
+    transform 220ms var(--page-ease);
+}
+
+.page--home .product-card:nth-child(1),
+.page--home .product-card:nth-child(4) {
+  grid-column: span 7;
+}
+
+.page--home .product-card:nth-child(2),
+.page--home .product-card:nth-child(3) {
+  grid-column: span 5;
+}
+
+.page--home .product-card:hover {
+  border-color: rgb(255 255 255 / 34%);
+  box-shadow: none;
+  transform: translateY(-3px);
+}
+
+.page--home .product-card:focus-within {
+  outline: 3px solid var(--page-focus);
+  outline-offset: 4px;
+}
+
+.page--home .product-img {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.page--home .product-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgb(7 16 22 / 94%) 0%, rgb(7 16 22 / 34%) 58%, rgb(7 16 22 / 5%) 100%),
+    linear-gradient(90deg, rgb(7 16 22 / 18%), transparent 55%);
+}
+
+.page--home .product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms var(--page-ease);
+}
+
+.page--home .product-card:hover .product-img img {
+  transform: scale(1.025);
+}
+
+.page--home .product-badge,
+.page--home .product-badge.rv,
+.page--home .product-badge.ind,
+.page--home .product-badge.marine,
+.page--home .product-badge.home {
+  z-index: 2;
+  top: 1.25rem;
+  left: 1.25rem;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid rgb(255 255 255 / 32%);
+  border-radius: 999px;
+  background: rgb(11 23 31 / 62%);
+  color: #fff;
+  font-family: var(--font-tech, "IBM Plex Mono", monospace);
+  font-size: 0.6875rem;
+  line-height: 1.2;
+  letter-spacing: 0.1em;
+  backdrop-filter: blur(8px);
+}
+
+.page--home .product-info {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: clamp(1.5rem, 3.4vw, 2.75rem);
+}
+
+.page--home .product-name {
+  margin-bottom: 0.45rem;
+  color: #fff;
+  font-family: var(--font-display, "Manrope", "Inter", sans-serif);
+  font-size: clamp(1.6rem, 2.7vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.page--home .product-model {
+  margin-bottom: 0.8rem;
+  color: var(--page-signal);
+  font-family: var(--font-tech, "IBM Plex Mono", monospace);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.11em;
+}
+
+.page--home .product-desc {
+  max-width: 34rem;
+  margin-bottom: 1.25rem;
+  color: rgb(255 255 255 / 76%);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.page--home .product-link {
+  position: static;
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.55rem;
+  color: #fff;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  transition: color 180ms var(--page-ease);
+}
+
+.page--home .product-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.page--home .product-link:hover {
+  gap: 0.55rem;
+  color: var(--page-signal);
+}
+
+/* Proof metrics continue the dark product canvas. */
+.page--home .stats {
+  padding: 0 0 clamp(5rem, 9vw, 8rem);
+  background: var(--page-ink);
+}
+
+.page--home .stats-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid rgb(255 255 255 / 16%);
+  border-bottom: 1px solid rgb(255 255 255 / 16%);
+  text-align: left;
+}
+
+.page--home .stat-item {
+  min-width: 0;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  border-right: 1px solid rgb(255 255 255 / 16%);
+}
+
+.page--home .stat-item:last-child {
+  border-right: 0;
+}
+
+.page--home .stat-icon {
+  display: none;
+}
+
+.page--home .stat-num {
+  margin-bottom: 0.65rem;
+  color: #fff;
+  font-family: var(--font-display, "Manrope", "Inter", sans-serif);
+  font-size: clamp(2.75rem, 5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+}
+
+.page--home .stat-label {
+  color: rgb(255 255 255 / 58%);
+  font-family: var(--font-tech, "IBM Plex Mono", monospace);
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  letter-spacing: 0.11em;
+}
+
+/* Dealer CTA */
+.page--home .cta {
+  display: flex;
+  min-height: clamp(31rem, 52vw, 39rem);
+  align-items: center;
+  padding: clamp(5rem, 9vw, 8rem) 0;
+  background: var(--page-ink);
+  text-align: left;
+}
+
+.page--home .cta-bg {
+  background-image: url("../../dealers-bg.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.page--home .cta-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(11 23 31 / 96%) 0%, rgb(11 23 31 / 78%) 50%, rgb(11 23 31 / 22%) 100%);
+}
+
+.page--home .cta-bg img {
+  opacity: 0;
+}
+
+.page--home .cta-content {
+  width: 100%;
+}
+
+.page--home .cta-title {
+  max-width: 15ch;
+  margin-bottom: 1.25rem;
+  color: #fff;
+  font-family: var(--font-display, "Manrope", "Inter", sans-serif);
+  font-size: clamp(2.4rem, 4.8vw, 4.75rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  text-transform: none;
+  text-wrap: balance;
+}
+
+.page--home .cta-desc {
+  max-width: 36rem;
+  margin: 0 0 2rem;
+  color: rgb(255 255 255 / 74%);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+.page--home .cta .btn-primary {
+  min-height: 3.25rem;
+  padding: 0.875rem 1.375rem;
+  border-radius: var(--page-radius-sm);
+  background: var(--page-orange);
+  color: #fff;
+  font-size: 0.875rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.page--home .cta .btn-primary:hover {
+  background: var(--page-orange-hover);
+  box-shadow: none;
+  transform: translateY(-2px);
+}
+
+/* Editorial news */
+.page--home .news {
+  padding: clamp(5rem, 9vw, 8rem) 0;
+  background: var(--page-paper);
+}
+
+.page--home .news .section-desc {
+  max-width: 37rem;
+  margin: 0;
+  color: var(--page-muted);
+  line-height: 1.65;
+}
+
+.page--home .news-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.page--home .news-card {
+  grid-column: span 3;
+  padding-top: 1rem;
+  border-top: 1px solid var(--page-line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.page--home .news-card:first-child {
+  grid-column: span 6;
+}
+
+.page--home .news-card:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+.page--home .news-img {
+  height: clamp(13rem, 20vw, 18rem);
+  border-radius: var(--page-radius-md);
+  overflow: hidden;
+}
+
+.page--home .news-card:first-child .news-img {
+  height: clamp(18rem, 31vw, 27rem);
+}
+
+.page--home .news-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.82) contrast(1.03);
+  transition: none;
+}
+
+.page--home .news-card:hover .news-img img {
+  transform: none;
+}
+
+.page--home .news-content {
+  padding: 1.25rem 0 0;
+}
+
+.page--home .news-date {
+  margin-bottom: 0.65rem;
+  color: var(--page-orange-ink);
+  font-family: var(--font-tech, "IBM Plex Mono", monospace);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.11em;
+}
+
+.page--home .news-title {
+  margin-bottom: 0.75rem;
+  color: var(--page-ink);
+  font-family: var(--font-display, "Manrope", "Inter", sans-serif);
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.page--home .news-card:first-child .news-title {
+  font-size: clamp(1.65rem, 2.8vw, 2.5rem);
+}
+
+.page--home .news-excerpt {
+  color: var(--page-muted);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 68rem) {
+  .page--home .hero {
+    min-height: 43rem;
+  }
+
+  .page--home .hero-bg {
+    inset: 0;
+    background-position: 38% center;
+  }
+
+  .page--home .hero-bg::after {
+    background:
+      linear-gradient(90deg, rgb(11 23 31 / 91%) 0%, rgb(11 23 31 / 68%) 54%, rgb(11 23 31 / 24%) 100%),
+      linear-gradient(0deg, rgb(11 23 31 / 42%), transparent 52%);
+  }
+
+  .page--home .hero-overlay,
+  .page--home .hero::before {
+    display: none;
+  }
+
+  .page--home .hero > .container {
+    display: block;
+  }
+
+  .page--home .hero-content {
+    max-width: 39rem;
+    padding-left: 0;
+  }
+
+  .page--home .hero-title {
+    max-width: 11ch;
+  }
+
+  .page--home .features-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .page--home .feature-card:nth-child(2) {
+    border-right: 0;
+  }
+
+  .page--home .feature-card:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--page-line);
+  }
+
+  .page--home .about-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.82fr);
+    gap: 3.5rem;
+  }
+
+  .page--home .product-card,
+  .page--home .product-card:nth-child(n) {
+    grid-column: span 6;
+  }
+
+  .page--home .news-card:first-child {
+    grid-column: span 12;
+  }
+
+  .page--home .news-card:not(:first-child) {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 48rem) {
+  .page--home .hero {
+    min-height: 40rem;
+    padding-block: 5.5rem 4.5rem;
+    align-items: end;
+  }
+
+  .page--home .hero-bg {
+    background-position: 35% center;
+  }
+
+  .page--home .hero-bg::after {
+    background:
+      linear-gradient(0deg, rgb(11 23 31 / 96%) 0%, rgb(11 23 31 / 72%) 58%, rgb(11 23 31 / 25%) 100%),
+      linear-gradient(90deg, rgb(11 23 31 / 50%), transparent);
+  }
+
+  .page--home .hero-title {
+    font-size: clamp(2.75rem, 12vw, 4rem);
+  }
+
+  .page--home .hero-desc {
+    margin-bottom: 1.75rem;
+  }
+
+  .page--home .features {
+    padding-top: 1.25rem;
+  }
+
+  .page--home .features-grid {
+    margin-top: 0;
+  }
+
+  .page--home .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2.75rem;
+  }
+
+  .page--home .about-img {
+    min-height: min(120vw, 34rem);
+  }
+
+  .page--home .about-title {
+    max-width: 14ch;
+  }
+
+  .page--home .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page--home .product-card,
+  .page--home .product-card:nth-child(n) {
+    grid-column: auto;
+    min-height: 27rem;
+  }
+
+  .page--home .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .page--home .stat-item:nth-child(2) {
+    border-right: 0;
+  }
+
+  .page--home .stat-item:nth-child(-n + 2) {
+    border-bottom: 1px solid rgb(255 255 255 / 16%);
+  }
+
+  .page--home .cta {
+    min-height: 32rem;
+  }
+
+  .page--home .cta-bg {
+    background-position: 62% center;
+  }
+
+  .page--home .cta-bg::after {
+    background: linear-gradient(90deg, rgb(11 23 31 / 94%), rgb(11 23 31 / 58%));
+  }
+
+  .page--home .news-card:first-child,
+  .page--home .news-card:not(:first-child) {
+    grid-column: span 12;
+  }
+
+  .page--home .news-card .news-img,
+  .page--home .news-card:first-child .news-img {
+    height: min(72vw, 24rem);
+  }
+}
+
+@media (max-width: 34rem) {
+  .page--home .hero-buttons {
+    flex-direction: column;
+  }
+
+  .page--home .hero-buttons :is(.btn-primary, .btn-outline) {
+    width: 100%;
+  }
+
+  .page--home .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page--home .feature-card,
+  .page--home .feature-card:nth-child(n) {
+    border-right: 0;
+    border-bottom: 1px solid var(--page-line);
+  }
+
+  .page--home .feature-card:last-child {
+    border-bottom: 0;
+  }
+
+  .page--home .about-badge {
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  .page--home .product-card,
+  .page--home .product-card:nth-child(n) {
+    min-height: 25rem;
+  }
+
+  .page--home .product-desc {
+    display: none;
+  }
+
+  .page--home .stat-item {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page--home *,
+  .page--home *::before,
+  .page--home *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .page--home .product-card,
+  .page--home .features-grid,
+  .page--home .about-check {
+    border: 1px solid CanvasText;
+  }
+
+  .page--home :is(.hero, .about, .products, .cta, .news) a:focus-visible {
+    outline-color: Highlight;
+  }
+}

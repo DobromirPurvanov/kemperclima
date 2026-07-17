@@ -220,8 +220,12 @@
             .section-header{margin-bottom:40px}
         }
     </style>
+    <link rel="stylesheet" href="/src/styles/global.css">
+    <link rel="stylesheet" href="/src/styles/home.css">
+    <script type="module" src="/src/js/site.js"></script>
 </head>
-<body>
+<body class="page--home">
+<a class="skip-link" href="#main-content">Към основното съдържание</a>
 
 <!-- Top Bar -->
 <div class="topbar">
@@ -258,7 +262,7 @@
                 <img src="logo-airva-blanc-transparent.png" alt="АИРВА">
                 АИРВА
             </a>
-            <nav class="nav" id="nav">
+            <nav class="nav" id="nav" aria-label="Основна навигация">
                 <ul class="nav-list">
                     <li><a href="index.html" class="active">Начало</a></li>
                     <li class="has-dropdown">
@@ -284,23 +288,25 @@
                     </div>
                 </div>
                 <a href="contact.html" class="btn-primary">Запитване</a>
-                <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Отвори менюто" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
             </div>
         </div>
     </div>
 </header>
 
+<main id="main-content">
+
 <!-- Hero -->
 <section class="hero">
     <div class="hero-bg">
-        <img src="hero-main.jpg" alt="HVAC Professional">
+        <img src="cat-rv.jpg" alt="Кемпер край планинско езеро">
     </div>
     <div class="hero-overlay"></div>
     <div class="container">
         <div class="hero-content">
-            <span class="hero-badge">От 2005 г.</span>
-            <h1 class="hero-title">Професионални <span>Климатични</span> Решения</h1>
-            <p class="hero-desc">Вентилатори, климатизатори и покривни климатици за каравани, кемпери, индустриални и морски приложения. Официален дистрибутор за България.</p>
+            <span class="hero-badge">Климатични решения от 2005 г.</span>
+            <h1 class="hero-title">Комфорт, който <span>пътува</span> с вас.</h1>
+            <p class="hero-desc">Климатизация и вентилация за кемпери, каравани, специализирани превозни средства, морски приложения и дома — с консултация, монтаж и сервиз.</p>
             <div class="hero-buttons">
                 <a href="products.html" class="btn-primary">Разгледай продуктите &#8594;</a>
                 <a href="contact.html" class="btn-outline">Свържи се с нас</a>
@@ -343,23 +349,23 @@
     <div class="container">
         <div class="about-grid">
             <div class="about-img">
-                <img src="about-team.jpg" alt="Нашият екип">
+                <img src="about-team.jpg" alt="Индустриална климатична система">
                 <div class="about-badge">
                     <span class="num">20+</span>
                     <span class="text">Години опит</span>
                 </div>
             </div>
             <div class="about-content">
-                <span class="about-label">За Нас</span>
-                <h2 class="about-title">Добре дошли в АИРВА</h2>
-                <p class="about-text">АИРВА е водещ дистрибутор на професионални климатични системи за превозни средства. От 2005 г. предлагаме иновативни решения за каравани, кемпери, индустриални превозни средства и яхти. Партнираме с най-добрите световни производители.</p>
+                <span class="about-label">Инженерен подход</span>
+                <h2 class="about-title">Правилната система за всяко приложение</h2>
+                <p class="about-text">От 2005 г. подбираме климатични и вентилационни решения за каравани, кемпери, специализирани превозни средства и яхти. Съчетаваме продуктова експертиза с практична консултация, монтаж и сервизна поддръжка.</p>
                 <ul class="about-list">
                     <li><span class="about-check">&#10003;</span> Договаряме директно с производителите</li>
                     <li><span class="about-check">&#10003;</span> Ексклузивен представител за България</li>
                     <li><span class="about-check">&#10003;</span> Пълна сервизна поддръжка</li>
                     <li><span class="about-check">&#10003;</span> Консултации и оферти</li>
                 </ul>
-                <a href="dealers.html" class="btn-primary">Научи повече</a>
+                <a href="contact.html" class="btn-primary">Обсъдете проект с нас</a>
             </div>
         </div>
     </div>
@@ -369,9 +375,9 @@
 <section class="products">
     <div class="container">
         <div class="section-header">
-            <span class="section-label">Нашите Продукти</span>
-            <h2 class="section-title">Категории Продукти</h2>
-            <p class="section-desc">Пълна гама климатични системи за всеки тип превозно средство и дома</p>
+            <span class="section-label">Продуктови направления</span>
+            <h2 class="section-title">Решения за всяка среда</h2>
+            <p class="section-desc">Изберете приложение, за да откриете подходящата климатична или вентилационна система.</p>
         </div>
         <div class="products-grid">
             <div class="product-card">
@@ -468,48 +474,50 @@
     </div>
 </section>
 
-<!-- News -->
+<!-- Expertise -->
 <section class="news">
     <div class="container">
         <div class="section-header">
-            <span class="section-label">Новини</span>
-            <h2 class="section-title">Последни новини</h2>
-            <p class="section-desc">Бъдете в течение с нашите нови продукти и събития</p>
+            <span class="section-label">Експертиза</span>
+            <h2 class="section-title">Комфортът започва с правилния избор</h2>
+            <p class="section-desc">Различните среди изискват различен подход към мощността, въздушния поток, шума и енергийната ефективност.</p>
         </div>
         <div class="news-grid">
             <div class="news-card">
                 <div class="news-img">
-                    <img src="news-expo.jpg" alt="Ново изложение 2026">
+                    <img src="cat-rv.jpg" alt="Кемпер сред природата">
                 </div>
                 <div class="news-content">
-                    <p class="news-date">Януари 2026</p>
-                    <h3 class="news-title">Ново изложение 2026</h3>
-                    <p class="news-excerpt">Посетете ни на изложението за каравани и кемпери в София от 15-17 март 2026</p>
+                    <p class="news-date">Кемпери и каравани</p>
+                    <h3 class="news-title">Комфорт без компромис в движение</h3>
+                    <p class="news-excerpt">Подбираме покривни климатици и вентилатори според обема, изолацията и начина, по който използвате превозното средство.</p>
                 </div>
             </div>
             <div class="news-card">
                 <div class="news-img">
-                    <img src="prod-maxxfan.jpg" alt="ATEX Сертификация">
+                    <img src="cat-industrial.jpg" alt="Специализиран индустриален автомобил">
                 </div>
                 <div class="news-content">
-                    <p class="news-date">Декември 2025</p>
-                    <h3 class="news-title">ATEX Сертификация</h3>
-                    <p class="news-excerpt">Получихме ATEX сертификат за нашите индустриални вентилатори</p>
+                    <p class="news-date">Индустриални системи</p>
+                    <h3 class="news-title">Надеждност за специализирани машини</h3>
+                    <p class="news-excerpt">Решения за тежки условия, продължителна работа и прецизен температурен контрол.</p>
                 </div>
             </div>
             <div class="news-card">
                 <div class="news-img">
-                    <img src="prod-mach8.jpg" alt="Нов продукт">
+                    <img src="prod-maxxfan.jpg" alt="Покривен вентилатор MaxxFan">
                 </div>
                 <div class="news-content">
-                    <p class="news-date">Ноември 2025</p>
-                    <h3 class="news-title">Нов продукт: Airva 3500</h3>
-                    <p class="news-excerpt">Представяме новия покривен вентилатор Airva 3500 с подобрена ефективност</p>
+                    <p class="news-date">Вентилация</p>
+                    <h3 class="news-title">Контрол на въздуха и влагата</h3>
+                    <p class="news-excerpt">Ефективната вентилация поддържа по-добър микроклимат и помага за ограничаване на конденза.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+</main>
 
 <!-- Footer -->
 <footer class="footer">

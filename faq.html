@@ -121,8 +121,13 @@
             .footer-grid{grid-template-columns:1fr}
         }
     </style>
+    <link rel="stylesheet" href="/src/styles/global.css">
+    <link rel="stylesheet" href="/src/styles/faq.css">
+    <script type="module" src="/src/js/site.js"></script>
+    <script type="module" src="/src/js/faq.js"></script>
 </head>
-<body>
+<body class="page--faq">
+<a class="skip-link" href="#main-content">Към основното съдържание</a>
 
 <!-- Top Bar -->
 <div class="topbar">
@@ -149,7 +154,7 @@
                 <img src="logo-airva-blanc-transparent.png" alt="АИРВА">
                 АИРВА
             </a>
-            <nav class="nav" id="nav">
+            <nav class="nav" id="nav" aria-label="Основна навигация">
                 <ul class="nav-list">
                     <li><a href="index.html">Начало</a></li>
                     <li class="has-dropdown">
@@ -168,11 +173,13 @@
             </nav>
             <div class="header-actions">
                 <a href="contact.html" class="btn-primary">Запитване</a>
-                <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="Отвори менюто" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
             </div>
         </div>
     </div>
 </header>
+
+<main id="main-content">
 
 <!-- Page Hero -->
 <section class="page-hero">
@@ -201,64 +208,64 @@
         </div>
         <div class="faq-container">
             <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
+                <button class="faq-question" type="button">
                     <span>Как да избера правилния климатик за моя кемпер?</span>
                     <span class="faq-question-icon">+</span>
-                </div>
+                </button>
                 <div class="faq-answer">
                     <div class="faq-answer-text">Изборът зависи от размера на вашия кемпер, броя хора и климатичните условия. Ние предлагаме безплатна консултация за да ви помогнем да изберете най-подходящия модел. Свържете се с нас на телефона или попълнете формата за запитване.</div>
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
+                <button class="faq-question" type="button">
                     <span>Каква е гаранцията на продуктите?</span>
                     <span class="faq-question-icon">+</span>
-                </div>
+                </button>
                 <div class="faq-answer">
                     <div class="faq-answer-text">Всички наши продукти идват с пълна производствена гаранция от 2 години. При професионален монтаж от наш оторизиран дистрибутор, гаранцията може да бъде удължена до 5 години.</div>
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
+                <button class="faq-question" type="button">
                     <span>Предлагате ли монтаж?</span>
                     <span class="faq-question-icon">+</span>
-                </div>
+                </button>
                 <div class="faq-answer">
                     <div class="faq-answer-text">Да, предлагаме професионален монтаж от сертифицирани техници. Нашият екип има над 20 години опит в инсталацията на HVAC системи. Монтажът включва пълно тестване и инструктаж.</div>
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
+                <button class="faq-question" type="button">
                     <span>Как да поръчам продукт?</span>
                     <span class="faq-question-icon">+</span>
-                </div>
+                </button>
                 <div class="faq-answer">
                     <div class="faq-answer-text">Можете да поръчате по телефона, чрез контактната форма на сайта или като посетите най-близкия дистрибутор. За по-големи поръчки предлагаме персонализирана оферта.</div>
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
+                <button class="faq-question" type="button">
                     <span>Какви са сроковете за доставка?</span>
                     <span class="faq-question-icon">+</span>
-                </div>
+                </button>
                 <div class="faq-answer">
                     <div class="faq-answer-text">Срокът за доставка в рамките на София е 1-2 работни дни. За останалите градове в България - 2-5 работни дни. Международната доставка зависи от дестинацията и обикновено отнема 5-10 работни дни.</div>
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
+                <button class="faq-question" type="button">
                     <span>Имате ли сервизно обслужване?</span>
                     <span class="faq-question-icon">+</span>
-                </div>
+                </button>
                 <div class="faq-answer">
                     <div class="faq-answer-text">Да, предлагаме пълно сервизно обслужване - годишна профилактика, ремонти и подмяна на части. Нашите сервизни техници са обучени директно от производителите.</div>
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
+                <button class="faq-question" type="button">
                     <span>Как мога да стана дистрибутор?</span>
                     <span class="faq-question-icon">+</span>
-                </div>
+                </button>
                 <div class="faq-answer">
                     <div class="faq-answer-text">Ако искате да станете наш дистрибутор, моля попълнете формата за контакт с тема "Дистрибуторство" или се обадете директно. Ще се свържем с вас за да обсъдим възможностите за партньорство.</div>
                 </div>
@@ -273,6 +280,8 @@
         </div>
     </div>
 </section>
+
+</main>
 
 <!-- Footer -->
 <footer class="footer">
@@ -331,19 +340,6 @@
 </footer>
 
 <script>
-    function toggleFaq(element) {
-        const item = element.parentElement;
-        const isActive = item.classList.contains('active');
-
-        // Close all
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-
-        // Open clicked if wasn't active
-        if (!isActive) {
-            item.classList.add('active');
-        }
-    }
-
     // Mobile menu
     const menuToggle = document.getElementById('menuToggle');
     const nav = document.getElementById('nav');
