@@ -12,10 +12,36 @@ import {
     sep
 } from 'node:path';
 
-const root = process.cwd();
+const projectRoot = process.cwd();
+const root = resolve(projectRoot, process.argv[2] ?? '.');
+
+if (!existsSync(root) || !statSync(root).isDirectory()) {
+    console.error(`Site directory does not exist: ${relative(projectRoot, root) || '.'}`);
+    process.exit(1);
+}
+
 const htmlFiles = readdirSync(root)
     .filter((file) => file.endsWith('.html'))
     .sort();
+
+if (htmlFiles.length === 0) {
+    console.error(`No HTML files found in: ${relative(projectRoot, root) || '.'}`);
+    process.exit(1);
+}
+
+if (root !== projectRoot) {
+    const sourceHtmlFiles = readdirSync(projectRoot)
+        .filter((file) => file.endsWith('.html'))
+        .sort();
+    const missingPages = sourceHtmlFiles.filter((file) => !htmlFiles.includes(file));
+
+    if (missingPages.length > 0) {
+        console.error('HTML entry points missing from production output:');
+        missingPages.forEach((file) => console.error(`- ${file}`));
+        process.exit(1);
+    }
+}
+
 const failures = [];
 const attributePattern = /\b(?:href|src)\s*=\s*(["'])(.*?)\1/gi;
 
@@ -77,4 +103,6 @@ if (failures.length > 0) {
     process.exit(1);
 }
 
-console.log(`Checked ${htmlFiles.length} HTML files: all internal links exist.`);
+console.log(
+    `Checked ${htmlFiles.length} HTML files in ${relative(projectRoot, root) || '.'}: all internal links exist.`
+);

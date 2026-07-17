@@ -1,0 +1,21 @@
+{
+  "name": "kemperclima",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Multi-page Vite website for АИРВА България.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check:source": "node scripts/check-links.mjs .",
+    "check:dist": "node scripts/check-links.mjs dist",
+    "check": "npm run check:source && npm run build && npm run check:dist"
+  },
+  "devDependencies": {
+    "vite": "^8.1.5"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  }
+}
