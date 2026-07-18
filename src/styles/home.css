@@ -25,13 +25,17 @@
   background: var(--page-paper);
 }
 
-.page--home :is(.hero, .features, .about, .products, .stats, .cta, .news) {
+.page--home :is(.hero, .features, .fit-finder, .about, .products, .process, .stats, .cta, .news) {
   position: relative;
 }
 
-.page--home :is(.hero, .about, .products, .cta, .news) a:focus-visible {
+.page--home :is(.hero, .fit-finder, .about, .products, .process, .cta, .news) :is(a, button, input):focus-visible {
   outline: 3px solid var(--page-focus);
   outline-offset: 4px;
+}
+
+.page--home :is(#fit-finder, #solutions, #process) {
+  scroll-margin-top: 6rem;
 }
 
 /* Hero */
@@ -48,7 +52,7 @@
 }
 
 .page--home .hero-bg {
-  inset: 0 46% 0 0;
+  inset: 0 52% 0 0;
   background-image: url("../../cat-rv.jpg");
   background-position: 42% center;
   background-size: cover;
@@ -71,7 +75,7 @@
 }
 
 .page--home .hero-overlay {
-  inset: 0 0 0 54%;
+  inset: 0 0 0 48%;
   background: var(--page-ink);
 }
 
@@ -79,7 +83,7 @@
   content: "";
   position: absolute;
   z-index: 2;
-  inset: 0 0 0 54%;
+  inset: 0 0 0 48%;
   pointer-events: none;
   opacity: 0.32;
   background-image:
@@ -93,13 +97,13 @@
   position: relative;
   z-index: 3;
   display: grid;
-  grid-template-columns: minmax(0, 54fr) minmax(25rem, 46fr);
+  grid-template-columns: minmax(0, 48fr) minmax(27rem, 52fr);
   width: 100%;
 }
 
 .page--home .hero-content {
   grid-column: 2;
-  max-width: none;
+  max-width: 43rem;
   padding-left: clamp(2rem, 3.2vw, 3.5rem);
 }
 
@@ -128,11 +132,11 @@
 }
 
 .page--home .hero-title {
-  max-width: 13ch;
+  max-width: 14ch;
   margin-bottom: 1.5rem;
   color: #fff;
   font-family: var(--font-display, "Manrope", "Inter", sans-serif);
-  font-size: clamp(3rem, 4.5vw, 4.5rem);
+  font-size: clamp(3rem, 4.15vw, 4.4rem);
   font-weight: 700;
   line-height: 0.98;
   letter-spacing: -0.045em;
@@ -192,6 +196,43 @@
   border-color: #fff;
   background: #fff;
   color: var(--page-ink);
+}
+
+.page--home .hero-assurance {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.25rem;
+  margin-top: 1.35rem;
+  color: rgb(255 255 255 / 68%);
+  font-family: var(--font-tech, "IBM Plex Mono", monospace);
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  letter-spacing: 0.035em;
+}
+
+.page--home .hero-assurance span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.page--home .hero-assurance span::before {
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: 50%;
+  background: var(--page-signal);
+  content: "";
+}
+
+.page--home .hero-phone {
+  margin-top: 1rem;
+  color: rgb(255 255 255 / 66%);
+  font-size: 0.875rem;
+}
+
+.page--home .hero-phone a {
+  color: #fff;
+  font-weight: 700;
 }
 
 .page--home .scroll-indicator {
@@ -282,6 +323,231 @@
   color: var(--page-muted);
   font-size: 0.875rem;
   line-height: 1.65;
+}
+
+/* Guided fit finder — the primary conversion step. */
+.page--home .fit-finder {
+  padding: 0 0 clamp(5rem, 9vw, 8rem);
+  background: var(--page-paper);
+}
+
+.page--home .finder-shell {
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.78fr) minmax(0, 1.22fr);
+  border: 1px solid rgb(255 255 255 / 10%);
+  border-radius: clamp(1.25rem, 2.5vw, 2rem);
+  background: var(--page-ink);
+  box-shadow: var(--page-shadow);
+  overflow: hidden;
+}
+
+.page--home .finder-intro {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(2rem, 4.5vw, 4.25rem);
+  color: #fff;
+  background:
+    linear-gradient(0deg, rgb(7 16 22 / 96%) 0%, rgb(7 16 22 / 65%) 56%, rgb(7 16 22 / 24%) 100%),
+    url("../../rv-cooling.jpg") center / cover;
+}
+
+.page--home .finder-intro::before {
+  position: absolute;
+  z-index: -1;
+  inset: 1rem;
+  border: 1px solid rgb(255 255 255 / 14%);
+  border-radius: 1rem;
+  pointer-events: none;
+  content: "";
+}
+
+.page--home .finder-intro .section-label {
+  color: var(--page-signal);
+}
+
+.page--home .finder-title {
+  max-width: 12ch;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-display, "Manrope", sans-serif);
+  font-size: clamp(2.35rem, 4.4vw, 4rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.page--home .finder-copy {
+  max-width: 34rem;
+  margin-bottom: 1.75rem;
+  color: rgb(255 255 255 / 72%);
+  font-size: 0.975rem;
+  line-height: 1.7;
+}
+
+.page--home .finder-benefits {
+  display: grid;
+  gap: 0.85rem;
+  list-style: none;
+}
+
+.page--home .finder-benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: rgb(255 255 255 / 84%);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.page--home .finder-benefits li::before {
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-top: 0.43rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--page-signal);
+  content: "";
+}
+
+.page--home .finder-form {
+  padding: clamp(2rem, 4.5vw, 4.25rem);
+  background:
+    radial-gradient(circle at 100% 0%, rgb(196 77 26 / 10%), transparent 28%),
+    var(--page-surface);
+}
+
+.page--home .finder-form-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--page-line);
+  color: var(--page-muted);
+  font-family: var(--font-tech, "IBM Plex Mono", monospace);
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.page--home .finder-form-head strong {
+  color: var(--page-orange-ink);
+  font-weight: 600;
+}
+
+.page--home .finder-group {
+  min-width: 0;
+  margin: 0 0 2rem;
+  padding: 0;
+  border: 0;
+}
+
+.page--home .finder-group legend {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+  color: var(--page-ink);
+  font-family: var(--font-display, "Manrope", sans-serif);
+  font-size: 0.975rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.page--home .finder-group legend span {
+  color: var(--page-orange-ink);
+  font-family: var(--font-tech, "IBM Plex Mono", monospace);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+}
+
+.page--home .finder-options {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.page--home .finder-options--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.page--home .finder-option {
+  position: relative;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.page--home .finder-option input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.page--home .finder-option > span {
+  display: flex;
+  min-height: 6.25rem;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  border: 1px solid var(--page-line);
+  border-radius: 0.85rem;
+  background: rgb(255 255 255 / 82%);
+  transition:
+    border-color 180ms var(--page-ease),
+    background-color 180ms var(--page-ease),
+    box-shadow 180ms var(--page-ease),
+    transform 180ms var(--page-ease);
+}
+
+.page--home .finder-option:hover > span {
+  border-color: rgb(196 77 26 / 55%);
+  transform: translateY(-2px);
+}
+
+.page--home .finder-option input:checked + span {
+  border-color: var(--page-orange);
+  background: var(--page-orange-soft);
+  box-shadow: inset 0 0 0 1px var(--page-orange);
+}
+
+.page--home .finder-option input:focus-visible + span {
+  outline: 3px solid var(--page-focus);
+  outline-offset: 3px;
+}
+
+.page--home .finder-option strong {
+  margin-bottom: 0.3rem;
+  color: var(--page-ink);
+  font-size: 0.875rem;
+  line-height: 1.3;
+}
+
+.page--home .finder-option small {
+  color: var(--page-muted);
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.page--home .finder-submit {
+  width: 100%;
+  min-height: 3.6rem;
+  border-radius: 0.85rem;
+  font-size: 0.925rem;
+}
+
+.page--home .finder-privacy {
+  margin-top: 0.85rem;
+  color: var(--page-muted);
+  font-size: 0.75rem;
+  line-height: 1.55;
+  text-align: center;
 }
 
 /* About / expertise */
@@ -618,9 +884,136 @@
   color: var(--page-signal);
 }
 
-/* Proof metrics continue the dark product canvas. */
+.page--home .products-assist {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 1rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border: 1px solid rgb(255 255 255 / 14%);
+  border-radius: var(--page-radius-md);
+  background: rgb(255 255 255 / 5%);
+}
+
+.page--home .products-assist div {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.page--home .products-assist span {
+  color: var(--page-signal);
+  font-family: var(--font-tech, "IBM Plex Mono", monospace);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.page--home .products-assist strong {
+  color: #fff;
+  font-family: var(--font-display, "Manrope", sans-serif);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  line-height: 1.3;
+}
+
+.page--home .products-assist .btn-primary {
+  flex: 0 0 auto;
+  border-radius: var(--page-radius-sm);
+}
+
+/* Three-step handoff from recommendation to installation. */
+.page--home .process {
+  padding: clamp(5rem, 9vw, 8rem) 0;
+  background:
+    linear-gradient(90deg, transparent 0 49.9%, rgb(11 23 31 / 4%) 50% 50.1%, transparent 50.2%),
+    var(--page-paper);
+}
+
+.page--home .process-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.55fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: end;
+  margin-bottom: clamp(2.75rem, 5vw, 4.5rem);
+}
+
+.page--home .process-head .section-title {
+  max-width: 15ch;
+  margin-bottom: 0;
+}
+
+.page--home .process-head > p {
+  color: var(--page-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.page--home .process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0;
+  padding: 1px;
+  border-radius: var(--page-radius-lg);
+  background: var(--page-line);
+  list-style: none;
+  overflow: hidden;
+}
+
+.page--home .process-step {
+  position: relative;
+  min-height: 18rem;
+  padding: clamp(1.75rem, 3.5vw, 3rem);
+  background: var(--page-surface);
+}
+
+.page--home .process-step::after {
+  position: absolute;
+  right: -0.45rem;
+  bottom: 2rem;
+  z-index: 2;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-top: 1px solid var(--page-line);
+  border-right: 1px solid var(--page-line);
+  background: var(--page-surface);
+  content: "";
+  transform: rotate(45deg);
+}
+
+.page--home .process-step:last-child::after {
+  display: none;
+}
+
+.page--home .process-number {
+  display: block;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+  color: var(--page-orange-ink);
+  font-family: var(--font-tech, "IBM Plex Mono", monospace);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.page--home .process-step h3 {
+  max-width: 15ch;
+  margin-bottom: 0.85rem;
+  color: var(--page-ink);
+  font-family: var(--font-display, "Manrope", sans-serif);
+  font-size: clamp(1.35rem, 2.3vw, 2rem);
+  line-height: 1.14;
+  letter-spacing: -0.03em;
+}
+
+.page--home .process-step p {
+  color: var(--page-muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+/* Proof metrics close the decision gap before the final CTA. */
 .page--home .stats {
-  padding: 0 0 clamp(5rem, 9vw, 8rem);
+  padding: clamp(4rem, 7vw, 6rem) 0;
   background: var(--page-ink);
 }
 
@@ -665,7 +1058,7 @@
   letter-spacing: 0.11em;
 }
 
-/* Dealer CTA */
+/* Final conversion CTA */
 .page--home .cta {
   display: flex;
   min-height: clamp(31rem, 52vw, 39rem);
@@ -676,8 +1069,8 @@
 }
 
 .page--home .cta-bg {
-  background-image: url("../../dealers-bg.jpg");
-  background-position: center;
+  background-image: url("../../rv-cooling.jpg");
+  background-position: 62% center;
   background-size: cover;
 }
 
@@ -694,6 +1087,26 @@
 
 .page--home .cta-content {
   width: 100%;
+}
+
+.page--home .cta-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  color: var(--page-signal);
+  font-family: var(--font-tech, "IBM Plex Mono", monospace);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.page--home .cta-kicker::before {
+  width: 2rem;
+  height: 1px;
+  background: currentColor;
+  content: "";
 }
 
 .page--home .cta-title {
@@ -732,6 +1145,24 @@
   background: var(--page-orange-hover);
   box-shadow: none;
   transform: translateY(-2px);
+}
+
+.page--home .cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.page--home .cta-phone {
+  color: rgb(255 255 255 / 68%);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.page--home .cta-phone strong {
+  display: block;
+  color: #fff;
+  font-size: 1rem;
 }
 
 /* Editorial news */
@@ -866,6 +1297,18 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .page--home .finder-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .page--home .finder-intro {
+    min-height: 34rem;
+  }
+
+  .page--home .finder-title {
+    max-width: 15ch;
+  }
+
   .page--home .feature-card:nth-child(2) {
     border-right: 0;
   }
@@ -926,6 +1369,18 @@
     margin-top: 0;
   }
 
+  .page--home .finder-intro {
+    min-height: 30rem;
+  }
+
+  .page--home .finder-options--three {
+    grid-template-columns: 1fr;
+  }
+
+  .page--home .finder-option > span {
+    min-height: 5rem;
+  }
+
   .page--home .about-grid {
     grid-template-columns: 1fr;
     gap: 2.75rem;
@@ -947,6 +1402,32 @@
   .page--home .product-card:nth-child(n) {
     grid-column: auto;
     min-height: 27rem;
+  }
+
+  .page--home .products-assist {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .page--home .process-head {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .page--home .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page--home .process-step {
+    min-height: 0;
+  }
+
+  .page--home .process-step::after {
+    display: none;
+  }
+
+  .page--home .process-number {
+    margin-bottom: 2.5rem;
   }
 
   .page--home .stats-grid {
@@ -993,6 +1474,11 @@
     width: 100%;
   }
 
+  .page--home .hero-assurance {
+    display: grid;
+    gap: 0.55rem;
+  }
+
   .page--home .features-grid {
     grid-template-columns: 1fr;
   }
@@ -1010,6 +1496,38 @@
   .page--home .about-badge {
     right: 1rem;
     bottom: 1rem;
+  }
+
+  .page--home .finder-intro,
+  .page--home .finder-form {
+    padding: 1.5rem;
+  }
+
+  .page--home .finder-intro {
+    min-height: 27rem;
+  }
+
+  .page--home .finder-intro::before {
+    inset: 0.65rem;
+  }
+
+  .page--home .finder-form-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .page--home .products-assist .btn-primary {
+    width: 100%;
+  }
+
+  .page--home .cta-actions {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .page--home .cta-actions .btn-primary {
+    width: 100%;
   }
 
   .page--home .product-card,
@@ -1040,6 +1558,8 @@
 @media (forced-colors: active) {
   .page--home .product-card,
   .page--home .features-grid,
+  .page--home .finder-option > span,
+  .page--home .process-grid,
   .page--home .about-check {
     border: 1px solid CanvasText;
   }

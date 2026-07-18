@@ -287,7 +287,7 @@
                         <strong>+359 2 888 8888</strong>
                     </span>
                 </a>
-                <a href="contact.html" class="btn-primary">Запитване</a>
+                <a href="contact.html?subject=offer&amp;source=header#quote-form" class="btn-primary">Получете оферта</a>
                 <button class="menu-toggle" id="menuToggle" type="button" aria-label="Отвори менюто" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
             </div>
         </div>
@@ -304,14 +304,19 @@
     <div class="hero-overlay"></div>
     <div class="container">
         <div class="hero-content">
-            <span class="hero-badge">Кемперска климатизация от 2005 г.</span>
-            <h1 class="hero-title">Комфорт, който <span>пътува</span> с вас.</h1>
-            <p class="hero-desc">Покривни климатици и вентилатори за кемпери и каравани — MaxxAir, Coleman-Mach и Aircommand, с консултация, професионален монтаж и сервиз.</p>
+            <span class="hero-badge">Безплатна експертна консултация</span>
+            <h1 class="hero-title">Точният климат за вашия кемпер. <span>Без проби и грешки.</span></h1>
+            <p class="hero-desc">Кажете ни как пътувате и какво превозно средство имате. Ще получите конкретна препоръка за климатик или вентилатор, съобразена с размера, захранването и начина ви на ползване.</p>
             <div class="hero-buttons">
-                <a href="products.html" class="btn-primary">Разгледай продуктите &#8594;</a>
-                <a href="contact.html?subject=offer" class="btn-outline">Заяви оферта</a>
+                <a href="#fit-finder" class="btn-primary">Получавам препоръка &#8594;</a>
+                <a href="#solutions" class="btn-outline">Вижте решенията</a>
             </div>
-            <p class="hero-phone">или се обадете: <a href="tel:+35928888888">+359 2 888 8888</a></p>
+            <div class="hero-assurance" aria-label="Условия на консултацията">
+                <span>Отнема 60 секунди</span>
+                <span>Отговор до 24 часа</span>
+                <span>Без ангажимент</span>
+            </div>
+            <p class="hero-phone">Предпочитате разговор? <a href="tel:+35928888888">+359 2 888 8888</a></p>
         </div>
     </div>
     <div class="scroll-indicator">&#8595;</div>
@@ -324,24 +329,106 @@
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">&#9733;</div>
-                <h3 class="feature-title">Ексклузивен Дистрибутор</h3>
-                <p class="feature-text">Официален представител на Coleman-Mach, Aircommand и Maxxair за България</p>
+                <h3 class="feature-title">Официални продукти</h3>
+                <p class="feature-text">MaxxAir, Coleman-Mach и Aircommand с гаранция за България</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">&#9881;</div>
-                <h3 class="feature-title">Професионален Екип</h3>
-                <p class="feature-text">Сертифицирани техници с дългогодишен опит в HVAC системите</p>
+                <h3 class="feature-title">Подбор за вашия кемпер</h3>
+                <p class="feature-text">Съобразяваме мощност, обем, изолация и наличното захранване</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">&#9992;</div>
-                <h3 class="feature-title">Доставка в Европа</h3>
-                <p class="feature-text">Бърза доставка в Европа, Близкия Изток и Северна Африка</p>
+                <h3 class="feature-title">Монтаж от специалисти</h3>
+                <p class="feature-text">Правилен монтаж, който пази покрива, херметичността и гаранцията</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">&#10003;</div>
-                <h3 class="feature-title">Пълна Гаранция</h3>
-                <p class="feature-text">Професионален монтаж, сервиз и пълна гаранция на всички продукти</p>
+                <h3 class="feature-title">Сервиз след монтажа</h3>
+                <p class="feature-text">Гаранционна и следгаранционна поддръжка от екип в България</p>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- Solution Finder -->
+<section class="fit-finder" id="fit-finder">
+    <div class="container">
+        <div class="finder-shell">
+            <div class="finder-intro">
+                <span class="section-label">Бърза ориентация</span>
+                <h2 class="finder-title">Кое решение е подходящо за вашия кемпер?</h2>
+                <p class="finder-copy">Отговорете на три кратки въпроса. Експерт от екипа ни ще прегледа данните и ще ви насочи към правилния тип система.</p>
+                <ul class="finder-benefits">
+                    <li>Конкретна препоръка, не общ каталог</li>
+                    <li>Съобразена с 12V или 230V захранване</li>
+                    <li>Възможност за доставка, монтаж и сервиз</li>
+                </ul>
+            </div>
+
+            <form class="finder-form" id="solutionFinder">
+                <div class="finder-form-head">
+                    <span>3 кратки стъпки</span>
+                    <strong>около 60 секунди</strong>
+                </div>
+
+                <fieldset class="finder-group">
+                    <legend><span>01</span> Какво превозно средство имате?</legend>
+                    <div class="finder-options finder-options--three">
+                        <label class="finder-option">
+                            <input type="radio" name="vehicle" value="van" required>
+                            <span><strong>Кемпер ван</strong><small>Компактен, до около 6 м</small></span>
+                        </label>
+                        <label class="finder-option">
+                            <input type="radio" name="vehicle" value="motorhome" required>
+                            <span><strong>Моторен кемпер</strong><small>Интегриран или полуинтегриран</small></span>
+                        </label>
+                        <label class="finder-option">
+                            <input type="radio" name="vehicle" value="caravan" required>
+                            <span><strong>Каравана</strong><small>Теглена каравана</small></span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="finder-group">
+                    <legend><span>02</span> Какво искате да подобрите?</legend>
+                    <div class="finder-options finder-options--three">
+                        <label class="finder-option">
+                            <input type="radio" name="need" value="ventilation" required>
+                            <span><strong>Свеж въздух</strong><small>Вентилация и по-малко конденз</small></span>
+                        </label>
+                        <label class="finder-option">
+                            <input type="radio" name="need" value="cooling" required>
+                            <span><strong>Охлаждане</strong><small>Комфорт през горещите дни</small></span>
+                        </label>
+                        <label class="finder-option">
+                            <input type="radio" name="need" value="unsure" required>
+                            <span><strong>Не съм сигурен</strong><small>Искам експертен съвет</small></span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="finder-group">
+                    <legend><span>03</span> С какво захранване разполагате?</legend>
+                    <div class="finder-options finder-options--three">
+                        <label class="finder-option">
+                            <input type="radio" name="power" value="12v" required>
+                            <span><strong>12V</strong><small>Батерия или соларна система</small></span>
+                        </label>
+                        <label class="finder-option">
+                            <input type="radio" name="power" value="230v" required>
+                            <span><strong>230V</strong><small>Къмпинг ток или генератор</small></span>
+                        </label>
+                        <label class="finder-option">
+                            <input type="radio" name="power" value="unsure" required>
+                            <span><strong>Не знам</strong><small>Ще го уточним заедно</small></span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <button type="submit" class="btn-primary finder-submit">Получавам персонална препоръка &#8594;</button>
+                <p class="finder-privacy">Без плащане и без ангажимент. Данните се използват само за вашето запитване.</p>
+            </form>
         </div>
     </div>
 </section>
@@ -358,28 +445,28 @@
                 </div>
             </div>
             <div class="about-content">
-                <span class="about-label">Инженерен подход</span>
-                <h2 class="about-title">Правилната система за всяко приложение</h2>
-                <p class="about-text">От 2005 г. подбираме климатични и вентилационни решения за каравани, кемпери и специализирани превозни средства. Съчетаваме продуктова експертиза с практична консултация, монтаж и сервизна поддръжка.</p>
+                <span class="about-label">Без грешен размер и мощност</span>
+                <h2 class="about-title">Първо подбираме. После монтираме.</h2>
+                <p class="about-text">Климатикът с най-много BTU не винаги е правилният избор, а вентилаторът не решава всеки проблем с жегата. Подбираме системата според реалния обем, изолацията, захранването и начина, по който пътувате.</p>
                 <ul class="about-list">
-                    <li><span class="about-check">&#10003;</span> Договаряме директно с производителите</li>
-                    <li><span class="about-check">&#10003;</span> Ексклузивен представител за България</li>
-                    <li><span class="about-check">&#10003;</span> Пълна сервизна поддръжка</li>
-                    <li><span class="about-check">&#10003;</span> Консултации и оферти</li>
+                    <li><span class="about-check">&#10003;</span> Проверяваме размерите и свободното място на покрива</li>
+                    <li><span class="about-check">&#10003;</span> Съобразяваме консумацията с наличното захранване</li>
+                    <li><span class="about-check">&#10003;</span> Даваме ясна оферта за продукт и монтаж</li>
+                    <li><span class="about-check">&#10003;</span> Оставаме насреща за гаранция и сервиз</li>
                 </ul>
-                <a href="contact.html" class="btn-primary">Обсъдете проект с нас</a>
+                <a href="#fit-finder" class="btn-primary">Проверете кое е за вас</a>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Products -->
-<section class="products">
+<section class="products" id="solutions">
     <div class="container">
         <div class="section-header">
-            <span class="section-label">Продуктови направления</span>
-            <h2 class="section-title">Всичко за климата в кемпера</h2>
-            <p class="section-desc">Вентилация, охлаждане и професионален монтаж — подбрани за вашето превозно средство.</p>
+            <span class="section-label">Изберете според нуждата</span>
+            <h2 class="section-title">Три пътя към по-добър климат</h2>
+            <p class="section-desc">Започнете от проблема, който искате да решите. Ако не сте сигурни, кратката консултация ще ви спести грешен избор.</p>
         </div>
         <div class="products-grid">
             <div class="product-card">
@@ -391,7 +478,7 @@
                     <h3 class="product-name">Покривни вентилатори</h3>
                     <p class="product-model">MaxxAir</p>
                     <p class="product-desc">Ефективна вентилация на 12V — свеж въздух и по-малко конденз, дори в дъжд</p>
-                    <a href="product-detail.html" class="product-link">Виж MaxxFan Deluxe &#8594;</a>
+                    <a href="product-detail.html" class="product-link">Искам свеж въздух &#8594;</a>
                 </div>
             </div>
             <div class="product-card">
@@ -403,7 +490,7 @@
                     <h3 class="product-name">Покривни климатици</h3>
                     <p class="product-model">Coleman-Mach &middot; Aircommand</p>
                     <p class="product-desc">Мощно охлаждане с нисък профил за кемпери, каравани и RV</p>
-                    <a href="mach8-plus.html" class="product-link">Виж Mach 8 Plus &#8594;</a>
+                    <a href="mach8-plus.html" class="product-link">Искам охлаждане &#8594;</a>
                 </div>
             </div>
             <div class="product-card">
@@ -415,10 +502,47 @@
                     <h3 class="product-name">Монтаж и сервиз</h3>
                     <p class="product-model">Сервизна мрежа</p>
                     <p class="product-desc">Професионален монтаж, гаранционен и следгаранционен сервиз</p>
-                    <a href="contact.html?subject=service" class="product-link">Запази час &#8594;</a>
+                    <a href="contact.html?subject=service&amp;source=home-solutions#quote-form" class="product-link">Искам монтаж или сервиз &#8594;</a>
                 </div>
             </div>
         </div>
+        <div class="products-assist">
+            <div>
+                <span>Не сте сигурни кое е за вас?</span>
+                <strong>Три отговора са достатъчни, за да ви насочим.</strong>
+            </div>
+            <a href="#fit-finder" class="btn-primary">Направете бързия избор</a>
+        </div>
+    </div>
+</section>
+
+<!-- Process -->
+<section class="process" id="process">
+    <div class="container">
+        <div class="process-head">
+            <div>
+                <span class="section-label">Ясен процес</span>
+                <h2 class="section-title">От въпрос до готов кемпер в три стъпки</h2>
+            </div>
+            <p>Знаете предварително какво следва — без неясни оферти и без продукт, който не пасва на начина ви на пътуване.</p>
+        </div>
+        <ol class="process-grid">
+            <li class="process-step">
+                <span class="process-number">01</span>
+                <h3>Разказвате ни за кемпера</h3>
+                <p>Тип превозно средство, нужда и налично захранване. Отнема около минута.</p>
+            </li>
+            <li class="process-step">
+                <span class="process-number">02</span>
+                <h3>Получавате точна препоръка</h3>
+                <p>Сравняваме подходящите решения и обясняваме защо конкретният вариант е правилният.</p>
+            </li>
+            <li class="process-step">
+                <span class="process-number">03</span>
+                <h3>Организираме доставка и монтаж</h3>
+                <p>При желание поемаме монтажа, гаранцията и последващия сервиз.</p>
+            </li>
+        </ol>
     </div>
 </section>
 
@@ -453,13 +577,17 @@
 <!-- CTA -->
 <section class="cta">
     <div class="cta-bg">
-        <img src="dealers-bg.jpg" width="1440" height="810" alt="">
+        <img src="rv-cooling.jpg" width="1280" height="853" alt="">
     </div>
     <div class="cta-content">
         <div class="container">
-            <h2 class="cta-title">Намерете дистрибутор във вашия регион</h2>
-            <p class="cta-desc">Разгледайте мрежата от оторизирани дистрибутори на АИРВА в България и Европа</p>
-            <a href="dealers.html" class="btn-primary">Намери дистрибутор &#8594;</a>
+            <span class="cta-kicker">Започнете без риск</span>
+            <h2 class="cta-title">Не избирайте климатик по догадки.</h2>
+            <p class="cta-desc">Получете персонална препоръка и ясна следваща стъпка за вашия кемпер. Консултацията е безплатна и не ви обвързва.</p>
+            <div class="cta-actions">
+                <a href="contact.html?subject=offer&amp;source=home-final#quote-form" class="btn-primary">Получавам препоръка &#8594;</a>
+                <a href="tel:+35928888888" class="cta-phone">или се обадете: <strong>+359 2 888 8888</strong></a>
+            </div>
         </div>
     </div>
 </section>

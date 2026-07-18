@@ -286,6 +286,9 @@ export function addQueryContextChip(root = document) {
     const params = new URLSearchParams(window.location.search);
     const product = params.get('product')?.trim();
     const subject = params.get('subject')?.trim();
+    const vehicle = params.get('vehicle')?.trim();
+    const need = params.get('need')?.trim();
+    const power = params.get('power')?.trim();
     const subjectLabels = {
         offer: 'Оферта',
         product: 'Въпрос за продукт',
@@ -294,11 +297,29 @@ export function addQueryContextChip(root = document) {
         dealer: 'Дистрибуторство',
         other: 'Друго'
     };
+    const vehicleLabels = {
+        van: 'кемпер ван',
+        motorhome: 'моторен кемпер',
+        caravan: 'каравана'
+    };
+    const needLabels = {
+        ventilation: 'свеж въздух',
+        cooling: 'охлаждане',
+        unsure: 'експертен съвет'
+    };
+    const powerLabels = {
+        '12v': '12V',
+        '230v': '230V',
+        unsure: 'захранването ще се уточни'
+    };
 
     let contextText = '';
     if (product) {
         const shortProduct = product.length > 80 ? `${product.slice(0, 77)}…` : product;
         contextText = `Запитване за: ${shortProduct}`;
+    } else if (vehicleLabels[vehicle] || needLabels[need] || powerLabels[power]) {
+        const selection = [vehicleLabels[vehicle], needLabels[need], powerLabels[power]].filter(Boolean);
+        contextText = `Вашият избор: ${selection.join(' · ')}`;
     } else if (subject && subjectLabels[subject]) {
         contextText = `Тема: ${subjectLabels[subject]}`;
     }
@@ -335,6 +356,36 @@ export function addQueryContextChip(root = document) {
     formTitle.insertAdjacentElement('afterend', chip);
 }
 
+export function buildSolutionFinderUrl(selection = {}) {
+    const params = new URLSearchParams({
+        subject: 'offer',
+        source: 'home-finder',
+        vehicle: String(selection.vehicle || ''),
+        need: String(selection.need || ''),
+        power: String(selection.power || '')
+    });
+
+    return `contact.html?${params.toString()}#quote-form`;
+}
+
+export function setupSolutionFinder(root = document) {
+    const finder = root.querySelector('#solutionFinder');
+    if (!finder || finder.dataset.finderEnhanced === 'true') return;
+
+    finder.dataset.finderEnhanced = 'true';
+    finder.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (!finder.reportValidity()) return;
+
+        const data = new FormData(finder);
+        window.location.href = buildSolutionFinderUrl({
+            vehicle: data.get('vehicle'),
+            need: data.get('need'),
+            power: data.get('power')
+        });
+    });
+}
+
 export function addStickyCallBar(root = document) {
     if (!root.body || root.querySelector('.sticky-call')) return;
 
@@ -350,10 +401,10 @@ export function addStickyCallBar(root = document) {
 
     const ctaLink = document.createElement('a');
     ctaLink.className = 'sticky-call-cta';
-    ctaLink.href = 'contact.html?subject=offer';
+    ctaLink.href = 'contact.html?subject=offer&source=sticky#quote-form';
     const ctaIcon = createIcon('mail', '18');
     if (ctaIcon) ctaLink.append(ctaIcon);
-    ctaLink.append('Заяви оферта');
+    ctaLink.append('Получете оферта');
 
     bar.append(phoneLink, ctaLink);
     root.body.append(bar);
@@ -365,6 +416,7 @@ export function initSiteEnhancements(root = document) {
     enhanceSocialIcons(root);
     enhanceUiIcons(root);
     enhanceImages(root);
+    setupSolutionFinder(root);
     addQueryContextChip(root);
     addStickyCallBar(root);
 }
