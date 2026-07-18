@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MaxxFan Deluxe — вентилатор за кемпери | АИРВА</title>
-    <meta name="description" content="MaxxFan Deluxe — покривен вентилатор 12V за кемпери и каравани с термостат и дистанционно управление. Монтаж и гаранция в България.">
-    <link rel="canonical" href="https://airva.bg/product-detail">
+    <title>Политика за поверителност - АИРВА България</title>
+    <meta name="description" content="Политика за поверителност на АИРВА България — какви лични данни събираме, защо и какви са вашите права по GDPR.">
+    <link rel="canonical" href="https://airva.bg/privacy">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="АИРВА България">
-    <meta property="og:title" content="MaxxFan Deluxe — вентилатор за кемпери | АИРВА">
-    <meta property="og:description" content="MaxxFan Deluxe — покривен вентилатор 12V за кемпери и каравани с термостат и дистанционно управление. Монтаж и гаранция в България.">
-    <meta property="og:url" content="https://airva.bg/product-detail">
+    <meta property="og:title" content="Политика за поверителност - АИРВА България">
+    <meta property="og:description" content="Какви лични данни събираме, защо и какви са вашите права по GDPR.">
+    <meta property="og:url" content="https://airva.bg/privacy">
     <meta property="og:image" content="https://airva.bg/og-image.jpg">
     <meta property="og:locale" content="bg_BG">
     <meta name="twitter:card" content="summary_large_image">
@@ -27,14 +27,12 @@
         a{text-decoration:none;color:inherit}
         .container{max-width:1200px;margin:0 auto;padding:0 24px}
 
+        /* Top Bar & Header - same */
         .topbar{background:var(--primary);color:rgba(255,255,255,0.85);padding:10px 0;font-size:13px}
         .topbar-inner{display:flex;justify-content:space-between;align-items:center}
         .topbar-info{display:flex;gap:24px;align-items:center}
         .topbar-info span{display:flex;align-items:center;gap:8px}
         .topbar-info svg{width:14px;height:14px;flex-shrink:0}
-        .topbar-social{display:flex;gap:10px}
-        .topbar-social a{width:28px;height:28px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;border-radius:50%;transition:var(--transition);color:#fff}
-        .topbar-social a:hover{background:var(--accent)}
         @media(max-width:860px){.topbar-info{display:none}}
 
         .header{background:var(--white);box-shadow:0 1px 3px rgba(0,0,0,0.05);position:sticky;top:0;z-index:1000}
@@ -51,7 +49,6 @@
         .has-dropdown:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
         .dropdown li a{display:block;padding:12px 24px;color:var(--text);font-size:14px;font-weight:500;transition:var(--transition);border-left:3px solid transparent}
         .dropdown li a:hover{background:var(--gray);color:var(--primary);border-left-color:var(--accent);padding-left:28px}
-        .header-actions{display:flex;align-items:center;gap:12px;margin-left:20px}
         .btn-primary{display:inline-flex;align-items:center;justify-content:center;padding:10px 20px;background:var(--accent);color:var(--white);font-family:'Inter',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;border-radius:var(--radius-sm);transition:var(--transition);border:none;cursor:pointer;gap:6px}
         .btn-primary:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 4px 12px rgba(255,122,74,0.3)}
         .menu-toggle{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:5px}
@@ -60,46 +57,45 @@
         .menu-toggle.open span:nth-child(2){opacity:0}
         .menu-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 
-        .page-hero{position:relative;height:450px;min-height:400px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-        .page-hero-bg{position:absolute;inset:0;z-index:0}
-        .page-hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(0.5)}
-        .page-hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,43,78,0.9) 0%,rgba(13,43,78,0.75) 100%);z-index:1}
+        /* Page Hero */
+        .page-hero{position:relative;height:350px;min-height:300px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+        .page-hero-bg{position:absolute;inset:0;z-index:0;background:linear-gradient(135deg,var(--primary),var(--primary-light))}
         .page-hero-content{position:relative;z-index:2;text-align:center;color:var(--white);padding:0 24px}
-        .page-hero-brand{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:12px;display:block}
-        .page-hero-title{font-size:clamp(32px,5vw,48px);font-weight:800;text-transform:uppercase;line-height:1.1;letter-spacing:-0.5px;margin-bottom:8px}
-        .page-hero-model{font-size:18px;font-weight:400;letter-spacing:4px;text-transform:uppercase;opacity:0.8}
+        .page-hero-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:12px;display:block}
+        .page-hero-title{font-size:clamp(32px,5vw,48px);font-weight:800;text-transform:uppercase;line-height:1.1;letter-spacing:-0.5px;margin-bottom:12px}
+        .page-hero-desc{font-size:18px;color:rgba(255,255,255,0.8);max-width:600px;margin:0 auto}
 
+        /* Breadcrumb */
         .breadcrumb{background:var(--gray);padding:16px 0;font-size:13px;color:var(--text-light)}
         .breadcrumb a{color:var(--primary);font-weight:600}
         .breadcrumb span{margin:0 8px}
 
-        .detail-section{padding:80px 0;background:var(--white)}
-        .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-        .detail-gallery{background:linear-gradient(135deg,var(--primary),var(--primary-light));padding:50px;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;min-height:420px;box-shadow:var(--shadow-lg)}
-        .detail-gallery img{max-width:100%;max-height:350px;object-fit:contain;filter:drop-shadow(0 10px 30px rgba(0,0,0,0.3))}
-        .detail-tag{display:inline-block;padding:6px 18px;background:var(--accent);color:var(--white);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;border-radius:20px;margin-bottom:16px}
-        .detail-tag.premium{background:#dc2626}
-        .detail-name{font-size:36px;font-weight:800;color:var(--primary);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;line-height:1.2}
-        .detail-model{font-size:16px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:3px;margin-bottom:20px}
-        .detail-desc{font-size:16px;color:var(--text-light);line-height:1.8;margin-bottom:30px}
-        .detail-section-title{font-size:18px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:1px;margin:30px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--accent);display:flex;align-items:center;gap:10px}
-        .detail-features{list-style:none}
-        .detail-features li{display:flex;align-items:flex-start;gap:12px;padding:12px 0;font-size:15px;color:var(--text);border-bottom:1px solid var(--gray-light)}
-        .feature-check{width:24px;height:24px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:12px;flex-shrink:0;font-weight:700}
-        .specs-table{width:100%;border-collapse:collapse}
-        .specs-table tr{border-bottom:1px solid var(--gray-light)}
-        .specs-table td{padding:14px 16px;font-size:14px}
-        .specs-table td:first-child{color:var(--text-light);width:50%}
-        .specs-table td:last-child{color:var(--primary);font-weight:600}
+        /* FAQ Section */
+        .faq-section{padding:80px 0;background:var(--white)}
+        .section-header{text-align:center;margin-bottom:60px}
+        .section-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--accent);margin-bottom:12px;display:block}
+        .section-title{font-size:clamp(28px,4vw,36px);font-weight:800;color:var(--primary);text-transform:uppercase;line-height:1.2;margin-bottom:16px}
+        .section-desc{font-size:16px;color:var(--text-light);max-width:600px;margin:0 auto}
 
-        .cta-box{background:linear-gradient(135deg,var(--primary),#0a1f3d);padding:40px;text-align:center;color:var(--white);margin-top:40px;border-radius:var(--radius)}
-        .cta-box h3{font-size:22px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
-        .cta-box p{font-size:15px;opacity:0.9;margin-bottom:24px}
+        .faq-container{max-width:800px;margin:0 auto}
+        .faq-item{background:var(--white);border:1px solid var(--gray-light);border-radius:var(--radius-sm);margin-bottom:12px;overflow:hidden;transition:var(--transition)}
+        .faq-item:hover{border-color:var(--gray-light)}
+        .faq-item.active{border-color:var(--accent);box-shadow:var(--shadow)}
+        .faq-question{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;cursor:pointer;font-size:16px;font-weight:600;color:var(--primary);transition:var(--transition);gap:16px}
+        .faq-question:hover{color:var(--accent)}
+        .faq-question-icon{width:28px;height:28px;background:var(--gray);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--primary);transition:var(--transition);flex-shrink:0;font-weight:300}
+        .faq-item.active .faq-question-icon{background:var(--accent);color:var(--white);transform:rotate(45deg)}
+        .faq-item.active .faq-question{color:var(--accent)}
+        .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.4s ease}
+        .faq-item.active .faq-answer{max-height:300px;padding:0 24px 20px}
+        .faq-answer-text{font-size:15px;color:var(--text-light);line-height:1.7;padding-top:4px;border-top:1px solid var(--gray-light);padding-top:16px}
 
-        .back-section{padding:40px 0 80px;text-align:center;background:var(--gray)}
-        .back-link{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:var(--primary);color:var(--white);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;border-radius:var(--radius-sm);transition:var(--transition)}
-        .back-link:hover{background:var(--accent);transform:translateY(-2px)}
+        /* CTA Box */
+        .cta-box{background:var(--gray);padding:60px 0;text-align:center;margin-top:40px}
+        .cta-box-title{font-size:24px;font-weight:700;color:var(--primary);margin-bottom:12px}
+        .cta-box-text{font-size:16px;color:var(--text-light);margin-bottom:24px}
 
+        /* Footer */
         .footer{background:var(--primary);color:rgba(255,255,255,0.75)}
         .footer-top{padding:80px 0 60px}
         .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.5fr;gap:40px}
@@ -120,8 +116,8 @@
         .footer-contact-text strong{color:var(--white);display:block;margin-bottom:3px}
         .footer-bottom{text-align:center;padding:24px 0;border-top:1px solid rgba(255,255,255,0.1);font-size:13px;color:rgba(255,255,255,0.5)}
 
+        /* Responsive */
         @media(max-width:1024px){
-            .detail-grid{gap:40px}
             .footer-grid{grid-template-columns:repeat(2,1fr)}
         }
         @media(max-width:860px){
@@ -131,20 +127,26 @@
             .nav-list>li>a{height:auto;padding:14px 0;color:rgba(255,255,255,0.9)}
             .dropdown{position:static;opacity:1;visibility:visible;transform:none;background:transparent;box-shadow:none;padding:0 0 0 20px;border:none}
             .menu-toggle{display:flex}
-            .detail-grid{grid-template-columns:1fr}
-            .detail-gallery{min-height:280px;padding:30px}
-            .detail-name{font-size:28px}
-            .page-hero{height:350px}
+            .page-hero{height:280px}
             .footer-grid{grid-template-columns:1fr}
         }
     </style>
+    <style>
+        .legal-section{padding:70px 0}
+        .legal-content{max-width:820px;margin:0 auto}
+        .legal-content h2{font-family:var(--font-display);font-size:22px;color:var(--color-ink-900);margin:36px 0 12px}
+        .legal-content h2:first-child{margin-top:0}
+        .legal-content p,.legal-content li{font-size:15px;line-height:1.75;color:var(--color-text)}
+        .legal-content ul{padding-left:22px;margin:10px 0}
+        .legal-content li{margin-bottom:6px}
+        .legal-content a{color:var(--color-focus);text-decoration:underline}
+        .legal-updated{font-size:13px;color:var(--color-muted);margin-bottom:28px}
+    </style>
     <link rel="stylesheet" href="/src/styles/global.css">
-    <link rel="stylesheet" href="/src/styles/detail.css">
     <script type="module" src="/src/js/site.js"></script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"MaxxFan Deluxe","image":"https://airva.bg/prod-maxxfan.jpg","description":"Покривен вентилатор 12V за кемпери и каравани с термостат, дистанционно управление и работа дори в дъжд.","brand":{"@type":"Brand","name":"MaxxAir"},"category":"Покривни вентилатори за кемпери и каравани","offers":{"@type":"Offer","url":"https://airva.bg/product-detail","priceCurrency":"BGN","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","seller":{"@id":"https://airva.bg/#business"}}}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Начало","item":"https://airva.bg/"},{"@type":"ListItem","position":2,"name":"Продукти","item":"https://airva.bg/products"},{"@type":"ListItem","position":3,"name":"MaxxFan Deluxe","item":"https://airva.bg/product-detail"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Начало","item":"https://airva.bg/"},{"@type":"ListItem","position":2,"name":"Поверителност","item":"https://airva.bg/privacy"}]}</script>
 </head>
-<body class="page--detail">
+<body>
 <a class="skip-link" href="#main-content">Към основното съдържание</a>
 
 <!-- Top Bar -->
@@ -170,7 +172,7 @@
             <nav class="nav" id="nav" aria-label="Основна навигация">
                 <ul class="nav-list">
                     <li><a href="index.html">Начало</a></li>
-                    <li><a href="products.html" class="active">Продукти</a></li>
+                    <li><a href="products.html">Продукти</a></li>
                     <li><a href="dealers.html">Дистрибутори</a></li>
                     <li><a href="faq.html">Въпроси</a></li>
                     <li><a href="contact.html">Контакти</a></li>
@@ -195,96 +197,61 @@
 
 <!-- Page Hero -->
 <section class="page-hero">
-    <div class="page-hero-bg">
-        <img src="prod-maxxfan.jpg" width="1024" height="1024" alt="MaxxFan Deluxe">
-    </div>
-    <div class="page-hero-overlay"></div>
+    <div class="page-hero-bg"></div>
     <div class="page-hero-content">
-        <span class="page-hero-brand">MaxxAir</span>
-        <p class="page-hero-title" aria-hidden="true">MaxxFan Deluxe</p>
-        <p class="page-hero-model">Вентилатор за каравани и кемпери</p>
+        <span class="page-hero-label">Правна информация</span>
+        <h1 class="page-hero-title">Политика за поверителност</h1>
+        <p class="page-hero-desc">Как събираме, ползваме и пазим личните ви данни</p>
     </div>
 </section>
 
 <!-- Breadcrumb -->
 <div class="breadcrumb">
     <div class="container">
-        <a href="index.html">Начало</a> <span>/</span> <a href="products.html">Продукти</a> <span>/</span> MaxxFan Deluxe
+        <a href="index.html">Начало</a> <span>/</span> Поверителност
     </div>
 </div>
 
-<!-- Product Detail -->
-<section class="detail-section">
+<!-- Legal Content -->
+<section class="legal-section">
     <div class="container">
-        <div class="detail-grid">
-            <div class="detail-gallery">
-                <img src="maxxfan-deluxe-tinted-transparent.png" width="800" height="372" alt="MaxxFan Deluxe">
-            </div>
-            <div class="detail-info">
-                <span class="detail-tag">КАРАВАНИ И КЕМПЕРИ</span>
-                <h1 class="detail-name">MaxxFan Deluxe</h1>
-                <p class="detail-model">Термостатен вентилатор с дистанционно</p>
-                <p class="detail-desc">MaxxFan Deluxe е най-популярният вентилатор за каравани и кемпери. С вграден термостат, дистанционно управление и възможност за работа при дъжд, този вентилатор осигурява оптимален комфорт по време на пътуване.</p>
+        <div class="legal-content">
+            <p class="legal-updated">Последна актуализация: 18 юли 2026 г.</p>
 
-                <h2 class="detail-section-title">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                    Ключови характеристики
-                </h2>
-                <ul class="detail-features">
-                    <li><span class="feature-check">&#10003;</span>Термостатен контрол на скоростта</li>
-                    <li><span class="feature-check">&#10003;</span>Дистанционно управление включено</li>
-                    <li><span class="feature-check">&#10003;</span>Възможност за работа при дъжд (капак се отваря)</li>
-                    <li><span class="feature-check">&#10003;</span>10 скорости на вентилатора</li>
-                    <li><span class="feature-check">&#10003;</span>Автоматично отваряне и затваряне на капака</li>
-                    <li><span class="feature-check">&#10003;</span>Ниска консумация на енергия - до 3.5A</li>
-                    <li><span class="feature-check">&#10003;</span>Гаранция 2 години</li>
-                </ul>
+            <h2>1. Администратор на лични данни</h2>
+            <p>Администратор на лични данни е „АИРВА България", със седалище: гр. София 1784, бул. Цариградско шосе 125, имейл: <a href="mailto:info@airva.bg">info@airva.bg</a>, телефон: <a href="tel:+35928888888">+359 2 888 8888</a>.</p>
 
-                <div class="detail-availability">
-                    <span class="stock-badge">&#10003; В наличност</span>
-                    <span>Доставка: 1&ndash;2 дни в София, 2&ndash;5 дни за страната &middot; Възможен професионален монтаж</span>
-                </div>
+            <h2>2. Какви данни събираме</h2>
+            <p>При попълване на контактната форма събираме следните данни:</p>
+            <ul>
+                <li>Име</li>
+                <li>Имейл адрес</li>
+                <li>Телефонен номер (по избор)</li>
+                <li>Съдържанието на вашето запитване</li>
+            </ul>
 
-                <div class="cta-box">
-                    <h3>Искате оферта?</h3>
-                    <p>Свържете се с нас за безплатна консултация и оферта за MaxxFan Deluxe.</p>
-                    <a href="contact.html?product=maxxfan" class="btn-primary" style="background:var(--accent);">Запитване за цена</a>
-                    <p class="cta-phone">или се обадете: <a href="tel:+35928888888">+359 2 888 8888</a></p>
-                </div>
-            </div>
+            <h2>3. Цел и правно основание за обработката</h2>
+            <p>Данните се използват единствено за отговор на вашето запитване — оферта, консултация, монтаж или сервиз. Правното основание е вашето изрично съгласие (чл. 6, пар. 1, буква „а" от GDPR), дадено чрез отметката в контактната форма.</p>
+
+            <h2>4. Срок на съхранение</h2>
+            <p>Запитванията се съхраняват до 12 месеца след приключване на комуникацията, освен ако отношенията ни не прераснат в договорни или законът не изисква по-дълъг срок.</p>
+
+            <h2>5. Предоставяне на трети страни</h2>
+            <p>Не продаваме и не предоставяме личните ви данни на трети страни за маркетингови цели. Данни може да бъдат обработвани от доставчици на технически услуги (хостинг, имейл услуга) при спазване на изискванията на GDPR. Вградената карта на страницата „Контакти" се предоставя от Google Maps — при зареждането ѝ Google може да обработва технически данни съгласно собствената си политика за поверителност.</p>
+
+            <h2>6. Бисквитки</h2>
+            <p>Този сайт не използва собствени проследяващи бисквитки и аналитични инструменти.</p>
+
+            <h2>7. Вашите права</h2>
+            <p>Имате право на достъп, корекция, изтриване, ограничаване на обработката, възражение, преносимост на данните и оттегляне на съгласието по всяко време. За да упражните правата си, пишете ни на <a href="mailto:info@airva.bg">info@airva.bg</a>.</p>
+            <p>Имате право да подадете жалба до Комисията за защита на личните данни (КЗЛД), София 1592, бул. „Проф. Цветан Лазаров" № 2, <a href="https://www.cpdp.bg" rel="noopener">www.cpdp.bg</a>.</p>
+
+            <h2>8. Сигурност</h2>
+            <p>Прилагаме подходящи технически и организационни мерки за защита на данните ви срещу неупълномощен достъп, загуба или злоупотреба.</p>
+
+            <h2>9. Промени в политиката</h2>
+            <p>Актуализации на тази политика се публикуват на тази страница с нова дата на последна промяна.</p>
         </div>
-    </div>
-</section>
-
-<!-- Specs Section -->
-<section style="padding:60px 0;background:var(--gray);">
-    <div class="container">
-        <h2 class="detail-section-title" style="max-width:600px;margin:0 auto 30px;text-align:center;display:flex;justify-content:center;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Технически спецификации
-        </h2>
-        <div style="max-width:700px;margin:0 auto;background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);">
-            <table class="specs-table">
-                <caption class="visually-hidden">Технически спецификации</caption>
-                <tr><th scope="row">Модел</th><td>MaxxFan Deluxe 7000K</td></tr>
-                <tr><th scope="row">Захранване</th><td>12V DC (бордова мрежа)</td></tr>
-                <tr><th scope="row">Размер на отвора</th><td>356 x 356 mm (стандарт 14&Prime;)</td></tr>
-                <tr><th scope="row">Люк 400 x 400 mm</th><td>Съвместим с адаптерна рамка</td></tr>
-                <tr><th scope="row">Въздушен поток</th><td>до 900 m³/h</td></tr>
-                <tr><th scope="row">Консумация (12V)</th><td>0.2 - 3.5A</td></tr>
-                <tr><th scope="row">Ниво на шум</th><td>30-55 dB(A)</td></tr>
-                <tr><th scope="row">Тегло</th><td>4.8 kg</td></tr>
-                <tr><th scope="row">Цвят</th><td>Бял, Прозрачен</td></tr>
-                <tr><th scope="row">Гаранция</th><td>2 години</td></tr>
-            </table>
-        </div>
-    </div>
-</section>
-
-<!-- Back Link -->
-<section class="back-section">
-    <div class="container">
-        <a href="products.html" class="back-link">&#8592; Обратно към всички продукти</a>
     </div>
 </section>
 

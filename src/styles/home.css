@@ -828,7 +828,7 @@
   line-height: 1.6;
 }
 
-@media (max-width: 68rem) {
+@media (max-width: 1088px) {
   .page--home .hero {
     min-height: 43rem;
   }
@@ -893,7 +893,7 @@
   }
 }
 
-@media (max-width: 48rem) {
+@media (max-width: 768px) {
   .page--home .hero {
     min-height: 40rem;
     padding-block: 5.5rem 4.5rem;
@@ -984,7 +984,7 @@
   }
 }
 
-@media (max-width: 34rem) {
+@media (max-width: 544px) {
   .page--home .hero-buttons {
     flex-direction: column;
   }

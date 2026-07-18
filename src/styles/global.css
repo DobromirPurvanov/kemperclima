@@ -26,6 +26,10 @@
     --radius-lg: 24px;
     --shadow-card: 0 1px 2px rgba(11, 23, 31, 0.05), 0 12px 32px rgba(11, 23, 31, 0.06);
     --shadow-float: 0 24px 70px rgba(11, 23, 31, 0.14);
+    --z-below-header: 998;
+    --z-header: 1000;
+    --z-sticky-call: 1200;
+    --z-skip-link: 9999;
     --duration-fast: 160ms;
     --duration-base: 240ms;
     --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -116,7 +120,7 @@ textarea:focus-visible,
     position: fixed;
     top: 12px;
     left: 12px;
-    z-index: 9999;
+    z-index: var(--z-skip-link);
     padding: 12px 18px;
     border-radius: var(--radius-sm);
     background: var(--color-surface);
@@ -222,7 +226,7 @@ textarea:focus-visible,
 .header {
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: var(--z-header);
     border-bottom: 1px solid rgba(11, 23, 31, 0.09);
     background: rgba(250, 249, 245, 0.94);
     box-shadow: none;
@@ -431,7 +435,7 @@ textarea:focus-visible,
     background: var(--color-canvas);
     color: var(--color-ink-700);
     font-family: var(--font-tech);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.04em;
 }
 
@@ -440,7 +444,7 @@ textarea:focus-visible,
     position: fixed;
     inset-inline: 0;
     bottom: 0;
-    z-index: 1200;
+    z-index: var(--z-sticky-call);
     display: none;
     gap: 1px;
     background: var(--color-ink-950);
@@ -587,7 +591,7 @@ textarea:focus-visible,
     margin-bottom: 14px;
     color: #ee966f;
     font-family: var(--font-tech);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.13em;
     text-transform: uppercase;
@@ -640,7 +644,7 @@ textarea:focus-visible,
     background: rgba(255, 255, 255, 0.76);
     color: var(--color-muted);
     font-family: var(--font-tech);
-    font-size: 11px;
+    font-size: 12px;
 }
 
 .breadcrumb a {
@@ -724,7 +728,7 @@ textarea:focus-visible,
     border: 0;
     color: #fff;
     font-family: var(--font-tech);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.13em;
 }
 
@@ -768,7 +772,7 @@ textarea:focus-visible,
 .footer-contact-text strong {
     color: #fff;
     font-family: var(--font-tech);
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
 }
@@ -836,7 +840,7 @@ textarea:focus-visible,
     .nav {
         position: fixed;
         inset: 72px 0 0;
-        z-index: 998;
+        z-index: var(--z-below-header);
         padding: 28px 24px 44px;
         overflow-y: auto;
         visibility: hidden;

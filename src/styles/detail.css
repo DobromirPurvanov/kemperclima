@@ -403,7 +403,7 @@ body.page--detail {
     outline-offset: 4px;
 }
 
-@media (max-width: 64rem) {
+@media (max-width: 1024px) {
     .page--detail .detail-grid {
         grid-template-columns: minmax(0, 1fr) minmax(19rem, 0.92fr);
         gap: 2.5rem;
@@ -415,7 +415,7 @@ body.page--detail {
     }
 }
 
-@media (max-width: 48rem) {
+@media (max-width: 768px) {
     .page--detail .page-hero {
         min-height: 29rem;
         height: 62vh;
@@ -451,7 +451,7 @@ body.page--detail {
     }
 }
 
-@media (max-width: 36rem) {
+@media (max-width: 576px) {
     .page--detail .page-hero-title {
         font-size: clamp(2.65rem, 15vw, 4.5rem);
     }

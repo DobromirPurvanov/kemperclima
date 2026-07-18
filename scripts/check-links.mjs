@@ -90,6 +90,12 @@ for (const htmlFile of htmlFiles) {
         }
 
         if (!existsSync(targetPath)) {
+            // Vite serves files from public/ at the site root and copies them into dist/,
+            // so a source-mode check must also look there.
+            const publicCandidate = resolve(projectRoot, 'public', relative(root, targetPath));
+            if (root === projectRoot && existsSync(publicCandidate)) {
+                continue;
+            }
             failures.push(
                 `${htmlFile}:${line} -> ${relative(root, targetPath)} (from ${rawTarget})`
             );

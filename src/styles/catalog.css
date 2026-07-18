@@ -408,7 +408,7 @@ body.page--catalog {
     outline-offset: 4px;
 }
 
-@media (max-width: 64rem) {
+@media (max-width: 1024px) {
     .page--catalog .products-grid,
     .page--catalog .featured-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -423,7 +423,7 @@ body.page--catalog {
     }
 }
 
-@media (max-width: 48rem) {
+@media (max-width: 768px) {
     .page--catalog .page-hero {
         min-height: 29rem;
         height: 64vh;
@@ -464,7 +464,7 @@ body.page--catalog {
     }
 }
 
-@media (max-width: 30rem) {
+@media (max-width: 480px) {
     .page--catalog .page-hero-title {
         font-size: clamp(2.85rem, 16vw, 4.25rem);
     }
